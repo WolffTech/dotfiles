@@ -1,0 +1,63 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/nickwolff/.oh-my-zsh"
+
+# Set Path Parameters
+export PATH=/opt/homebrew/bin:$HOME/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin/:/.jenv/bin:$HOME/Library/Python/3.8/bin:/Users/nickwolff/perl5/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
+# Set cosutom oh-my-zsh theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Custom Plugins
+plugins=(git sudo macos rust copypath copyfile dirhistory history web-search zsh-autosuggestions)
+source $ZSH/oh-my-zsh.sh
+
+# Custom oh-my-zsh Plugins
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#Tmux Alias
+alias t='tmux'
+alias tc='tmux new-session -t 0'
+alias tk='tmux kill-session'
+alias td='tmux detach'
+alias ta='tmux attach'
+alias tla='tmux ls'
+
+#Folder Aliases
+alias runelite='cd /git/runeltie'
+alias school='cd ~/GCloud/School'
+
+#Other Aliases
+alias lg='lazygit'
+alias lazyd='lazydocker'
+alias la='exa -l -a -g --icons'
+alias ll='exa -l -g --icons'
+alias vi='nvim'
+alias python='python3.10'
+
+# Start Jenv
+eval "$(jenv init -)"
+
+#Runelite Build Alias
+runeliteversion=$(ls -d ~/git/runelite/runelite-client/target/* | grep 'shaded.jar')
+alias runelite-run="java -ea -cp net.runelite.client.RuneLite -jar $runeliteversion --debug --developer-mode"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval $(thefuck --alias)
+
+neofetch
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
