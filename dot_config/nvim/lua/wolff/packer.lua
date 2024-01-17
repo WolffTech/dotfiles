@@ -94,5 +94,6 @@ use('vim-airline/vim-airline-themes')
 use('ms-jpq/chadtree')
 use('ms-jpq/coq_nvim')
 use('kdheepak/lazygit.nvim')
+use('ThePrimeagen/vim-be-good')
 
 end)
