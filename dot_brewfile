@@ -1,0 +1,54 @@
+tap "homebrew/bundle"
+tap "homebrew/cast-fonts"
+tap "isen-ng/dotnet-sdk-versions"
+tap "koekeishiya/formulae"
+
+brew "neovim"
+brew "bpytop"
+brew "node"
+brew "terraform"
+brew "numi-cli"
+brew "thefuck"
+brew "jenv"
+brew "tmux"
+brew "openjdk"
+brew "trash"
+brew "lazygit"
+brew "folderify"
+brew "progress"
+brew "zig"
+brew "maven"
+brew "zsh-syntax-highlighting"
+brew "neofetch"
+brew "koekeishiya/formulae/skhd"
+brew "koekeishiya/formulae/yabai"
+
+cask "mas"
+cask "1password"
+cask "discord"
+cask "docker"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "iina"
+cask "iterm2"
+cask "jetbrains-toolbox"
+cask "keycastr"
+cask "loopback"
+cask "obs"
+cask "parsec"
+cask "raycast"
+cask "status"
+cask "the-unarchiver"
+cask "transmit"
+
+mas "1Password for Safari", id: 1569813296
+mas "PreviewCode", id: 1571797683
+mas "PreviewYaml", id: 1564574724
+mas "Todoist", id: 585829637
+mas "Amphetamine", id: 937984704
+mas "The Unarchiver", id: 425424353
+mas "Dark Reader for Safari", id: 1438243180
+mas "Vimari", id: 1480933944
+mas "Xcode", id: 497799835
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "PiPifier", id: 1160374471
