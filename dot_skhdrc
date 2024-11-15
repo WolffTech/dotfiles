@@ -1,0 +1,53 @@
+# # general window management
+# alt - e : yabai -m window --toggle split
+# alt - r : yabai -m space --rotate 90
+# alt - t : yabai -m window --toggle float
+#
+# alt - d : yabai -m window --toggle zoom-parent
+# alt - f : yabai -m window --toggle zoom-fullscreen
+#
+# alt - x : yabai -m window --close
+#
+# # focus window
+# alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m window --focus stack.first
+#
+# # swap window
+# alt + shift - h : yabai -m window --swap west
+# alt + shift - j : yabai -m window --swap south
+# alt + shift - k : yabai -m window --swap north
+# alt + shift - l : yabai -m window --swap east
+#
+# # move window
+# alt + ctrl - h : yabai -m window --warp west
+# alt + ctrl - j : yabai -m window --warp south
+# alt + ctrl - k : yabai -m window --warp north
+# alt + ctrl - l : yabai -m window --warp east
+#
+# # send window to monitor and follow focus
+# alt - 1 : yabai -m window --display 1
+# alt - 2 : yabai -m window --display 2
+# alt - 3 : yabai -m window --display 3
+#
+# # send window to different space and follow focus
+# ctrl + shift - 1 : yabai -m window --space 1 --focus
+# ctrl + shift - 2 : yabai -m window --space 2 --focus
+# ctrl + shift - 3 : yabai -m window --space 3 --focus
+# ctrl + shift - 4 : yabai -m window --space 4 --focus
+# ctrl + shift - 5 : yabai -m window --space 5 --focus
+# ctrl + shift - 6 : yabai -m window --space 6 --focus
+# ctrl + shift - 7 : yabai -m window --space 7 --focus
+# ctrl + shift - 8 : yabai -m window --space 8 --focus
+#
+# # restart yabai
+# ctrl + alt + cmd - r : yabai --restart-service
+
+# vimr anywhere
+ctrl - t : bash $HOME/osx-vimr-anywhere/run.sh
+
+# blacklist
+.blacklist [
+  "parsec"
+]
