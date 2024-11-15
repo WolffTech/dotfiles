@@ -1,0 +1,8 @@
+[user]
+	name = Nick Wolff
+	email = nick@wolff.tech
+[credential]
+	helper = cache
+[core]
+	editor = nvim
+	excludesfile = /Users/nickwolff/.gitignore_global
