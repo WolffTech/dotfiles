@@ -1,0 +1,109 @@
+# Set the directory for zinit and plugins
+ZINIT_HOME="$HOME/.local/share/zinit/zinit"
+
+# Download Zinit, if not already installed
+if [ ! -d "$ZINIT_HOME" ]; then
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Oh my Posh
+if [ "$TERM_PROGRAM" != "Apple Terminal" ]; then
+	eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.json)"
+fi
+
+# Set Path Parameters
+path=(
+	$path
+	/opt/homebrew/bin
+	~/usr/local/bin
+	/usr/bin
+	/bin
+	/usr/local/sbin
+	/user/sbin
+	/sbin
+	/.jenv/bin
+	~/Library/Python/3.8/bin
+	~/perl5/bin
+)
+
+# Add zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Load completions
+autoload -U compinit && compinit
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -lag --icons $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -lag --icons $realpath'
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+#Tmux Alias
+alias t='tmux'
+alias tc='tmux new-session -t 0'
+alias tk='tmux kill-session'
+alias td='tmux detach'
+alias ta='tmux attach'
+alias tla='tmux ls'
+alias tmain='tmux new-session -d -s main -n worklog "nvim ~/Documents/worklog.md; zsh -i" \; \
+new-window -n btop "btop; zsh -i" \; \
+new-window -n git "lazygit; zsh -i" \; \
+new-window -n vim "cd ~/Developer/git && nvim; zsh -i" \; \
+attach -t main'
+alias tcmain='tmux new-session -t main'
+
+#Folder Aliases
+alias .='open .'
+alias personal='cd ~/git/personal-nickwolff'
+alias worklog='nvim ~/Documents/worklog.md'
+
+#Other Aliases
+alias python='python3.11'
+alias lg='lazygit'
+alias lazyd='lazydocker'
+alias ls='eza'
+alias la='eza -l -a -g --icons'
+alias ll='eza -l -g --icons'
+alias vi='nvim'
+alias calc='numi-cli'
+alias photo='qlmanage -p'
+
+# Terraform alias
+alias tf='terraform'
+
+# Shell integrations
+eval "$(fzf --zsh)"
+
+# Start Jenv
+eval "$(jenv init -)"
+
+# The Fuck Alias (Command Line AutoCorrect)
+eval $(thefuck --alias)
+
+# Zoxide startup and rebind
+eval "$(zoxide init --cmd cd zsh)"
+
+# Switch Cat with Bat
+alias cat='bat --paging=never'
+
