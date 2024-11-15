@@ -1,0 +1,30 @@
+lastupdatecheck: 1646812807
+recentrepos:
+    - /Users/nickwolff/Developer/git/Adv360-Pro-ZMK
+    - /Users/nickwolff/Developer/git/osu
+startuppopupversion: 5
+lastversion: 0.44.1
+customcommandshistory:
+    - git push --set-upstream origin modules
+    - git push origin modules
+    - git push origin --delete checkpoint1
+    - git push origin moduels
+    - 'git branch -m modules '
+    - git pull --no-rebase
+    - git pull --rebase false
+    - q
+    - git config --global credential.helper cache
+    - git rebase abort
+    - git rebase --abort
+    - git remote add origin https://github.com/WolffTech/worklog.git
+    - git branch -M main
+    - git push -u origin main
+    - git pull --rebase
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 55
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
