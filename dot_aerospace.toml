@@ -151,47 +151,54 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# Workspace 1: browser
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = "move-node-to-workspace 1"
+# 1: Terminal
+# 2: IDE/Workspace
+# 3: Browsers
+# 4: VMs/Remote Desktop
+# 5: Comms
+# 6: Stacks
+# 7: Open Space
 
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 1"
+# 8: 2ed Monitor
+# 9: 2ed Monitor
 
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = "move-node-to-workspace 1"
-
-# Workspace 2: terminals
+# Workspace 1: Terminals
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
-run = "move-node-to-workspace 2"
+run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
 if.app-id = 'dev.warp.Warp-Stable'
+run = "move-node-to-workspace 1"
+
+# Workspace 2: IDE/Workspace
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
 run = "move-node-to-workspace 2"
 
-# Workspace 3: comms
 [[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
+if.app-id = 'com.apple.dt.Xcode'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.rider'
+run = "move-node-to-workspace 2"
+
+# Workspace 3: Browser
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
+if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
-run = "move-node-to-workspace 3"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Mail'
-run = "move-node-to-workspace 3"
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
+if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace 3"
 
 # Workspace 4: vms
@@ -207,15 +214,41 @@ run = "move-node-to-workspace 4"
 if.app-id = 'com.citrix.receiver.nomas'
 run = "move-node-to-workspace 4"
 
-# Workspace 5: other
 [[on-window-detected]]
-if.app-id = 'com.apple.Music'
+if.app-id = 'com.citrix.receiver.icaviewer.mac'
+run = "move-node-to-workspace 4"
+
+# Workspace 5: comms
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'comflexibits.fantastical2.mac'
+if.app-id = 'com.microsoft.teams2'
 run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Mail'
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace 5"
+
+# Workspace 6: Stack
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+if.app-id = 'com.flexibits.fantastical2.mac'
+run = "move-node-to-workspace 6"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Home'
-run = "move-node-to-workspace 5"
+run = "move-node-to-workspace 6"
+
