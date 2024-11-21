@@ -38,6 +38,18 @@ on-focus-changed = "move-mouse window-lazy-center"
 # Also see: https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
+# Set workspaces to specific monitors.
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'main'
+7 = 'main'
+8 = 'secondary'
+9 = 'secondary'
+
 # Possible values: (qwerty|dvorak)
 [key-mapping]
 preset = 'qwerty'
