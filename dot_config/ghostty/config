@@ -12,3 +12,6 @@ cursor-style-blink = true
 font-family = JetBrains Mono
 font-style = Regular
 font-size = 14
+
+# Quick Term
+keybind = global:alt+t=toggle_quick_terminal
