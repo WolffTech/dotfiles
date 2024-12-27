@@ -102,6 +102,8 @@ brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 brew "koekeishiya/formulae/skhd"
 brew "minacle/chntpw/chntpw"
 brew "qmk/qmk/qmk"
+brew "ghostty"
+
 cask "1password-cli"
 cask "aerial"
 cask "aerospace"
