@@ -72,6 +72,9 @@ new-window -n git "lazygit; zsh -i" \; \
 new-window -n vim "cd ~/Developer/git && nvim; zsh -i" \; \
 attach -t main'
 alias tcmain='tmux new-session -t main'
+alias tfloat='tmux new-session -d -s float -n clipboard "nvim ~/temp.md; zsh -i" \; \
+new-window -n zsh "zsh -i" \; \
+attach -t float'
 
 #Folder Aliases
 alias .='open .'
