@@ -13,5 +13,10 @@ font-family = JetBrains Mono
 font-style = Regular
 font-size = 14
 
+# Top Bar
+title =
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+
 # Quick Term
 keybind = global:alt+t=toggle_quick_terminal
