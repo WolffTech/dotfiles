@@ -28,6 +28,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"rust_analyzer",
+				"vtsls",
 				"powershell_es",
 				"arduino_language_server",
 				"clangd",
@@ -70,9 +71,16 @@ return {
 
 				["terraformls"] = function ()
 					local lspconfig = require("lspconfig")
-					lspconfig. terraformls.setup {
+					lspconfig.terraformls.setup {
 						capabilities = capabilities,
 						cmd = { 'terraform-ls', 'serve' },
+					}
+				end,
+
+				["marksman"] = function ()
+					local lspconfig = require("lspconfig")
+					lspconfig.marksman.setup {
+						capabilities = capabilities,
 					}
 				end
 			}
@@ -99,7 +107,12 @@ return {
 				{ name = 'Property'},
 			}, {
 				{ name = 'buffer' },
-			})
+			}),
+			window = {
+				completion = cmp. config.window.bordered(),
+				documentation = cmp. config.window.bordered(),
+			},
+
 		})
 
 		vim.diagnostic.config({
