@@ -7,3 +7,8 @@ background-blur-radius = 30
 ## Cursor
 cursor-style = underline
 cursor-style-blink = true
+
+## Font
+font-family = JetBrains Mono
+font-style = Regular
+font-size = 14
