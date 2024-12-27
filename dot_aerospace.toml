@@ -164,6 +164,10 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # Workspace 1: Terminals
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = "move-node-to-workspace 1"
 
