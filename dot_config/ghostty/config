@@ -3,3 +3,7 @@ theme = dark:Github Dark,light:Github
 
 background-opacity = 0.95
 background-blur-radius = 30
+
+## Cursor
+cursor-style = underline
+cursor-style-blink = true
