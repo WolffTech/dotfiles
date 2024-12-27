@@ -20,3 +20,4 @@ macos-titlebar-style = hidden
 
 # Quick Term
 keybind = global:alt+t=toggle_quick_terminal
+quick-terminal-position = center
