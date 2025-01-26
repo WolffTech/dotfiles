@@ -119,7 +119,6 @@ return {
 			update_in_insert = false,
 			float = {
 				focusable = false,
-				style = "minimal",
 				border = "rounded",
 				source = "always",
 				header = "",
