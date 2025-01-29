@@ -45,7 +45,7 @@
 # ctrl + alt + cmd - r : yabai --restart-service
 
 # vimr anywhere
-ctrl - t : bash $HOME/osx-vimr-anywhere/run.sh
+ctrl - t : bash $HOME/.scripts/vimr.sh
 
 # blacklist
 .blacklist [
