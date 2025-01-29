@@ -1,7 +1,8 @@
 # Appearance
-theme = dark:Github Dark,light:Github
+theme = Modus-Vivendi
+# theme = dark:Github Dark,light:Github
 
-background-opacity = 0.85
+background-opacity = 0.80
 background-blur-radius = 30
 background = #000000
 
@@ -22,6 +23,7 @@ font-feature = -dlig
 title =
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = hidden
+title =
 
 # Quick Term
 keybind = global:alt+t=toggle_quick_terminal
