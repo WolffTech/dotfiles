@@ -1,4 +1,16 @@
+reporting: "off"
+startuppopupversion: 1
+disableStartupPopups: true
+promptToReturnFromSubprocess: false
+notARepository: 'skip'
+confirmOnQuit: true
 gui:
+  scrollHeight: 4
+  scrollPastBottom: false
+  commitLength:
+    show: true
+  showFileTree: true
+  showBottomLine: false
   theme:
     selectedLineBgColor:
       - default
@@ -6,6 +18,16 @@ gui:
       - default
   authorColors:
     'Nick Wolff': '#808080' #Grey
+
+git:
+  autoFetch: true
+  pull:
+    mode: 'rebase'
+  paging:
+    colorArg: always
+
+update:
+  method: never
 
 keybinding:
   universal:
