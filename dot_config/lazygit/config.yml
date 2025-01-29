@@ -4,6 +4,7 @@ disableStartupPopups: true
 promptToReturnFromSubprocess: false
 notARepository: 'skip'
 confirmOnQuit: true
+
 gui:
   scrollHeight: 4
   scrollPastBottom: false
@@ -194,3 +195,27 @@ keybinding:
     bulkMenu: b
   commitMessage:
     commitMenu: <c-o>
+
+customCommands:
+  - key: 'C'
+    command: "git cleanup"
+    context: 'localBranches'
+    subprocess: true
+  - key: 'O'
+    command: "gh pr create"
+    context: 'localBranches'
+    subprocess: true
+  - key: 'G'
+    command: "gh pr view --web"
+    context: 'localBranches'
+  - key: 'D'
+    prompts:
+      - type: 'menu'
+        title: 'Clipboard diff'
+        options:
+          - name: 'apply'
+            value: 'pbpaste | git apply -'
+          - name: 'copy'
+            value: "echo \"\\`\\`\\`diff\n`git diff --cached`\n\n\\`\\`\\`\" | pbcopy"
+    command: "{{index .PromptResponses 0}}"
+    context: 'localBranches'
