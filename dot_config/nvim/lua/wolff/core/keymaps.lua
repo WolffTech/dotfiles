@@ -69,3 +69,6 @@ vim.api.nvim_set_keymap('v', '<D-v>', '"+p', { noremap = true })
 
 -- open lazy.nvim
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "LazyVim open" })
+
+-- set spell
+vim.keymap.set("n", "<leader>ss", "<cmd>set spell<cr>", { desc = "Enable Spellchecking"})
