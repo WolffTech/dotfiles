@@ -23,6 +23,20 @@ return {
 				winblend = 0,
 				file_ignore_patterns = { "^.git/" },
 			},
+			pickers = {
+				find_files = {
+					hidden = true,
+					no_ignore = true
+				},
+			},
+			extensions = {
+				file_browser = {
+					hidden = true,
+					respect_gitignore = false,
+					grouped = true,
+				},
+			},
+		})
 		require('telescope').load_extension('fzf')
 		require('telescope').load_extension('file_browser')
 
