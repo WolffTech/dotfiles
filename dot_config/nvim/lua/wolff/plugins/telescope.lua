@@ -9,18 +9,22 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 
-	opts = {
-		defaults = {
-			layout_stragety = "horizontal",
-			layout_config = { prompt_position = "top" },
-			sorting_strategy = "assending",
-			winblend = 0,
-		},
-	},
-
 	config = function()
-		require('telescope').setup({})
+		require('telescope').setup({
+			defaults = {
+				layout_stragety = "horizontal",
+				layout_config = {
+					prompt_position = "top",
+					width = 0.8,
+					height = 0.4,
+					preview_width = 0.5,
+				},
+				sorting_strategy = "ascending",
+				winblend = 0,
+				file_ignore_patterns = { "^.git/" },
+			},
 		require('telescope').load_extension('fzf')
+		require('telescope').load_extension('file_browser')
 
 		local builtin = require('telescope.builtin')
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
