@@ -47,7 +47,10 @@ return {
 		vim.keymap.set('n', '<leader>fs', function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end, { desc = "Grep string" })
+		vim.keymap.set('n', '<leader>fcc', builtin.commands, { desc = "Find Neovim commands"})
+		vim.keymap.set('n', '<leader>fch', builtin.command_history, { desc = "Search Neovim command history"})
+		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Search neovim help pages" })
 		vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<cr>", { desc = "Find TODOs" })
-		vim.keymap.set('n', '<leader>fn', "<cmd>Telescope notify<cr>", { desc = "Preview notifications" })
 	end
 }
+
