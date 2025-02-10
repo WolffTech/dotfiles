@@ -196,6 +196,10 @@ run = "move-node-to-workspace 2"
 
 # Workspace 3: Browser
 [[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace 3"
 
