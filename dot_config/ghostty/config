@@ -1,10 +1,12 @@
 # Appearance
-theme = Modus-Vivendi
+theme = dark:Modus-Vivendi,light:Modus-Operandi
 # theme = dark:Github Dark,light:Github
+
+window-theme = system
 
 background-opacity = 0.80
 background-blur-radius = 30
-background = #000000
+# background = #000000
 
 ## Cursor
 cursor-style = underline
