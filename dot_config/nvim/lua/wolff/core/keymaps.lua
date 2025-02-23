@@ -1,6 +1,10 @@
 -- set leader
 vim.g.mapleader = " "
 
+-- switch between leading tabs and spaces
+vim.keymap.set("n", "<leader>ti", toggle_indent, { desc = "Toggle between tabs and spaces" })
+vim.keymap.set("n", "<leader>tl", toggle_indent_length, { desc = "Toggle indent length between 4 and 2" })
+
 -- clear searched term
 vim.keymap.set('n', '<leader>nh', ':noh<cr>', { desc = "Clear searched term" })
 
