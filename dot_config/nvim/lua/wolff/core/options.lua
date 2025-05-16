@@ -1,6 +1,9 @@
 --  update timer
 vim.opt.updatetime = 50
 
+-- turn off LSP logging
+vim.lsp.set_log_level("off")
+
 -- netrw liststyle
 vim.cmd("let g:netrw_liststyle = 3")
 
@@ -10,9 +13,9 @@ vim.opt.relativenumber = true
 
 -- line wrapping
 vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "↪ "
 
 -- undo directory
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -54,8 +57,7 @@ vim.g.firenvim_config = {
 	}
 }
 
--- When leaving vim fix the cursor
--- without this I was always having the cursor be a block when leaving vim
+-- when leaving vim fix the cursor. without this I was always having the cursor be a block when leaving neovim
 vim.cmd([[
   au VimLeave * set guicursor=a:hor20-blinkwait800
 ]])
