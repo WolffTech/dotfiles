@@ -1,6 +1,9 @@
 -- set leader
 vim.g.mapleader = " "
 
+-- flaot lsp diagnostics
+vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Open Diagnostics in Float"})
+
 -- switch between leading tabs and spaces
 vim.keymap.set("n", "<leader>ti", toggle_indent, { desc = "Toggle between tabs and spaces" })
 vim.keymap.set("n", "<leader>tl", toggle_indent_length, { desc = "Toggle indent length between 4 and 2" })
