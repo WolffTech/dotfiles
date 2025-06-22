@@ -228,6 +228,10 @@ run = "move-node-to-workspace 4"
 if.app-id = 'com.citrix.receiver.icaviewer.mac'
 run = "move-node-to-workspace 4"
 
+[[on-window-detected]]
+if.app-id = 'com.devolutions.remotedesktopmanager'
+run = "move-node-to-workspace 4"
+
 # Workspace 5: comms
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
