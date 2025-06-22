@@ -27,6 +27,9 @@ return {
 	-- Override highlight groups to ensure full transparency
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "none" })
+	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "none" })
+	vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
 
 	vim.cmd('colorscheme modus')
 	end
