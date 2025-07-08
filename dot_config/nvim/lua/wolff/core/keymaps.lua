@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 -- flaot lsp diagnostics
-vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Open Diagnostics in Float"})
+vim.keymap.set("n", "xl", function() vim.diagnostic.open_float() end, { desc = "Open Diagnostics in Float"})
 
 -- switch between leading tabs and spaces
 vim.keymap.set("n", "<leader>ti", toggle_indent, { desc = "Toggle between tabs and spaces" })
@@ -20,10 +20,10 @@ vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number under curso
 vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number under cursor" })
 
 -- window managemnet
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-vim.keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>wb", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>wx", "<cmd>close<cr>", { desc = "Close window" })
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "Open new tab" })
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Switch to window on the ri
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
--- Delete line in vertical edit without copying deleted line
+-- Delete line without copying deleted line
 vim.keymap.set("n", "<leader>d", "\"_d", { desc = "Delete line without copying" })
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "Delete line without copying" })
 
@@ -73,9 +73,6 @@ vim.api.nvim_set_keymap('n', '<D-v>', '"+p', { noremap = true })
 
 -- visual mode mapping
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p', { noremap = true })
-
--- open lazy.nvim
-vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "LazyVim open" })
 
 -- set spell
 vim.keymap.set("n", "<leader>ss", "<cmd>set spell<cr>", { desc = "Enable Spellchecking"})

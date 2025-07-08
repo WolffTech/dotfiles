@@ -125,7 +125,6 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
 		local servers = {
-			bashls = {},
 			marksman = {},
 			lua_ls = {},
 		}
