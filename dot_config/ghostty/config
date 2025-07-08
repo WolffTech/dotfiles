@@ -1,7 +1,5 @@
 # Appearance
-theme = dark:Modus-Vivendi,light:Modus-Operandi
-# theme = dark:Github Dark,light:Github
-
+theme = dark:Github-Dark-Default,light:Github-Light-Default
 window-theme = system
 
 background-opacity = 0.80
@@ -16,7 +14,6 @@ cursor-style-blink = true
 font-family = JetBrains Mono
 font-style = Regular
 font-size = 14
-
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -25,7 +22,6 @@ font-feature = -dlig
 title =
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = hidden
-title =
 
 # Quick Term
 keybind = global:alt+t=toggle_quick_terminal
