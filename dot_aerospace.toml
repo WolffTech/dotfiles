@@ -61,8 +61,8 @@ preset = 'qwerty'
 inner.horizontal = 8
 inner.vertical =   8
 outer.left =       8
-outer.bottom =     50
-outer.top =        8
+outer.bottom =     55
+outer.top =        0
 outer.right =      8
 
 # 'main' binding mode declaration
