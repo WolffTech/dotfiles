@@ -96,7 +96,7 @@ alias calc='numi-cli'
 alias photo='qlmanage -p'
 
 # Neovim System Clipboard Editor
-alias clipboard='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" && rm "$tmp"'
+alias cb='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" && rm "$tmp"'
 
 # Terraform alias
 alias tf='terraform'
