@@ -255,6 +255,10 @@ run = "move-node-to-workspace 5"
 if.app-id = 'com.hnc.Discord'
 run = "move-node-to-workspace 5"
 
+[[on-window-detected]]
+if.app-id = 'com.superhuman.electron'
+run = "move-node-to-workspace 5"
+
 # Workspace 6: Stack
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
