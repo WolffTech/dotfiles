@@ -8,7 +8,7 @@ return {
 				"javascript", "typescript", "html", "css", "c", "lua", "rust",
 				"vim", "vimdoc", "query", "c_sharp", "arduino", "bash", "cmake",
 				"dockerfile", "go", "java", "json", "markdown", "python", "sql",
-				"swift", "terraform", "zig", "todotxt",
+				"terraform", "zig", "todotxt",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
