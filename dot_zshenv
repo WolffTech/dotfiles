@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# Zsh startup order:
+# ~/.zshenv
+#   Usually run for every zsh (see below).
+# ~/.zprofile
+#   Run for login shells.
+# ~/.zshrc
+#   Run for login shells.
+# ~/.zlogin
+#   Run for login shells.
+
+# XDG
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
+
+# Ensure Zsh directories exist.
+() {
+  local zdir
+  for zdir in $@; do
+    [[ -d "${(P)zdir}" ]] || mkdir -p -- "${(P)zdir}"
+  done
+} XDG_{CONFIG,CACHE,DATA,STATE}_HOME
+
+# Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
