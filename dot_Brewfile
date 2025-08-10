@@ -20,6 +20,7 @@ brew "lazydocker"
 brew "lazygit"
 brew "mas"
 brew "mise"
+brew "mono-libgdiplus"
 brew "tree-sitter"
 brew "neovim"
 brew "node"
@@ -37,17 +38,22 @@ brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "1password"
 cask "1password-cli"
 cask "aerospace"
+cask "cleanshot"
 cask "discord"
 cask "fantastical"
 cask "ghostty"
 cask "google-chrome"
+cask "homerow"
 cask "iina"
+cask "imhex"
 cask "istat-menus"
+cask "jetbrains-toolbox"
 cask "jordanbaird-ice"
 cask "linearmouse"
 cask "loopback"
 cask "obs"
 cask "parallels"
+cask "powershell"
 cask "raycast"
 cask "remote-desktop-manager"
 cask "runelite"
@@ -60,7 +66,11 @@ cask "visual-studio-code"
 cask "zen"
 mas "Amphetamine", id: 937984704
 mas "CrystalFetch", id: 6454431289
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
 mas "Minimal Twitter", id: 1668204600
+mas "Numbers", id: 409203825
 mas "Raycast Companion", id: 6738274497
 mas "Refined GitHub", id: 1519867270
 mas "Spark Desktop", id: 6445813049
@@ -68,6 +78,7 @@ mas "Surfingkeys", id: 1609752330
 mas "The Unarchiver", id: 425424353
 mas "Windows App", id: 1295203466
 mas "Wipr", id: 1662217862
+mas "WutheringWaves", id: 6475033368
 vscode "aaron-bond.better-comments"
 vscode "adrianwilczynski.add-reference"
 vscode "adrianwilczynski.asp-net-core-switcher"
