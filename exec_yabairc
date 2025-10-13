@@ -8,69 +8,61 @@ yabai -m config window_topmost               off
 yabai -m config window_opacity               on
 yabai -m config window_shadow                on
 yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.95
+yabai -m config normal_window_opacity        1.0
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
 yabai -m config window_animation_duration    0.0
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  8
+yabai -m config top_padding                  0
 yabai -m config bottom_padding               8
 yabai -m config left_padding                 8
 yabai -m config right_padding                8
 yabai -m config window_gap                   8
 
-# spaces 1: browser
-yabai -m rule --add app="Arc.*" space=^1
-yabai -m rule --add app="Chrome.*" space=^1
-yabai -m rule --add app="Firefox.*" space=^1
-yabai -m rule --add app="Safari.*" space=^1
+# space 1: Terminal
+yabai -m rule --add app="ghostty.*" space=^1
+yabai -m rule --add app="iterm2.*" space=^1
+yabai -m rule --add app="Warp.*" space=^1
 
-# space 2: terminals
-yabai -m rule --add app="iterm2.*" space=^2
-yabai -m rule --add app="Warp.*" space=^2
-yabai -m rule --add app="kitty.*" space=^2
+# space 2: IDE/Workspace
+yabai -m rule --add app="VSCode.*" space=^2
+yabai -m rule --add app="Xcode.*" space=^2
+yabai -m rule --add app="intellij.*" space=^2
+yabai -m rule --add app="rider.*" space=^2
 
-# space 3: communication
-yabai -m rule --add app="Messages.*" space=^3
-yabai -m rule --add app="Discord.*" space=^3
-yabai -m rule --add app="Microsoft Teams" space=^3
-yabai -m rule --add app="Outlook.*" space=^3
-yabai -m rule --add app="Mail.*" space=^3
+# space 3: Browser
+yabai -m rule --add app="Safari.*" space=^3
+yabai -m rule --add app="Chrome.*" space=^3
+yabai -m rule --add app="Zen.*" space=^3
 
 # space 4: VMs
-yabai -m space 4 --layout stack
-yabai -m rule --add app="Parallels Desktop" space=^4
-yabai -m rule --add app="Parallels Desktop" title="Control Center" space=^4
-yabai -m rule --add app="Microsoft Remote Desktop.*" space^4
+yabai -m rule --add app="Parallels.*" space=^4
+yabai -m rule --add app="Citrix.*" space=^4
+yabai -m rule --add app="RemoteDesktopManager.*" space=^4
+yabai -m rule --add app="UTM.*" space=^4
 
-# space 5: other
-yabai -m space 5 --layout stack
-yabai -m rule --add app="Music" space=^5
-yabai -m rule --add app="OBS" space=^5
-yabai -m rule --add app="Podcasts" space=^5
-yabai -m rule --add app="Home" space=^5
-yabai -m rule --add app="Fantastical" space =^5
+# space 5: Comms
+yabai -m rule --add app="MobileSMS.*" space=^5
+yabai -m rule --add app="Teams.*" space=^5
+yabai -m rule --add app="Outlook.*" space=^5
+yabai -m rule --add app="Mail.*" space=^5
+yabai -m rule --add app="Discord.*" space=^5
+yabai -m rule --add app="Spark.*" space=^5
 
-# space 6: floating
-yabai -m space 6 --layout float
+# space 6: Other
+yabai -m rule --add app="Music.*" space=^6
+yabai -m rule --add app="Fantastical.*" space=^6
+yabai -m rule --add app="Home.*" space=^6
 
 # things to ignore
-yabai -m rule --add title="JetBrains Toolbox" manage=off mouse_follows_focus=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Stats" manage=off mouse_follows_focus=off
 yabai -m rule --add app="iStat Menus" manage=off mouse_follows_focus=off
-yabai -m rule --add app="Shottr" manage=off mouse_follows_focus=off
 yabai -m rule --add app="Embrava Connect" manage=off
-yabai -m rule --add app="Beeper" manage=off
 yabai -m rule --add title="Identity Enterprise" manage=off
-yabai -m rule --add app="Sleeve" manage=off mouse_follows_focus=off
 yabai -m rule --add app="Raycast" manage=off mouse_follows_focus=off
 yabai -m rule --add title="1Password" manage=off mouse_follows_focus=off
 yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
-# yabai -m rule --add app="VimR" manage=off mouse_follows_focus=off
-
-# start boarder
-borders active_color=0xffe1e3e4 inactive_color=0x00000000 width=5.0 &
-
+yabai -m rule --add title="JetBrains Toolbox" manage=off mouse_follows_focus=off
