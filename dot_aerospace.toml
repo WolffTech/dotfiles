@@ -210,6 +210,10 @@ run = "move-node-to-workspace 3"
 if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace 3"
 
+[[on-window-detected]]
+if.app-id = 'net.imput.helium'
+run = "move-node-to-workspace 3"
+
 # Workspace 4: vms
 [[on-window-detected]]
 if.app-id = 'com.parallels.desktop.console'
