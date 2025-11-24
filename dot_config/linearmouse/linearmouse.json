@@ -1,167 +1,168 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.2",
   "schemes" : [
     {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
-      },
-      "pointer" : {
-        "speed" : 0.32,
-        "acceleration" : 0
-      },
       "if" : {
         "device" : {
-          "productName" : "USB Receiver",
-          "vendorID" : "0x46d",
+          "category" : "mouse",
           "productID" : "0xc52b",
-          "category" : "mouse"
-        }
-      }
-    },
-    {
-      "pointer" : {
-        "disableAcceleration" : false,
-        "speed" : 0.45,
-        "acceleration" : 0
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xb034",
-          "vendorID" : "0x46d",
-          "productName" : "MX Master 3S",
-          "serialNumber" : "F1C58BA1",
-          "category" : "mouse"
-        }
-      },
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
-      }
-    },
-    {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xc548",
-          "vendorID" : "0x46d",
           "productName" : "USB Receiver",
-          "category" : "mouse"
+          "vendorID" : "0x46d"
         }
       },
       "pointer" : {
-        "speed" : 0.32,
-        "acceleration" : 0
-      }
-    },
-    {
-      "if" : {
-        "device" : {
-          "category" : "mouse",
-          "vendorID" : "0x56e",
-          "productName" : "HUGE TrackBall",
-          "productID" : "0x10d"
-        }
-      },
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
-      },
-      "pointer" : {
-        "speed" : 0.32,
-        "disableAcceleration" : true,
-        "acceleration" : 0.8
-      }
-    },
-    {
-      "if" : {
-        "device" : {
-          "productID" : "0x269",
-          "category" : "mouse",
-          "productName" : "Magic Mouse",
-          "vendorID" : "0x4c",
-          "serialNumber" : "24-d0-df-13-11-41"
-        }
-      },
-      "pointer" : {
-        "acceleration" : 0,
-        "speed" : 0.18,
-        "disableAcceleration" : false
-      }
-    },
-    {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        }
-      },
-      "pointer" : {
-        "disableAcceleration" : false,
         "acceleration" : 0,
         "speed" : 0.32
       },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xb034",
+          "productName" : "MX Master 3S",
+          "serialNumber" : "F1C58BA1",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "disableAcceleration" : false,
+        "speed" : 0.45
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc548",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.32
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x10d",
+          "productName" : "HUGE TrackBall",
+          "vendorID" : "0x56e"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1,
+        "disableAcceleration" : true,
+        "speed" : 0.32
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x269",
+          "productName" : "Magic Mouse",
+          "serialNumber" : "24-d0-df-13-11-41",
+          "vendorID" : "0x4c"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "disableAcceleration" : false,
+        "speed" : 0.18
+      }
+    },
+    {
       "if" : {
         "device" : {
           "category" : "mouse",
           "productID" : "0xc539",
-          "vendorID" : "0x46d",
-          "productName" : "USB Receiver"
-        }
-      }
-    },
-    {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
         }
       },
       "pointer" : {
-        "speed" : 0.32,
-        "acceleration" : 0
+        "acceleration" : 0,
+        "disableAcceleration" : false,
+        "speed" : 0.32
       },
-      "if" : {
-        "device" : {
-          "productName" : "MX Master 3",
-          "serialNumber" : "C954BF51B26B1CF1",
-          "productID" : "0xb023",
-          "vendorID" : "0x46d",
-          "category" : "mouse"
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     },
     {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xb023",
+          "productName" : "MX Master 3",
+          "serialNumber" : "C954BF51B26B1CF1",
+          "vendorID" : "0x46d"
         }
       },
       "pointer" : {
         "acceleration" : 0,
         "speed" : 0.32
       },
-      "if" : {
-        "device" : {
-          "productName" : "G502 LIGHTSPEED Wireless Gaming Mouse",
-          "productID" : "0xc08d",
-          "category" : "mouse",
-          "vendorID" : "0x46d",
-          "serialNumber" : "8821F2F2F224578A"
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     },
     {
       "if" : {
         "device" : {
+          "category" : "mouse",
+          "productID" : "0xc08d",
+          "productName" : "G502 LIGHTSPEED Wireless Gaming Mouse",
+          "serialNumber" : "8821F2F2F224578A",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "speed" : 0.32
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
           "productID" : "0x1969",
-          "vendorID" : "0x3297",
           "productName" : "Moonlander Mark I",
-          "category" : "mouse"
+          "vendorID" : "0x3297"
         }
       },
       "pointer" : {
@@ -172,31 +173,31 @@
       "buttons" : {
         "mappings" : [
           {
-            "command" : false,
-            "control" : false,
-            "button" : 4,
-            "option" : false,
             "action" : {
               "keyPress" : [
                 "shift"
               ]
             },
+            "button" : 4,
+            "command" : false,
+            "control" : false,
+            "option" : false,
             "shift" : false
           }
         ]
       },
       "if" : {
         "device" : {
-          "vendorID" : "0x25a7",
+          "category" : "mouse",
           "productID" : "0xfa7c",
           "productName" : "X2 Mini Wireless",
-          "category" : "mouse"
+          "vendorID" : "0x25a7"
         }
       },
       "pointer" : {
-        "speed" : 0.5,
+        "acceleration" : 0,
         "disableAcceleration" : false,
-        "acceleration" : 0
+        "speed" : 0.5
       },
       "scrolling" : {
         "reverse" : {
@@ -205,18 +206,18 @@
       }
     },
     {
-      "pointer" : {
-        "disableAcceleration" : false,
-        "speed" : 0.32,
-        "acceleration" : 0
-      },
       "if" : {
         "device" : {
           "category" : "mouse",
-          "vendorID" : "0x25a7",
           "productID" : "0xfa7b",
-          "productName" : "X2 Mini Wireless"
+          "productName" : "X2 Mini Wireless",
+          "vendorID" : "0x25a7"
         }
+      },
+      "pointer" : {
+        "acceleration" : 0,
+        "disableAcceleration" : false,
+        "speed" : 0.32
       },
       "scrolling" : {
         "reverse" : {
@@ -225,18 +226,18 @@
       }
     },
     {
-      "pointer" : {
-        "acceleration" : 0.5,
-        "disableAcceleration" : true
-      },
       "if" : {
         "device" : {
-          "productName" : "Preonic",
           "category" : "mouse",
           "productID" : "0xa649",
+          "productName" : "Preonic",
           "vendorID" : "0x3a8"
         }
       },
+      "pointer" : {
+        "acceleration" : 0.6,
+        "disableAcceleration" : true
+      },
       "scrolling" : {
         "reverse" : {
           "vertical" : true
@@ -252,30 +253,30 @@
                 "shift"
               ]
             },
-            "control" : false,
-            "command" : false,
             "button" : 4,
-            "shift" : false,
-            "option" : false
+            "command" : false,
+            "control" : false,
+            "option" : false,
+            "shift" : false
           }
         ]
       },
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc53f",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
         }
       },
       "pointer" : {
-        "speed" : 0.4,
         "acceleration" : 0,
-        "disableAcceleration" : false
+        "disableAcceleration" : false,
+        "speed" : 0.4
       },
-      "if" : {
-        "device" : {
-          "productID" : "0xc53f",
-          "productName" : "USB Receiver",
-          "category" : "mouse",
-          "vendorID" : "0x46d"
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     },
@@ -283,52 +284,52 @@
       "buttons" : {
         "mappings" : [
           {
-            "command" : false,
-            "button" : 4,
-            "option" : false,
-            "shift" : false,
             "action" : {
               "keyPress" : [
                 "shift"
               ]
             },
-            "control" : false
+            "button" : 4,
+            "command" : false,
+            "control" : false,
+            "option" : false,
+            "shift" : false
           }
         ]
       },
       "if" : {
         "device" : {
-          "productName" : "X2 V2",
-          "productID" : "0xf508",
           "category" : "mouse",
+          "productID" : "0xf508",
+          "productName" : "X2 V2",
           "vendorID" : "0x3554"
-        }
-      },
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        },
-        "acceleration" : {
-          "vertical" : 1
-        },
-        "speed" : {
-          "vertical" : 0
         }
       },
       "pointer" : {
         "acceleration" : 1,
-        "speed" : 0.5,
-        "disableAcceleration" : true
+        "disableAcceleration" : true,
+        "speed" : 0.5
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 0
+        }
       }
     },
     {
       "if" : {
         "device" : {
-          "vendorID" : "0x16c0",
-          "productName" : "Karabiner DriverKit VirtualHIDPointing 1.7.0",
           "category" : "mouse",
           "productID" : "0x27da",
-          "serialNumber" : "pqrs.org:Karabiner-DriverKit-VirtualHIDPointing"
+          "productName" : "Karabiner DriverKit VirtualHIDPointing 1.7.0",
+          "serialNumber" : "pqrs.org:Karabiner-DriverKit-VirtualHIDPointing",
+          "vendorID" : "0x16c0"
         }
       },
       "pointer" : {
@@ -336,108 +337,157 @@
       }
     },
     {
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 1.5
-      },
-      "scrolling" : {
-        "speed" : {
-          "vertical" : 1
-        },
-        "reverse" : {
-          "vertical" : true
-        },
-        "acceleration" : {
-          "vertical" : 1
-        }
-      },
-      "if" : {
-        "device" : {
-          "productName" : "Keychron M6 4K",
-          "vendorID" : "0x3434",
-          "category" : "mouse",
-          "productID" : "0xd046"
-        }
-      },
       "buttons" : {
         "mappings" : [
           {
-            "control" : false,
             "action" : {
               "keyPress" : [
                 "shift"
               ]
             },
-            "option" : false,
             "button" : 4,
             "command" : false,
+            "control" : false,
+            "option" : false,
             "shift" : false
           }
         ]
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xd046",
+          "productName" : "Keychron M6 4K",
+          "vendorID" : "0x3434"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 1
+        }
       }
     },
     {
       "buttons" : {
         "mappings" : [
           {
-            "button" : 4,
-            "option" : false,
-            "command" : false,
-            "shift" : false,
             "action" : {
               "keyPress" : [
                 "shift"
               ]
             },
-            "control" : false
+            "button" : 4,
+            "command" : false,
+            "control" : false,
+            "option" : false,
+            "shift" : false
           }
         ]
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xd038",
+          "productName" : "Keychron 4K Link",
+          "vendorID" : "0x3434"
+        }
       },
       "pointer" : {
         "acceleration" : 1.5,
         "disableAcceleration" : true
       },
       "scrolling" : {
-        "distance" : {
-          "vertical" : "auto"
-        },
         "acceleration" : {
           "vertical" : 1
         },
-        "speed" : {
-          "vertical" : 0
+        "distance" : {
+          "vertical" : "auto"
         },
         "reverse" : {
           "vertical" : true
-        }
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x3434",
-          "productName" : "Keychron 4K Link",
-          "productID" : "0xd038",
-          "category" : "mouse"
+        },
+        "speed" : {
+          "vertical" : 0
         }
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x615e",
+          "productName" : "Corne",
+          "vendorID" : "0x1d50"
+        }
+      },
       "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x615e",
+          "productName" : "Adv360 Pro",
+          "vendorID" : "0x1d50"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 2.5,
+        "disableAcceleration" : true,
+        "speed" : 0.1
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 2
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x362",
+          "productName" : "Adv360 Pro",
+          "serialNumber" : "826EEC34F68CBAF7",
+          "vendorID" : "0x29ea"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 2.5,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 5
+        },
         "reverse" : {
           "vertical" : true
         },
-        "acceleration" : {
-          "vertical" : 1
-        }
-      },
-      "if" : {
-        "device" : {
-          "productName" : "Corne",
-          "productID" : "0x615e",
-          "category" : "mouse",
-          "vendorID" : "0x1d50"
+        "speed" : {
+          "vertical" : 10
         }
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }
+
