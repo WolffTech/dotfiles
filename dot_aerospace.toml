@@ -40,16 +40,16 @@ automatically-unhide-macos-hidden-apps = true
 
 # Set workspaces to specific monitors.
 [workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'main'
-5 = 'main'
-6 = 'main'
-7 = 'main'
-8 = 'secondary'
-9 = 'secondary'
-
+1 = ['main', 'LG ULTRAGEAR+', 1]
+2 = ['main', 'LG ULTRAGEAR+', 1]
+3 = ['main', 'LG ULTRAGEAR+', 1]
+4 = ['main', 'LG ULTRAGEAR+', 1]
+5 = ['main', 'LG ULTRAGEAR+', 1]
+6 = ['main', 'LG ULTRAGEAR+', 1]
+7 = ['main', 'LG ULTRAGEAR+', 1]
+8 = ['secondary', 'ROG PG279Q', 3]
+9 = ['secondary', 'ROG PG279Q', 3]
+10 = ['Built-in Retina Display', 3]
 # Possible values: (qwerty|dvorak)
 [key-mapping]
 preset = 'qwerty'
@@ -59,7 +59,7 @@ preset = 'qwerty'
 inner.horizontal = 8
 inner.vertical =   8
 outer.left =       8
-outer.bottom =     55
+outer.bottom =     8 # 55 - Used for Ubersicht
 outer.top =        0
 outer.right =      8
 
@@ -113,6 +113,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
