@@ -83,6 +83,13 @@ alt-shift-t = 'layout floating tiling'
 alt-shift-r = 'flatten-workspace-tree'
 alt-w = 'close --quit-if-last-window'
 
+# Scratchpad
+alt-ctrl-shift-backtick = 'workspace S'
+# Show Scratchpad Windows
+alt-backtick = 'exec-and-forget bash $HOME/.config/aerospace/aerospace-scratchpad/scratchpad.sh show'
+# Add/Remove Windows from Scratchpad
+alt-shift-backtick = 'exec-and-forget bash $HOME/.config/aerospace/aerospace-scratchpad/scratchpad.sh send'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
