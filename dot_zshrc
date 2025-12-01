@@ -101,6 +101,9 @@ alias cb='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" &&
 # Terraform alias
 alias tf='terraform'
 
+# vim mode
+set -o vi
+
 # Shell integrations
 eval "$(fzf --zsh)"
 
