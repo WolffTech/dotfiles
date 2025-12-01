@@ -1,5 +1,6 @@
 # Appearance
-theme = dark:Github Dark Default,light:Github Light Default
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+# theme = dark:Github Dark Default,light:Github Light Default
 window-theme = system
 
 background-opacity = 0.80
@@ -25,8 +26,9 @@ macos-titlebar-style = hidden
 
 # Quick Term
 keybind = global:alt+escape=toggle_quick_terminal
+initial-window = true
+
 quick-terminal-position = center
 quick-terminal-screen =  mouse
 quick-terminal-autohide = false
-quick-terminal-animation-duration = 0
-quick-terminal-size = 50%, 50%
+quick-terminal-animation-duration = 0.1
