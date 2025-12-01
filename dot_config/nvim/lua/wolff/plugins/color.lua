@@ -1,44 +1,60 @@
 return {
-	'projekt0n/github-nvim-theme',
-	lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	priority = 1000, -- make sure to load this before all the other start plugins
+	"catppuccin/nvim",
+	name = "catppuccin",
+	priority = 1000,
 	config = function()
-		require('github-theme').setup({
-			options = {
+		require("catppuccin").setup({
+			flavour = "auto", -- latte, frappe, macchiato, mocha
+			background = {
+				light = "latte",
+				dark = "mocha",
+			},
+			transparent_background = true,
+			float = {
 				transparent = true,
-				dim_inactive = false,
-				styles = {
-					comments = 'italic',
-					functions = 'italic',
-					keywords = 'bold',
-					variables = 'NONE',
-					conditionals = 'NONE',
-					constants = 'NONE',
-					numbers = 'NONE',
-					operators = 'NONE',
-					strings = 'NONE',
-					types = 'bold',
+				solid = false,
+			},
+			show_end_of_buffer = true,
+			term_colors = true,
+			dim_inactive = {
+				enabled = false,
+				shade = "dark",
+				percentage = 0.15,
+			},
+			no_italic = false,
+			no_bold = false,
+			no_underline = false,
+			styles = {
+				comments = { "italic" },
+				conditionals = {},
+				loops = {},
+				functions = {"italic"},
+				keywords = { "bold" },
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = {},
+				properties = {},
+				types = { "bold" },
+				operators = {},
+			},
+			lsp_styles = {},
+			color_overrides = {},
+			custom_highlights = {},
+			default_integrations = true,
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				nvimtree = true,
+				notify = false,
+				mini = {
+					enabled = true,
+					indentscope_color = "",
 				},
-				darken = {
-					floats = true,
-					sidebars = {
-						enable = true,
-						lists = {},
-					},
-				},
-			}
+			},
 		})
-		local function apply_github_colors()
-			if vim.g.my_theme_mode == "light" then
-				vim.cmd("colorscheme github_light_default")
-			else
-				vim.cmd("colorscheme github_dark_default")
-			end
-		end
 
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "MyThemeChanged",
-			callback = apply_github_colors,
-		})
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }
+
