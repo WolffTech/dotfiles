@@ -61,6 +61,13 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Make currently open file executable
 vim.keymap.set("n", "<leader>xc", "<cmd>!chmod +x %<CR>", { desc = "Make file executable" })
 
+-- Set the working directory to the path of the current buffer's directory
+vim.keymap.set('n', '<leader>sp', function()
+    local current_file_dir = vim.fn.expand('%:p:h')
+    vim.cmd('cd ' .. current_file_dir)
+    print("Working directory set to: " .. current_file_dir)
+end, { desc = "Set working directory to current file's directory" })
+
 -- Set windows size to 15 lines
 vim.api.nvim_set_keymap('n', '<leader>ll', ':set lines=15<CR>:set spell<CR>', { noremap = true, silent = true, desc = "Set window size to 15 lines and enable spell checking" })
 
