@@ -25,7 +25,6 @@ path=(
 	/usr/local/sbin
 	/user/sbin
 	/sbin
-	/.jenv/bin
 	~/Library/Python/3.8/bin
 	~/perl5/bin
 )
@@ -106,9 +105,6 @@ set -o vi
 
 # Shell integrations
 eval "$(fzf --zsh)"
-
-# Start Jenv
-eval "$(jenv init -)"
 
 # The Fuck Alias (Command Line AutoCorrect)
 eval $(thefuck --alias)
