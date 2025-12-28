@@ -19,14 +19,12 @@ fi
 path=(
 	$path
 	/opt/homebrew/bin
-	~/usr/local/bin
 	/usr/bin
 	/bin
 	/usr/local/sbin
 	/user/sbin
 	/sbin
-	~/Library/Python/3.8/bin
-	~/perl5/bin
+	~/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 )
 
 # Add zsh plugins
