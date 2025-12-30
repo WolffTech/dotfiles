@@ -82,6 +82,7 @@ alias personal='cd ~/git/personal-nickwolff'
 alias worklog='nvim ~/Documents/worklog.md'
 
 #Other Aliases
+alias oc="opencode"
 alias python='python3.11'
 alias lg='lazygit'
 alias lazyd='lazydocker'
