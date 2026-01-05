@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	build = ":TSUpdate",
 	branch = 'main',
 	config = function()
@@ -15,7 +16,8 @@ return {
 			"javascript", "typescript", "html", "css", "c", "lua", "rust",
 			"vim", "vimdoc", "query", "c_sharp", "arduino", "bash", "cmake",
 			"dockerfile", "go", "java", "json", "markdown", "markdown_inline",
-			"python", "sql", "terraform", "zig", "todotxt", "templ",
+			"python", "sql", "terraform", "zig", "todotxt", "templ", "yaml",
+			"powershell",
 		})
 
 		-- Enable treesitter features for all filetypes
@@ -29,7 +31,8 @@ return {
 
 				-- Auto-install parser if not available
 				if not ok and ft ~= "" then
-					ts.install({ ft })
+					local lang = vim.treesitter.language.get_lang(ft) or ft
+					ts.install({ lang })
 				end
 
 				-- Enable treesitter-based indentation
