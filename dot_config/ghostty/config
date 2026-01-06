@@ -1,6 +1,5 @@
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
-# theme = dark:Github Dark Default,light:Github Light Default
 window-theme = system
 
 background-opacity = 0.80
