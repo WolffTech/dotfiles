@@ -487,7 +487,40 @@
           "vertical" : 10
         }
       }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x362",
+          "productName" : "Adv360 Pro",
+          "serialNumber" : "877542DB6F54D257",
+          "vendorID" : "0x29ea"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1,
+        "speed" : 0.2
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x27db",
+          "productName" : "Go60",
+          "vendorID" : "0x16c0"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 2,
+        "speed" : 0.15
+      }
     }
   ]
 }
-
