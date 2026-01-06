@@ -10,7 +10,7 @@ vim.cmd("let g:netrw_liststyle = 3")
 -- line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.opt.statuscolumn = "%s %{v:lnum} %{v:relnum} "
+vim.opt.statuscolumn = "%s %4{v:lnum} %3{v:relnum} %#StatusCokkkjjjjlumnBorder#│"
 
 -- line wrapping
 vim.opt.wrap = true
