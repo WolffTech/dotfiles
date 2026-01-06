@@ -104,6 +104,7 @@ set -o vi
 
 # Shell integrations
 eval "$(fzf --zsh)"
+bindkey -r '^T'
 
 # The Fuck Alias (Command Line AutoCorrect)
 eval $(thefuck --alias)
