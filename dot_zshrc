@@ -112,5 +112,8 @@ eval $(thefuck --alias)
 # Zoxide startup and rebind
 eval "$(zoxide init --cmd cd zsh)"
 
+# Unbind ^T from teletype
+stty status undef
+
 # Switch Cat with Bat
 alias cat='bat --paging=never'
