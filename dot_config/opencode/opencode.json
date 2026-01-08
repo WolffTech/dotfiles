@@ -39,8 +39,24 @@
     "research": {
       "description": "General research agent for answering questions without making changes",
       "mode": "primary",
-      "model": "opencode/gpt-5.2",
+      "model": "opencode/gemini-3-pro",
       "color": "#F1C40F",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+        "patch": false
+      },
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "analyze": {
+      "description": "Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability",
+      "mode": "primary",
+      "model": "opencode/gemini-3-pro",
+      "color": "#2ECC71",
       "tools": {
         "write": false,
         "edit": false,
@@ -61,6 +77,11 @@
     "gh_grep": {
       "type": "remote",
       "url": "https://mcp.grep.app"
-    }
+    },
+    "microsoft-learn": {
+      "type": "remote",
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+
   }
 }
