@@ -2,5 +2,65 @@
   "$schema": "https://opencode.ai/config.json",
   "keybinds": {
     "variant_cycle": "ctrl+y"
+  },
+  "provider": {
+    "opencode": {
+      "models": {
+        "gpt-5.2": {
+          "variants": {
+            "low": { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high": { "reasoningEffort": "high" },
+            "xhigh": { "reasoningEffort": "xhigh" }
+          }
+        },
+        "gemini-3-pro": {
+          "variants": {
+            "low": { "thinkingBudget": 8000 },
+            "high": { "thinkingBudget": 24000 }
+          }
+        },
+        "glm-4.7-free": {
+          "variants": {
+            "low": { "reasoningEffort": "low" },
+            "high": { "reasoningEffort": "high" }
+          }
+        },
+        "claude-sonnet-4-5": {
+          "variants": {
+            "high": { "thinking": { "type": "enabled", "budgetTokens": 16000 } },
+            "max": { "thinking": { "type": "enabled", "budgetTokens": 32000 } }
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "research": {
+      "description": "General research agent for answering questions without making changes",
+      "mode": "primary",
+      "model": "opencode/gpt-5.2",
+      "color": "#F1C40F",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+        "patch": false
+      },
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    }
   }
 }
