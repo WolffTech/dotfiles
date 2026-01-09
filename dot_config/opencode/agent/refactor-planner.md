@@ -1,7 +1,7 @@
 ---
 description: Plans safe multi-step refactors with incremental checkpoints
 mode: subagent
-model: opencode/claude-sonnet-4
+model: opencode/claude-opus-4-5
 temperature: 0.1
 tools:
   write: false

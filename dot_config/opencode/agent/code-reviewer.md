@@ -1,7 +1,7 @@
 ---
 description: Reviews code for correctness, edge cases, style, and performance
 mode: subagent
-model: opencode/claude-sonnet-4
+model: opencode/gpt-5.2
 temperature: 0.1
 tools:
   write: false

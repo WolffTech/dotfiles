@@ -38,13 +38,16 @@
   },
   "agent": {
     "build": {
-      "color": "#E74C3C"
+      "color": "#d20f39"
+    },
+    "plan": {
+      "color": "#df8e1d"
     },
     "research": {
       "description": "General research agent for answering questions without making changes",
       "mode": "primary",
       "model": "opencode/gemini-3-pro",
-      "color": "#F1C40F",
+      "color": "#1e66f5",
       "tools": {
         "write": false,
         "edit": false,
@@ -59,8 +62,8 @@
     "analyze": {
       "description": "Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability",
       "mode": "primary",
-      "model": "opencode/gemini-3-pro",
-      "color": "#2ECC71",
+      "model": "opencode/gpt-5.2",
+      "color": "#40a02b",
       "tools": {
         "write": false,
         "edit": false,
