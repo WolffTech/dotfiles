@@ -17,7 +17,7 @@ return {
 		"vim", "vimdoc", "query", "c_sharp", "arduino", "bash", "cmake",
 		"dockerfile", "go", "java", "json", "markdown", "markdown_inline",
 		"python", "sql", "terraform", "zig", "todotxt", "templ", "yaml",
-		"powershell", "nix",
+		"powershell", "nix", "gitcommit",
 	})
 
 	-- Enable treesitter features for all filetypes
@@ -32,17 +32,17 @@ return {
 			-- Auto-install parser if not available
 			if not ok and ft ~= "" then
 				local lang = vim.treesitter.language.get_lang(ft) or ft
-				
+
 				-- Check if parser is already installed
 				local parser_installed = pcall(vim.treesitter.language.add, lang)
-				
+
 				if not parser_installed then
 					-- Notify user and attempt to install
 					vim.notify(
 						string.format("Treesitter parser for '%s' not found. Installing...", lang),
 						vim.log.levels.INFO
 					)
-					
+
 					-- Install parser asynchronously
 					vim.schedule(function()
 						local install_ok = pcall(ts.install, { lang })
@@ -71,6 +71,7 @@ return {
 	-- Register custom filetypes
 	vim.treesitter.language.register("templ", "templ")
 	vim.treesitter.language.register("nix", "nix")
+	vim.treesitter.language.register("gitcommit", "gitcommit")
 	end,
 }
 
