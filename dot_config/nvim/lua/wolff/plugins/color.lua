@@ -40,7 +40,13 @@ return {
 			},
 			lsp_styles = {},
 			color_overrides = {},
-			custom_highlights = {},
+			custom_highlights = function(colors)
+				return {
+					LineNr = { fg = colors.overlay1 },
+					CursorLineNr = { fg = colors.lavender, bold = true },
+					CursorLine = { bg = "NONE" },
+				}
+			end,
 			default_integrations = true,
 			integrations = {
 				cmp = true,

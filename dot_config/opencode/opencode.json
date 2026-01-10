@@ -88,7 +88,6 @@
     "microsoft-learn": {
       "type": "remote",
       "url": "https://learn.microsoft.com/api/mcp"
-    },
-
+    }
   }
 }

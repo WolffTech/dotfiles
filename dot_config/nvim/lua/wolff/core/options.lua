@@ -10,7 +10,16 @@ vim.cmd("let g:netrw_liststyle = 3")
 -- line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.opt.statuscolumn = "%s %4{v:lnum} %3{v:relnum} %#StatusCokkkjjjjlumnBorder#│"
+vim.opt.cursorline = true
+
+function _G.StatusColumn()
+	local lnum = vim.v.lnum
+	local relnum = vim.v.relnum
+	local hl = relnum == 0 and "%#CursorLineNr#" or "%#LineNr#"
+	return "%s " .. hl .. string.format("%4d %3d", lnum, relnum) .. " %#StatusColumnBorder#│"
+end
+
+vim.opt.statuscolumn = "%!v:lua.StatusColumn()"
 
 -- line wrapping
 vim.opt.wrap = true
