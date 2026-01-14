@@ -46,7 +46,7 @@
     "research": {
       "description": "General research agent for answering questions without making changes",
       "mode": "primary",
-      "model": "opencode/gemini-3-pro",
+      "model": "openai/gpt-5.2",
       "color": "#1e66f5",
       "tools": {
         "write": false,
@@ -62,8 +62,8 @@
     "analyze": {
       "description": "Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability",
       "mode": "primary",
-      "model": "opencode/gpt-5.2",
-      "color": "#40a02b",
+      "model": "openai/gpt-5.2",
+      "color": "#8839ef",
       "tools": {
         "write": false,
         "edit": false,
@@ -74,6 +74,9 @@
         "edit": "deny",
         "bash": "deny"
       }
+    },
+    "Ticket": {
+      "color":"#40a02b"
     }
   },
   "mcp": {
