@@ -1,7 +1,7 @@
 ---
 description: Drafts ServiceNow tickets - changes, incidents, and service requests
-mode: subagent
-model: opencode/kimi-k2
+mode: primary
+model: openai/gpt-5.2
 temperature: 0.1
 tools:
   write: false
@@ -28,7 +28,7 @@ JUSTIFICATION
 [Business reason this change is necessary]
 
 IMPLEMENTATION PLAN
-[Step-by-step actions to execute the change, including pre-checks and verification steps]
+[Detailed Step-by-step actions to execute the change, including pre-checks and verification steps]
 
 RISK AND IMPACT ANALYSIS
 [Potential risks, likelihood, affected systems/users, and mitigation strategies]
