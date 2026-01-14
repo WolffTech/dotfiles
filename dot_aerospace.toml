@@ -19,7 +19,7 @@ enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
 # The 'accordion-padding' specifies the size of accordion padding
-accordion-padding = 10
+accordion-padding = 0
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'

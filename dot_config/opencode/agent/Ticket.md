@@ -60,7 +60,7 @@ TITLE
 [What is being requested]
 
 ADDITIONAL DETAILS
-[Full context: who needs it, why, any relevant requirements or constraints]
+[Full context on the request. Should not be a list but a more detailed description of the request]
 
 ---
 
