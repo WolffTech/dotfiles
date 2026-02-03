@@ -7,19 +7,28 @@ return {
 		{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 	},
 	config = function()
+		-- Map vim background to OpenCode theme
+		local function get_opencode_theme()
+			if vim.o.background == "light" then
+				return "catppuccin"
+			else
+				return "catppuccin-macchiato"
+			end
+		end
+
 		---@type opencode.Opts
 		vim.g.opencode_opts = {
 			-- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
 			provider = {
-				snacks = {
-					-- Pass through necessary environment variables for system theme detection
-					env = {
-						COLORTERM = vim.env.COLORTERM or "truecolor",
-						TERM = vim.env.TERM,
-						TERM_PROGRAM = vim.env.TERM_PROGRAM,
-						TERMINFO = vim.env.TERMINFO,
-					},
-					win = {
+			snacks = {
+				-- Pass through necessary environment variables for system theme detection
+				-- env = {
+				-- 	COLORTERM = vim.env.COLORTERM or "truecolor",
+				-- 	TERM = vim.env.TERM,
+				-- 	TERM_PROGRAM = vim.env.TERM_PROGRAM,
+				-- 	TERMINFO = vim.env.TERMINFO,
+				-- },
+				win = {
 						position = "right",
 						enter = false,
 						wo = {
@@ -56,5 +65,31 @@ return {
 	vim.keymap.set("n", "<leader>ou", function() require("opencode").command("session.half.page.up") end, { desc = "OpenCode: Half page up" })
 	-- <leader>od: Scrolls the OpenCode terminal window down by half a page
 	vim.keymap.set("n", "<leader>od", function() require("opencode").command("session.half.page.down") end, { desc = "OpenCode: Half page down" })
+
+	-- Dynamically inject theme based on vim.o.background before opening terminal
+	local opencode = require("opencode")
+	local config = require("opencode.config")
+
+	local original_toggle = opencode.toggle
+	opencode.toggle = function(...)
+		if config.provider and config.provider.opts then
+			config.provider.opts.env = config.provider.opts.env or {}
+			config.provider.opts.env.OPENCODE_CONFIG_CONTENT = vim.json.encode({
+				theme = get_opencode_theme()
+			})
+		end
+		return original_toggle(...)
+	end
+
+	local original_ask = opencode.ask
+	opencode.ask = function(...)
+		if config.provider and config.provider.opts then
+			config.provider.opts.env = config.provider.opts.env or {}
+			config.provider.opts.env.OPENCODE_CONFIG_CONTENT = vim.json.encode({
+				theme = get_opencode_theme()
+			})
+		end
+		return original_ask(...)
+	end
 	end,
 }
