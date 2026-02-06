@@ -4,7 +4,7 @@ auto-update-channel = tip
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 window-theme = system
-background-blur = macos-glass-regular
+background-blur = 20
 background-opacity = 0.8
 # Top Bar
 macos-titlebar-style = tabs
