@@ -1,10 +1,14 @@
+# Updates
+auto-update-channel = tip
+
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 window-theme = system
-
-background-opacity = 0.80
-background-blur-radius = 30
-# background = #000000
+background-blur = macos-glass-regular
+background-opacity = 0.8
+# Top Bar
+macos-titlebar-style = tabs
+macos-window-buttons = visible
 
 ## Cursor
 cursor-style = underline
@@ -18,10 +22,6 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-# Top Bar
-title =
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = hidden
 
 # Quick Term
 keybind = global:alt+escape=toggle_quick_terminal
