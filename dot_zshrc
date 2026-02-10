@@ -60,6 +60,9 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+#Python Alias
+alias python3='/opt/homebrew/bin/python3'
+
 #Tmux Alias
 alias t='tmux'
 alias tc='tmux new-session -t 0'
