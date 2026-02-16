@@ -17,15 +17,16 @@ fi
 
 # Set Path Parameters
 path=(
-	$path
 	/opt/homebrew/bin
 	/usr/bin
 	/bin
+	/opt/homebrew/sbin
 	/usr/local/sbin
 	/user/sbin
 	/sbin
 	~/bin
 	~/.rustup/toolchains/stable-aarch64-apple-darwin/bin
+	$path
 )
 
 # Add zsh plugins
