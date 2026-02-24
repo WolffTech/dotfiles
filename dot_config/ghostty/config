@@ -15,7 +15,8 @@ cursor-style = underline
 cursor-style-blink = true
 
 ## Font
-font-family = JetBrainsMono Nerd Font
+# font-family = JetBrainsMono Nerd Font
+font-family = SFMono Nerd Font
 font-style = Regular
 font-size = 14
 font-feature = -calt
