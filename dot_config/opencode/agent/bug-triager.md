@@ -1,7 +1,7 @@
 ---
 description: Triages bugs and failing tests - finds root cause and suggests minimal fixes
 mode: subagent
-model: opencode/claude-opus-4-5
+model: opencode/claude-opus-4-6
 temperature: 0.2
 tools:
   write: false

@@ -1,7 +1,7 @@
 ---
 description: Writes READMEs, runbooks, ADRs, release notes, and upgrade guides
 mode: subagent
-model: opencode/gemini-3-pro
+model: openai/gpt-5.2
 temperature: 0.3
 tools:
   write: true

@@ -1,7 +1,7 @@
 ---
 description: Reviews code for correctness, edge cases, style, and performance
 mode: subagent
-model: opencode/gpt-5.2
+model: openai/gpt-5.3-codex
 temperature: 0.1
 tools:
   write: false
