@@ -174,7 +174,6 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id = 'com.mitchellh.ghostty'
 run = [
   "move-node-to-workspace 1",
-  "layout floating"
 ]
 
 

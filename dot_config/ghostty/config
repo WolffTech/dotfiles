@@ -1,21 +1,22 @@
 # Updates
-auto-update-channel = tip
+auto-update-channel = stable
 
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 window-theme = system
-background-blur = 20
+background-blur = true
 background-opacity = 0.8
-# Top Bar
-macos-titlebar-style = tabs
-macos-window-buttons = visible
 
-## Cursor
+# Top Bar
+title =
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+
+# Cursor
 cursor-style = underline
 cursor-style-blink = true
 
-## Font
-# font-family = JetBrainsMono Nerd Font
+# Font
 font-family = SFMono Nerd Font
 font-style = Regular
 font-size = 14
