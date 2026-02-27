@@ -1,7 +1,7 @@
 ---
 description: Drafts ServiceNow tickets - changes, incidents, and service requests
 mode: primary
-model: openai/gpt-5.2
+model: opencode/claude-opus-4-6
 temperature: 0.1
 tools:
   write: false
@@ -26,7 +26,7 @@ DESCRIPTION
 [What is being changed and why - provide context for reviewers]
 
 JUSTIFICATION
-[Business reason this change is necessary]
+[Business reason this change is necessary - should not be a list]
 
 IMPLEMENTATION PLAN
 [Detailed Step-by-step actions to execute the change, including pre-checks and verification steps]
@@ -38,7 +38,7 @@ BACKOUT PLAN
 [Steps to revert if the change fails or causes issues]
 
 COMMUNICATION PLAN
-[Who needs to be notified and when]
+[How we'll communicate the change which will just be an email when the change begins and when it has completed]
 
 POST TEST PLAN
 [Validation steps to confirm the change was successful]
