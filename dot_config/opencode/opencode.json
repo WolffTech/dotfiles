@@ -2,35 +2,13 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
   "provider": {
-    "opencode": {
-      "models": {
-        "gpt-5.2": {
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" }
-          }
-        },
-        "gemini-3-pro": {
-          "variants": {
-            "low": { "thinkingBudget": 8000 },
-            "high": { "thinkingBudget": 24000 }
-          }
-        },
-        "glm-4.7-free": {
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "high": { "reasoningEffort": "high" }
-          }
-        },
-        "claude-sonnet-4-5": {
-          "variants": {
-            "high": { "thinking": { "type": "enabled", "budgetTokens": 16000 } },
-            "max": { "thinking": { "type": "enabled", "budgetTokens": 32000 } }
-          }
-        }
-      }
+    "lmstudio": {
+      "api": "openai",
+      "name": "LM Studio",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1",
+        "apiKey": "lm-studio"
+      },
     }
   },
   "agent": {
@@ -43,7 +21,7 @@
     "research": {
       "description": "General research agent for answering questions without making changes",
       "mode": "primary",
-      "model": "openai/gpt-5.3-codex",
+      "model": "openai/gpt-5.4",
       "color": "#1e66f5",
       "tools": {
         "write": false,
@@ -59,7 +37,7 @@
     "analyze": {
       "description": "Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability",
       "mode": "primary",
-      "model": "openai/gpt-5.3-codex",
+      "model": "openai/gpt-5.4",
       "color": "#8839ef",
       "tools": {
         "write": false,

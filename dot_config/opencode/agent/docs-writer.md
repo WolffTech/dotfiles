@@ -1,7 +1,7 @@
 ---
 description: Writes READMEs, runbooks, ADRs, release notes, and upgrade guides
 mode: subagent
-model: openai/gpt-5.2
+model: openai/gpt-5.4
 temperature: 0.3
 tools:
   write: true
