@@ -169,14 +169,14 @@ alt-shift-l = ['join-with right', 'mode main']
 # 8: 2ed Monitor
 # 9: 2ed Monitor
 
-# Workspace 1: Terminals
+# Ghostty Terminal
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = [
-  "move-node-to-workspace 1",
+"layout floating",
 ]
 
-
+# Workspace 1: Terminals
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = "move-node-to-workspace 1"
@@ -273,7 +273,7 @@ run = "move-node-to-workspace 5"
 if.app-id = 'com.superhuman.electron'
 run = "move-node-to-workspace 5"
 
-# Workspace 6: Stack
+# Workspace 6: Others
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
 run = "move-node-to-workspace 6"
