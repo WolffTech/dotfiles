@@ -23,7 +23,6 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-
 # Quick Term
 keybind = global:alt+escape=toggle_quick_terminal
 initial-window = true
@@ -32,3 +31,6 @@ quick-terminal-position = center
 quick-terminal-screen =  mouse
 quick-terminal-autohide = false
 quick-terminal-animation-duration = 0.1
+
+# Secure Password
+macos-auto-secure-input = false
