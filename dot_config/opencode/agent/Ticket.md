@@ -1,5 +1,5 @@
 ---
-description: Drafts ServiceNow tickets - changes, incidents, and service requests
+description: Drafts ServiceNow tickets
 mode: primary
 model: openrouter/anthropic/claude-opus-4.6
 temperature: 0.1

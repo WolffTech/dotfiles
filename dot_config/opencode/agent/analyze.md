@@ -1,5 +1,5 @@
 ---
-description: Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability
+description: Analyzes documents and Code
 mode: primary
 model: openai/gpt-5.3-codex
 temperature: 0.1

@@ -23,8 +23,8 @@
     "build": {
       "color": "#d20f39"
     },
-    "research": {
-      "description": "General research agent for answering questions without making changes",
+    "Research": {
+      "description": "General Research Agent",
       "mode": "primary",
       "model": "openai/gpt-5.4",
       "color": "#1e66f5",
@@ -39,8 +39,8 @@
         "bash": "deny"
       }
     },
-    "analyze": {
-      "description": "Analyzes documents and code - extracts info, reviews grammar/spelling, explains architecture and readability",
+    "Analyze": {
+      "description": "Analyzes documents and code",
       "mode": "primary",
       "model": "openai/gpt-5.4",
       "color": "#8839ef",
@@ -54,6 +54,9 @@
         "edit": "deny",
         "bash": "deny"
       }
+    },
+    "analyze": {
+      "disable": true
     },
     "Ticket": {
       "color":"#40a02b"
