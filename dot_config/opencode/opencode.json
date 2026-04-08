@@ -5,6 +5,11 @@
     "lmstudio": {
       "api": "openai",
       "name": "LM Studio",
+      "models": {
+        "google/gemma-4-26b-a4b": {
+          "name": "Gemma 4 26B A4B"
+        }
+      },
       "options": {
         "baseURL": "http://127.0.0.1:1234/v1",
         "apiKey": "lm-studio"
