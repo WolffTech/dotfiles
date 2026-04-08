@@ -12,11 +12,11 @@
     }
   },
   "agent": {
-    "build": {
-      "color": "#d20f39"
-    },
     "plan": {
       "color": "#df8e1d"
+    },
+    "build": {
+      "color": "#d20f39"
     },
     "research": {
       "description": "General research agent for answering questions without making changes",
