@@ -16,7 +16,7 @@ Use this when the user wants to commit changes to git.
    - `type`: one of `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
    - `scope`: optional, short subsystem or area name
    - `description`: required, short imperative summary
-   - `body`: optional, brief context explaining why
+   - `body`: optional, bulleted list of changes made
    - `footer`: optional, breaking changes or issue references
 5. If the user asked you to create the commit, run `git commit` with the finalized message. Otherwise, return the proposed message without committing.
 
@@ -25,7 +25,9 @@ Use this when the user wants to commit changes to git.
 ```text
 type(scope): description
 
-body
+- change 1
+- change 2
+- change 3
 
 footer
 ```
@@ -33,7 +35,11 @@ footer
 Rules:
 - Omit `(scope)` when there is no useful scope.
 - Use imperative mood, for example `add`, not `added`.
-- Keep the subject concise.
+- Subject line must be 72 characters or fewer.
+- Wrap all body lines at 72 characters.
+- Body is a bulleted list (`- `) summarizing each change in the commit.
+- Each bullet should be a concise, imperative statement of what changed.
+- Order bullets by importance or logical grouping.
 - Use `!` or a `BREAKING CHANGE:` footer for breaking changes.
 
 ## Validation
@@ -41,19 +47,45 @@ Rules:
 - `type` must be one of the allowed Conventional Commits types.
 - `scope` is optional but should be specific when used.
 - `description` is required and should describe the change, not the implementation process.
-- `body` should explain why the change exists when extra context helps.
+- Subject line (`type(scope): description`) must not exceed 72 characters.
+- `body` is a bulleted list of changes, with each line wrapped at 72 characters.
 - `footer` should carry breaking change details or issue references.
 
 Reference: `https://www.conventionalcommits.org/en/v1.0.0/#specification`
 
 ## Examples
 
-- `feat(parser): add array literal support`
-- `fix(ui): correct button alignment on mobile`
-- `docs: update setup instructions for opencode skills`
-- `refactor(config): simplify provider selection`
+Subject-only (for single, self-explanatory changes):
 - `chore: update development dependencies`
-- `feat!: require configured mail provider for registration emails`
+
+Full message with body:
+
+```text
+feat(parser): add array literal support
+
+- Add tokenizer rules for bracket-delimited lists
+- Implement ArrayLiteral AST node with element parsing
+- Support nested arrays and trailing commas
+```
+
+```text
+fix(ui): correct button alignment on mobile
+
+- Set flex-wrap on button container for narrow viewports
+- Add min-width to prevent button text truncation
+```
+
+```text
+feat!: require configured mail provider for registration
+
+- Remove fallback to console logging for outbound mail
+- Add startup validation for SMTP or API mail config
+- Return 503 from /register when mail is unconfigured
+
+BREAKING CHANGE: registration endpoint now requires a
+configured mail provider; previously it silently dropped
+confirmation emails.
+```
 
 ## Output
 
