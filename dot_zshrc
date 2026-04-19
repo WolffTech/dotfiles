@@ -25,6 +25,7 @@ path=(
 	/user/sbin
 	/sbin
 	~/bin
+	~/.local/bin
 	~/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 	$path
 )
