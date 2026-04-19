@@ -1,7 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "btw-opencode"
+  ],
   "provider": {
     "lmstudio": {
       "api": "openai",
