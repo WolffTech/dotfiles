@@ -67,11 +67,6 @@ vim.g.firenvim_config = {
 	}
 }
 
--- when leaving vim fix the cursor. without this I was always having the cursor be a block when leaving neovim
-vim.cmd([[
-  au VimLeave * set guicursor=a:hor20-blinkwait800
-]])
-
 -- switch indenting between tabs/spaces and persist.
 local config_file = vim.fn.stdpath("data") .. "/indent_config"
 
