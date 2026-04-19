@@ -2,7 +2,7 @@
 vim.opt.updatetime = 50
 
 -- turn off LSP logging
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level(vim.log.levels.OFF)
 
 -- netrw liststyle
 vim.cmd("let g:netrw_liststyle = 3")
