@@ -19,14 +19,8 @@ set -euo pipefail
 STATE_DIR="$HOME/Library/Application Support/Übersicht"
 STATE_FILE="$STATE_DIR/servicenow-current-task.json"
 
-notify() {
-  local message="$1"
-  osascript -e "display notification \"${message//\"/\\\"}\" with title \"ServiceNow Capture\"" || true
-}
-
 fail() {
   local message="$1"
-  notify "$message"
   print -u2 -- "$message"
   exit 1
 }
@@ -200,5 +194,4 @@ PYTHON
   fail "$TASK_TEXT"
 fi
 
-notify "Captured current ServiceNow task"
-print -- "$TASK_TEXT"
+print -- "Captured: $TASK_TEXT"

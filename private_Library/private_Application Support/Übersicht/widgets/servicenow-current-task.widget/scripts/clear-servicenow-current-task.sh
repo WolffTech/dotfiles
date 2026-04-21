@@ -22,8 +22,6 @@ mkdir -p "$STATE_DIR"
 
 export STATE_FILE
 
-osascript -e 'display notification "Cleared current task" with title "ServiceNow Capture"' || true
-
 python3 <<'PYTHON'
 import json
 import os
@@ -46,4 +44,5 @@ with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=state_file.parent, d
     temp_name = handle.name
 
 Path(temp_name).replace(state_file)
+print("Cleared current task")
 PYTHON
