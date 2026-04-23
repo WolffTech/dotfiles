@@ -64,6 +64,9 @@
     },
     "Ticket": {
       "color":"#40a02b"
+    },
+    "KB": {
+      "color": "#2f6f3e"
     }
   },
   "mcp": {
