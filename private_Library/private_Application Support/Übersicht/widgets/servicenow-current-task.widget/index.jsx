@@ -35,42 +35,42 @@ export const render = ({ output }) => {
   return (
     <div style={{ textAlign: 'center', paddingBottom: hasDetailsLine ? '0' : '12px' }}>
       <style>{`
-        .current-task {
-          font-family: 'Realtime Semibold', sans-serif;
-          font-size: 18px;
-          color: #fff;
-          font-weight: bold;
-          text-align: center;
-          text-shadow:
-            0 1px 2px rgba(0, 0, 0, 0.9),
-            0 0 6px rgba(0, 0, 0, 0.55);
-        }
+         .current-task {
+           font-family: 'Realtime Semibold', sans-serif;
+           font-size: 18px;
+           color: #fff;
+           font-weight: bold;
+           text-align: center;
+           text-shadow:
+             0 1px 2px rgba(0, 0, 0, 0.9),
+             0 0 8px rgba(0, 0, 0, 0.62);
+         }
 
-        .task-details {
-          font-family: 'Realtime Light', sans-serif;
-          font-size: 18px;
-          color: #fff;
-          text-align: center;
-          text-shadow:
-            0 1px 2px rgba(0, 0, 0, 0.9),
-            0 0 6px rgba(0, 0, 0, 0.55);
-        }
+         .task-details {
+           font-family: 'Realtime Light', sans-serif;
+           font-size: 18px;
+           color: #fff;
+           text-align: center;
+           text-shadow:
+             0 1px 2px rgba(0, 0, 0, 0.9),
+             0 0 8px rgba(0, 0, 0, 0.62);
+         }
 
         .task-link {
           cursor: pointer;
           user-select: none;
         }
 
-        .task-small {
-          font-family: 'Realtime Light', sans-serif;
-          font-size: 11px;
-          color: #fff;
-          text-align: center;
-          margin-top: 2px;
-          text-shadow:
-            0 1px 2px rgba(0, 0, 0, 0.9),
-            0 0 6px rgba(0, 0, 0, 0.55);
-        }
+         .task-small {
+           font-family: 'Realtime Light', sans-serif;
+           font-size: 11px;
+           color: #fff;
+           text-align: center;
+           margin-top: 2px;
+           text-shadow:
+             0 1px 2px rgba(0, 0, 0, 0.9),
+             0 0 8px rgba(0, 0, 0, 0.62);
+         }
       `}</style>
 
       <p style={{ margin: '2px 2px' }}>

@@ -82,6 +82,59 @@ const domResult = safari.doJavaScript(`(() => {
     }
     return '';
   };
+  const valueFromFieldContainer = (fieldName, blockedTexts = []) => {
+    const fieldSelector = '[data-field-name="' + fieldName + '"]';
+    const container = recordDocument.querySelector(fieldSelector);
+    if (!container) return '';
+
+    const interactiveValue = pickValue(
+      fieldSelector + ' input',
+      fieldSelector + ' textarea',
+      fieldSelector + ' [value]'
+    );
+    if (interactiveValue) return interactiveValue;
+
+    const blocked = new Set(blockedTexts.map((value) => textOf(value)).filter(Boolean));
+    const treeWalker = recordDocument.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+    let current = treeWalker.nextNode();
+    while (current) {
+      const candidate = textOf(current.nodeValue);
+      if (candidate && !blocked.has(candidate)) return candidate;
+      current = treeWalker.nextNode();
+    }
+
+    return '';
+  };
+  const valueFromLabeledField = (labelTexts) => {
+    const wantedLabels = new Set(labelTexts.map((value) => textOf(value)).filter(Boolean));
+    let foundValue = '';
+    const search = (root, seen = new Set()) => {
+      if (!root || seen.has(root) || foundValue) return;
+      seen.add(root);
+
+      const labels = root.querySelectorAll ? Array.from(root.querySelectorAll('label[for]')) : [];
+      for (const label of labels) {
+        if (foundValue) break;
+        const labelText = textOf(label.textContent);
+        if (!wantedLabels.has(labelText)) continue;
+        const input = root.getElementById ? root.getElementById(label.getAttribute('for')) : null;
+        const value = input ? textOf(input.value || input.getAttribute('value') || input.textContent) : '';
+        if (value) {
+          foundValue = value;
+          break;
+        }
+      }
+
+      if (foundValue || !root.querySelectorAll) return;
+      for (const node of root.querySelectorAll('*')) {
+        if (node.shadowRoot) search(node.shadowRoot, seen);
+        if (foundValue) break;
+      }
+    };
+
+    search(recordDocument);
+    return foundValue;
+  };
 
   const ticketNumber = pickValue(
     '#incident\\.number',
@@ -92,20 +145,26 @@ const domResult = safari.doJavaScript(`(() => {
     '#sys_display\\.task\\.number',
     '#sys_display\\.change_request\\.number',
     '#sys_display\\.sc_req_item\\.number',
+    '[data-field-name="number"] input',
+    '[data-field-name="number"] textarea',
+    '[data-field-name="number"] [value]',
     'input[id*="number"]',
     'input[name="number"]'
-  );
+  ) || valueFromFieldContainer('number', ['Number']);
 
   const shortDescription = pickValue(
     '#incident\\.short_description',
     '#task\\.short_description',
     '#change_request\\.short_description',
     '#sc_req_item\\.short_description',
+    '[data-field-name="short_description"] input',
+    '[data-field-name="short_description"] textarea',
+    '[data-field-name="short_description"] [value]',
     'input[id*="short_description"]',
     'input[name="short_description"]',
     'textarea[id*="short_description"]',
     'textarea[name="short_description"]'
-  );
+  ) || valueFromFieldContainer('short_description', ['Short description']) || valueFromLabeledField(['Short Description', 'Short description']);
 
   return JSON.stringify({ ticketNumber, shortDescription });
 })()`, { in: currentTab });
@@ -150,21 +209,10 @@ ticket_pattern = re.compile(r"\b((?:INC|RITM|REQ|CHG|PRB|SCTASK|TASK)\d+)\b", re
 ticket_number = str(dom.get("ticketNumber") or "").strip()
 short_description = str(dom.get("shortDescription") or "").strip()
 
-if not ticket_number or not short_description:
+if not ticket_number:
     title_match = ticket_pattern.search(title)
     if title_match:
-        if not ticket_number:
-            ticket_number = title_match.group(1).upper()
-        trailing = title[title_match.end():]
-        parsed_short_description = re.sub(r"^[\s\-:|]+", "", trailing).strip()
-        parsed_short_description = re.sub(
-            r"\s*[|:-]\s*(?:service\s*now|now\s+platform)\s*$",
-            "",
-            parsed_short_description,
-            flags=re.IGNORECASE,
-        ).strip()
-        if not short_description:
-            short_description = parsed_short_description
+        ticket_number = title_match.group(1).upper()
 
 if not ticket_number:
     raise SystemExit("ServiceNow capture failed: no ticket number found")

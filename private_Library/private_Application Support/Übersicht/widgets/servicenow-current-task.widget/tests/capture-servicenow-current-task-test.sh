@@ -78,6 +78,114 @@ if [[ "\${1-}" == "-l" ]]; then
     print -u2 -- "missing record document fallback"
     exit 1
   }
+  [[ "\$jxa_script" == *"const valueFromFieldContainer = (fieldName, blockedTexts = []) => {"* ]] || {
+    print -u2 -- "missing scoped field container helper"
+    exit 1
+  }
+  [[ "\$jxa_script" != *'\${fieldName}'* ]] || {
+    print -u2 -- "unexpected nested template interpolation in generated JXA"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const blocked = new Set(blockedTexts.map((value) => textOf(value)).filter(Boolean));"* ]] || {
+    print -u2 -- "missing blocked text normalization for field helper"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const treeWalker = recordDocument.createTreeWalker(container, NodeFilter.SHOW_TEXT);"* ]] || {
+    print -u2 -- "missing scoped text walker for read-only fields"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const candidate = textOf(current.nodeValue);"* ]] || {
+    print -u2 -- "missing text candidate normalization"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"if (candidate && !blocked.has(candidate)) return candidate;"* ]] || {
+    print -u2 -- "missing blocked text filter for read-only fields"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const valueFromLabeledField = (labelTexts) => {"* ]] || {
+    print -u2 -- "missing label-linked field helper"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const wantedLabels = new Set(labelTexts.map((value) => textOf(value)).filter(Boolean));"* ]] || {
+    print -u2 -- "missing label normalization for labeled field helper"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const labels = root.querySelectorAll ? Array.from(root.querySelectorAll('label[for]')) : [];"* ]] || {
+    print -u2 -- "missing label lookup for labeled field helper"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const input = root.getElementById ? root.getElementById(label.getAttribute('for')) : null;"* ]] || {
+    print -u2 -- "missing linked input lookup for labeled field helper"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"number\"] input',"* ]] || {
+    print -u2 -- "missing workspace number input selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"number\"] textarea',"* ]] || {
+    print -u2 -- "missing workspace number textarea selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"number\"] [value]',"* ]] || {
+    print -u2 -- "missing workspace number value selector"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[name=\"number\"]',"* ]] || {
+    print -u2 -- "unexpected broad number name selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const ticketNumber = pickValue("* ]] || {
+    print -u2 -- "missing ticket number value lookup"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"|| valueFromFieldContainer('number', ['Number']);"* ]] || {
+    print -u2 -- "missing scoped ticket number read-only fallback"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[data-field-name=\"number\"]',"* ]] || {
+    print -u2 -- "unexpected broad workspace number container selector"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[id*=\"number\"]',"* ]] || {
+    print -u2 -- "unexpected broad number id selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"short_description\"] input',"* ]] || {
+    print -u2 -- "missing workspace short description input selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"short_description\"] textarea',"* ]] || {
+    print -u2 -- "missing workspace short description textarea selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"'[data-field-name=\"short_description\"] [value]',"* ]] || {
+    print -u2 -- "missing workspace short description value selector"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[name=\"short_description\"]',"* ]] || {
+    print -u2 -- "unexpected broad short description name selector"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"const shortDescription = pickValue("* ]] || {
+    print -u2 -- "missing short description value lookup"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"valueFromFieldContainer('short_description', ['Short description'])"* ]] || {
+    print -u2 -- "missing scoped short description read-only fallback"
+    exit 1
+  }
+  [[ "\$jxa_script" == *"valueFromLabeledField(['Short Description', 'Short description'])"* ]] || {
+    print -u2 -- "missing labeled short description fallback"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[data-field-name=\"short_description\"]',"* ]] || {
+    print -u2 -- "unexpected broad workspace short description container selector"
+    exit 1
+  }
+  [[ "\$jxa_script" != *"'[id*=\"short_description\"]',"* ]] || {
+    print -u2 -- "unexpected broad short description id selector"
+    exit 1
+  }
   [[ "\$jxa_script" == *", { in: currentTab });"* ]] || {
     print -u2 -- "missing currentTab target for Safari JS execution"
     exit 1
@@ -149,11 +257,16 @@ run_title_fallback_and_failure_case() {
 
   print -r -- '{"taskText":"KEEP EXISTING","url":"https://old.example","capturedAt":"2026-04-16T00:00:00Z"}' > "$state_file"
   write_mock_osascript "$bin_dir" "$osascript_log"
-
-  MOCK_JXA_JSON='{"url":"https://example.service-now.com/incident.do?sys_id=123","title":"INC0019999 - Restore SSO access | ServiceNow","dom":{"ticketNumber":"","shortDescription":""}}' \
-    HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"
-  assert_eq "Captured: INC0019999 Restore SSO access" "$(<"$stdout_file")" "script should fall back to parsing the tab title"
   state_before=$(<"$state_file")
+
+  if MOCK_JXA_JSON='{"url":"https://example.service-now.com/incident.do?sys_id=123","title":"INC0019999 - Restore SSO access | ServiceNow","dom":{"ticketNumber":"","shortDescription":""}}' \
+    HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"; then
+    fail "ServiceNow page without a DOM short description should fail"
+  fi
+
+  assert_eq "ServiceNow capture failed: no short description found" "$(<"$stderr_file")" "script should require a DOM-backed short description"
+  state_after=$(<"$state_file")
+  assert_eq "$state_before" "$state_after" "missing short description failure should preserve prior state"
 
   if MOCK_JXA_JSON='{"url":"https://example.com/","title":"Example Domain","dom":{"ticketNumber":"","shortDescription":""}}' \
     HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"; then
@@ -219,9 +332,80 @@ run_nested_iframe_record_case() {
   assert_eq "INC0292497 Missing subfolder in Member Services UDrive" "$(plutil -extract taskText raw -o - "$state_file")" "state file should store the real short description from the record form"
 }
 
+run_workspace_dom_short_description_case() {
+  local temp_dir bin_dir home_dir stdout_file stderr_file osascript_log state_file
+  temp_dir=$(mktemp -d)
+  bin_dir="$temp_dir/bin"
+  home_dir="$temp_dir/home"
+  stdout_file="$temp_dir/stdout.txt"
+  stderr_file="$temp_dir/stderr.txt"
+  osascript_log="$temp_dir/osascript.log"
+  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+
+  mkdir -p "$bin_dir" "$home_dir"
+  write_mock_osascript "$bin_dir" "$osascript_log"
+
+  MOCK_JXA_JSON='{"url":"https://example.service-now.com/now/sow/record/incident/123","title":"INC0292497 - Service Operations Workspace","dom":{"ticketNumber":"INC0292497","shortDescription":"Missing subfolder in Member Services UDrive"}}' \
+    HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"
+
+  assert_eq "Captured: INC0292497 Missing subfolder in Member Services UDrive" "$(<"$stdout_file")" "workspace DOM short description should be preferred over generic title text"
+  assert_eq "" "$(<"$stderr_file")" "workspace DOM short description case should not write stderr"
+  assert_eq "INC0292497 Missing subfolder in Member Services UDrive" "$(plutil -extract taskText raw -o - "$state_file")" "workspace DOM short description should be written to state"
+}
+
+run_workspace_title_ticket_fallback_with_dom_short_description_case() {
+  local temp_dir bin_dir home_dir stdout_file stderr_file osascript_log state_file
+  temp_dir=$(mktemp -d)
+  bin_dir="$temp_dir/bin"
+  home_dir="$temp_dir/home"
+  stdout_file="$temp_dir/stdout.txt"
+  stderr_file="$temp_dir/stderr.txt"
+  osascript_log="$temp_dir/osascript.log"
+  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+
+  mkdir -p "$bin_dir" "$home_dir"
+  write_mock_osascript "$bin_dir" "$osascript_log"
+
+  MOCK_JXA_JSON='{"url":"https://example.service-now.com/now/sow/record/incident/123","title":"INC0292497 - Service Operations Workspace","dom":{"ticketNumber":"","shortDescription":"Missing subfolder in Member Services UDrive"}}' \
+    HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"
+
+  assert_eq "Captured: INC0292497 Missing subfolder in Member Services UDrive" "$(<"$stdout_file")" "workspace ticket number should still fall back from title when DOM short description exists"
+  assert_eq "" "$(<"$stderr_file")" "workspace title ticket fallback case should not write stderr"
+  assert_eq "INC0292497 Missing subfolder in Member Services UDrive" "$(plutil -extract taskText raw -o - "$state_file")" "workspace title ticket fallback should be written to state"
+}
+
+run_workspace_generic_title_failure_case() {
+  local temp_dir bin_dir home_dir stdout_file stderr_file osascript_log state_file state_before state_after
+  temp_dir=$(mktemp -d)
+  bin_dir="$temp_dir/bin"
+  home_dir="$temp_dir/home"
+  stdout_file="$temp_dir/stdout.txt"
+  stderr_file="$temp_dir/stderr.txt"
+  osascript_log="$temp_dir/osascript.log"
+  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+
+  mkdir -p "$bin_dir" "${state_file:h}"
+  print -r -- '{"taskText":"KEEP EXISTING","url":"https://old.example","capturedAt":"2026-04-16T00:00:00Z"}' > "$state_file"
+  write_mock_osascript "$bin_dir" "$osascript_log"
+
+  state_before=$(<"$state_file")
+
+  if MOCK_JXA_JSON='{"url":"https://example.service-now.com/now/sow/record/incident/123","title":"INC0292497 - Service Operations Workspace","dom":{"ticketNumber":"","shortDescription":""}}' \
+    HOME="$home_dir" PATH="$bin_dir:$PATH" zsh "$SCRIPT_PATH" >"$stdout_file" 2>"$stderr_file"; then
+    fail "generic workspace title should not be accepted as a short description"
+  fi
+
+  assert_eq "ServiceNow capture failed: no short description found" "$(<"$stderr_file")" "workspace generic title case should fail with missing short description"
+  state_after=$(<"$state_file")
+  assert_eq "$state_before" "$state_after" "workspace generic title failure should preserve the prior state"
+}
+
 run_success_case
 run_title_fallback_and_failure_case
 run_jxa_permission_failure_case
 run_nested_iframe_record_case
+run_workspace_dom_short_description_case
+run_workspace_title_ticket_fallback_with_dom_short_description_case
+run_workspace_generic_title_failure_case
 
 print -- "PASS"
