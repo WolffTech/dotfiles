@@ -1,7 +1,7 @@
 ---
 description: Writes knowledge base articles for support and operations tickets
 mode: primary
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 temperature: 0.2
 tools:
   write: true

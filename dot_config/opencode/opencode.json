@@ -30,7 +30,7 @@
     "Research": {
       "description": "General Research Agent",
       "mode": "primary",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "color": "#1e66f5",
       "tools": {
         "write": false,
@@ -44,23 +44,7 @@
       }
     },
     "Analyze": {
-      "description": "Analyzes documents and code",
-      "mode": "primary",
-      "model": "openai/gpt-5.4",
-      "color": "#8839ef",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false,
-        "patch": false
-      },
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    },
-    "analyze": {
-      "disable": true
+      "color": "#8839ef"
     },
     "Ticket": {
       "color":"#40a02b"

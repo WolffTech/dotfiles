@@ -1,7 +1,7 @@
 ---
 description: Analyzes documents and Code
 mode: primary
-model: openai/gpt-5.3-codex
+model: openai/gpt-5.5
 temperature: 0.1
 tools:
   write: false

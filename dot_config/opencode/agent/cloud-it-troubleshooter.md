@@ -1,7 +1,7 @@
 ---
 description: Diagnoses Azure, AWS, Kubernetes, networking, and OS issues
 mode: subagent
-model: openai/gpt-5.3-codex
+model: openai/gpt-5.5
 temperature: 0.2
 tools:
   write: false
