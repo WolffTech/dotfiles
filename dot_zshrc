@@ -1,40 +1,50 @@
 # Set the directory for zinit and plugins
 ZINIT_HOME="$HOME/.local/share/zinit/zinit"
 
-# Download Zinit, if not already installed
-if [ ! -d "$ZINIT_HOME" ]; then
-	mkdir -p "$(dirname $ZINIT_HOME)"
+# Download Zinit when possible. Missing git should not break shell startup.
+if [[ ! -d "$ZINIT_HOME" ]] && command -v git >/dev/null 2>&1; then
+	mkdir -p "$(dirname "$ZINIT_HOME")"
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
-
-# Oh my Posh
-if [ "$TERM_PROGRAM" != "Apple Terminal" ]; then
-	eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.json)"
+# Source/load zinit and plugins when available.
+if [[ -r "$ZINIT_HOME/zinit.zsh" ]]; then
+	source "$ZINIT_HOME/zinit.zsh"
+	zinit light zsh-users/zsh-syntax-highlighting
+	zinit light zsh-users/zsh-completions
+	zinit light zsh-users/zsh-autosuggestions
+	zinit light Aloxaf/fzf-tab
 fi
 
-# Set Path Parameters
-path=(
-	/opt/homebrew/bin
-	/usr/bin
-	/bin
-	/opt/homebrew/sbin
-	/usr/local/sbin
-	/user/sbin
-	/sbin
-	~/bin
-	~/.local/bin
-	~/.rustup/toolchains/stable-aarch64-apple-darwin/bin
-	$path
-)
+# Platform detection
+case "${OSTYPE:-}" in
+	darwin*) IS_MACOS=1 ;;
+	*) IS_MACOS=0 ;;
+esac
 
-# Add zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# Set Path Parameters
+_add_path_if_exists() {
+	local dir="$1"
+	[[ -d "$dir" ]] && path=("$dir" $path)
+}
+
+_add_path_if_exists /sbin
+_add_path_if_exists /usr/sbin
+_add_path_if_exists /bin
+_add_path_if_exists /usr/bin
+_add_path_if_exists /usr/local/sbin
+_add_path_if_exists /usr/local/bin
+_add_path_if_exists /home/linuxbrew/.linuxbrew/sbin
+_add_path_if_exists /home/linuxbrew/.linuxbrew/bin
+_add_path_if_exists /opt/homebrew/sbin
+_add_path_if_exists /opt/homebrew/bin
+_add_path_if_exists "$HOME/.local/bin"
+_add_path_if_exists "$HOME/bin"
+
+# Oh my Posh
+if [[ "$TERM_PROGRAM" != "Apple Terminal" ]] && command -v oh-my-posh >/dev/null 2>&1; then
+	eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/config.json")"
+fi
 
 # Load completions
 autoload -U compinit && compinit
@@ -62,8 +72,14 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-#Python Alias
-alias python3='/opt/homebrew/bin/python3'
+# Python aliases
+if [[ -x /opt/homebrew/bin/python3 ]]; then
+	alias python3='/opt/homebrew/bin/python3'
+fi
+
+if command -v python3.11 >/dev/null 2>&1; then
+	alias python='python3.11'
+fi
 
 #Tmux Alias
 alias t='tmux'
@@ -82,25 +98,34 @@ alias tfloat='tmux new-session -d -s float -n clipboard "nvim ~/temp.md; zsh -i"
 new-window -n zsh "zsh -i" \; \
 attach -t float'
 
-#Folder Aliases
-alias .='open .'
+# Folder aliases
+if (( IS_MACOS )) && command -v open >/dev/null 2>&1; then
+	alias .='open .'
+fi
 alias personal='cd ~/git/personal-nickwolff'
 alias worklog='nvim ~/Documents/worklog.md'
 
-#Other Aliases
-alias oc="opencode"
-alias python='python3.11'
+# Other aliases
+alias oc='opencode'
 alias lg='lazygit'
 alias lazyd='lazydocker'
-alias ls='eza'
-alias la='eza -l -a -g --icons'
-alias ll='eza -l -g --icons'
+if command -v eza >/dev/null 2>&1; then
+	alias ls='eza'
+	alias la='eza -l -a -g --icons'
+	alias ll='eza -l -g --icons'
+fi
 alias vi='nvim'
-alias calc='numi-cli'
-alias photo='qlmanage -p'
+if command -v numi-cli >/dev/null 2>&1; then
+	alias calc='numi-cli'
+fi
+if command -v qlmanage >/dev/null 2>&1; then
+	alias photo='qlmanage -p'
+fi
 
 # Neovim System Clipboard Editor
-alias cb='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" && rm "$tmp"'
+if command -v pbpaste >/dev/null 2>&1 && command -v pbcopy >/dev/null 2>&1; then
+	alias cb='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" && rm "$tmp"'
+fi
 
 # Terraform alias
 alias tf='terraform'
@@ -109,20 +134,30 @@ alias tf='terraform'
 set -o vi
 
 # Shell integrations
-eval "$(fzf --zsh)"
-bindkey '^Y' fzf-file-widget
+if [[ -t 0 ]] && command -v fzf >/dev/null 2>&1; then
+	eval "$(fzf --zsh)"
+	bindkey '^Y' fzf-file-widget
+fi
 
 # The Fuck Alias (Command Line AutoCorrect)
-eval $(thefuck --alias)
+if command -v thefuck >/dev/null 2>&1; then
+	eval "$(thefuck --alias)"
+fi
 
 # Zoxide startup and rebind
-eval "$(zoxide init --cmd cd zsh)"
+if command -v zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init --cmd cd zsh)"
+fi
 
-# Unbind ^T from teletype
-stty status undef
+# Unbind ^T from teletype. The "status" control character is BSD/macOS-only.
+if (( IS_MACOS )) && [[ -t 0 ]]; then
+	stty status undef
+fi
 
 # Switch Cat with Bat
-alias cat='bat --paging=never'
+if command -v bat >/dev/null 2>&1; then
+	alias cat='bat --paging=never'
+fi
 
 # Restore cursor to blinking underline before each prompt. nvim emits a
 # hardcoded \E[2 q (steady block) on exit (neovim/neovim#4396) that bypasses
