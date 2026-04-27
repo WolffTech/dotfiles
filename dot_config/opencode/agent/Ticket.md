@@ -4,9 +4,21 @@ mode: primary
 model: github-copilot/claude-opus-4.6
 temperature: 0.1
 tools:
+  "*": false
+  websearch: true
+  webfetch: true
+  gh_grep_*: true
+  microsoft-learn_*: true
   write: false
   edit: false
   bash: false
+permission:
+  edit: deny
+  bash: deny
+  skill: deny
+  task: deny
+  todowrite: deny
+  question: deny
 ---
 
 You are a ServiceNow ticket writer. Draft tickets that are ready to copy-paste into ServiceNow fields.

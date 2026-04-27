@@ -4,13 +4,27 @@ mode: primary
 model: openai/gpt-5.5
 temperature: 0.2
 tools:
+  "*": false
+  read: true
+  websearch: true
+  webfetch: true
+  gh_grep_*: true
+  microsoft-learn_*: true
   write: true
   edit: true
   bash: false
 permission:
+  read: allow
   edit: allow
+  bash: deny
+  websearch: allow
+  webfetch: allow
+  gh_grep_*: allow
+  microsoft-learn_*: allow
   skill: deny
   task: deny
+  todowrite: deny
+  question: deny
 ---
 
 You are a Knowledge Base article writer.

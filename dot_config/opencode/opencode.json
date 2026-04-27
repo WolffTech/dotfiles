@@ -31,8 +31,15 @@
       "description": "General Research Agent",
       "mode": "primary",
       "model": "openai/gpt-5.5",
+      "temperature": 0.1,
+      "prompt": "You are a research agent. Find current, source-backed answers. Be concise and cite sources.",
       "color": "#1e66f5",
       "tools": {
+        "*": false,
+        "websearch": true,
+        "webfetch": true,
+        "gh_grep_*": true,
+        "microsoft-learn_*": true,
         "write": false,
         "edit": false,
         "bash": false,
@@ -40,7 +47,11 @@
       },
       "permission": {
         "edit": "deny",
-        "bash": "deny"
+        "bash": "deny",
+        "skill": "deny",
+        "task": "deny",
+        "todowrite": "deny",
+        "question": "deny"
       }
     },
     "Analyze": {
