@@ -136,7 +136,11 @@ set -o vi
 # Shell integrations
 if [[ -t 0 ]] && command -v fzf >/dev/null 2>&1; then
 	eval "$(fzf --zsh)"
-	bindkey '^Y' fzf-file-widget
+	bindkey -M emacs -r '\ec'
+	bindkey -M vicmd -r '\ec'
+	bindkey -M viins -r '\ec'
+	bindkey -M emacs '^G' fzf-cd-widget
+	bindkey -M viins '^G' fzf-cd-widget
 fi
 
 # The Fuck Alias (Command Line AutoCorrect)
