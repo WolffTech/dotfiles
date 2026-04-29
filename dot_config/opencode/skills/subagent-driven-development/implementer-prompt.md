@@ -32,11 +32,14 @@ Task tool (general-purpose):
     1. Implement exactly what the task specifies
     2. Write tests (following TDD if task says to)
     3. Verify implementation works
-    4. Commit your work
+    4. Commit your implementation work
     5. Self-review (see below)
     6. Report back
 
     Work from: [directory]
+
+    Do not stage or commit the implementation plan document. It is a coordination
+    artifact and should remain uncommitted unless the human explicitly asks.
 
     **While you work:** If you encounter something unexpected or unclear, **ask questions**.
     It's always OK to pause and clarify. Don't guess or make assumptions.

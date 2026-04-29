@@ -9,6 +9,8 @@ description: Use when implementation is complete, all tests pass, and you need t
 
 Guide completion of development work by presenting clear options and handling chosen workflow.
 
+Plan documents under `docs/superpowers/plans/` are coordination artifacts. Do not include them in commits, pushes, merges, or PRs unless the human explicitly asks.
+
 **Core principle:** Verify tests → Present options → Execute choice → Clean up.
 
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
@@ -36,6 +38,8 @@ Cannot proceed with merge/PR until tests pass.
 Stop. Don't proceed to Step 2.
 
 **If tests pass:** Continue to Step 2.
+
+If the worktree contains uncommitted plan files, leave them uncommitted and mention them when presenting completion options. Do not clean up a worktree if cleanup would discard uncommitted plan files without explicit confirmation.
 
 ### Step 2: Determine Base Branch
 

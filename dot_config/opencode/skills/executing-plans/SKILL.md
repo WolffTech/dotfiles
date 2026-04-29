@@ -21,6 +21,8 @@ Load plan, review critically, execute all tasks, report when complete.
 3. If concerns: Raise them with your human partner before starting
 4. If no concerns: Create TodoWrite and proceed
 
+The plan file is a coordination artifact. Do not stage or commit it while executing the plan unless the human explicitly asks.
+
 ### Step 2: Execute Tasks
 
 For each task:
@@ -59,6 +61,7 @@ After all tasks complete and verified:
 - Follow plan steps exactly
 - Don't skip verifications
 - Reference skills when plan says to
+- Leave plan documents uncommitted unless explicitly asked
 - Stop when blocked, don't guess
 - Never start implementation on main/master branch without explicit user consent
 

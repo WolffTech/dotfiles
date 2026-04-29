@@ -7,6 +7,8 @@ description: Use when executing implementation plans with independent tasks in t
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
+Plan documents are coordination artifacts. Read and execute them, but do not stage or commit plan files unless the human explicitly asks.
+
 **Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 
 **Core principle:** Fresh subagent per task + two-stage review (spec then quality) = high quality, fast iteration
@@ -116,6 +118,12 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 4. If the plan itself is wrong, escalate to the human
 
 **Never** ignore an escalation or force the same model to retry without changes. If the implementer said it's stuck, something needs to change.
+
+## Plan File Handling
+
+- Extract the task text from the plan, but do not ask implementer subagents to stage or commit the plan file.
+- If the plan file is untracked or modified, leave it that way unless the human explicitly asks to commit it.
+- Implementation commits should contain code, tests, and related project files only.
 
 ## Prompt Templates
 
