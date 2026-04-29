@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Clear ServiceNow Current Task
+# @raycast.title ToDo Clear Current Task
 # @raycast.mode silent
 
 # Optional parameters:
@@ -30,7 +30,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 state = {
-    "taskText": "General Work and Meetings",
+    "taskText": "...",
     "url": "",
     "capturedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
 }

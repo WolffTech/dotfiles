@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Set ServiceNow Current Task
+# @raycast.title ToDo Set Current Task
 # @raycast.mode silent
 # @raycast.argument1 {"type":"text","placeholder":"Current task"}
 

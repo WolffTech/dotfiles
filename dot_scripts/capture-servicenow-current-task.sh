@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title ToDo Service Now Widget
+# @raycast.title ToDo Capture Ticket
 # @raycast.mode silent
 
 # Optional parameters:
