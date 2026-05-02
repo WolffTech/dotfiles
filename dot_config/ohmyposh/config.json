@@ -50,7 +50,19 @@
             "style": "agnoster_full"
           },
           "style": "plain",
-          "template": "{{ .Path }} ",
+          "template": "{{ if ge (int .Env.POSH_TERMINAL_WIDTH) 90 }}{{ .Path }} {{ end }}",
+          "type": "path"
+        },
+        {
+          "foreground": "p:pink",
+          "options": {
+            "folder_icon": "..\ue5fe..",
+            "home_icon": "~",
+            "max_depth": 2,
+            "style": "agnoster_short"
+          },
+          "style": "plain",
+          "template": "{{ if lt (int .Env.POSH_TERMINAL_WIDTH) 90 }}{{ .Path }} {{ end }}",
           "type": "path"
         },
         {
@@ -76,6 +88,7 @@
     },
     {
       "alignment": "right",
+      "overflow": "hide",
       "segments": [
         {
           "foreground": "p:lavender",

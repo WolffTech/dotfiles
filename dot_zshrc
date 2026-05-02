@@ -47,6 +47,9 @@ if [[ "$TERM_PROGRAM" != "Apple Terminal" ]] && command -v oh-my-posh >/dev/null
 fi
 
 set_poshcontext() {
+	POSH_TERMINAL_WIDTH="${COLUMNS:-0}"
+	export POSH_TERMINAL_WIDTH
+
 	case "${POSH_THEME_VARIANT:-}:${POSH_THEME_VARIANT_SOURCE:-}" in
 		latte:auto|mocha:auto) ;;
 		latte:*|mocha:*) return ;;
