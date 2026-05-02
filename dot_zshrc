@@ -46,6 +46,25 @@ if [[ "$TERM_PROGRAM" != "Apple Terminal" ]] && command -v oh-my-posh >/dev/null
 	eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/config.json")"
 fi
 
+set_poshcontext() {
+	case "${POSH_THEME_VARIANT:-}:${POSH_THEME_VARIANT_SOURCE:-}" in
+		latte:auto|mocha:auto) ;;
+		latte:*|mocha:*) return ;;
+	esac
+
+	POSH_THEME_VARIANT=mocha
+	POSH_THEME_VARIANT_SOURCE=auto
+
+	if (( IS_MACOS )) && command -v defaults >/dev/null 2>&1; then
+		if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" != "Dark" ]]; then
+			POSH_THEME_VARIANT=latte
+		fi
+	fi
+
+	export POSH_THEME_VARIANT
+	export POSH_THEME_VARIANT_SOURCE
+}
+
 # Load completions
 autoload -U compinit && compinit
 
