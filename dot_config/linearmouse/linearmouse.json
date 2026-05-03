@@ -1,5 +1,5 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.2",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.1-beta.1",
   "schemes" : [
     {
       "if" : {
@@ -514,6 +514,20 @@
           "category" : "mouse",
           "productID" : "0x27db",
           "productName" : "Go60",
+          "vendorID" : "0x16c0"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 2,
+        "speed" : 0.15
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x27db",
+          "productName" : "Glove80",
           "vendorID" : "0x16c0"
         }
       },
