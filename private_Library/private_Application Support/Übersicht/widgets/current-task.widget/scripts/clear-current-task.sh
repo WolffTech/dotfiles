@@ -2,21 +2,21 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Clear ServiceNow Current Task
+# @raycast.title ToDo Clear Current Task
 # @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon 🧹
 
 # Documentation:
-# @raycast.description Clear the Übersicht ServiceNow current task widget back to the default state.
+# @raycast.description Clear the Übersicht current task widget back to the default state.
 # @raycast.author wolfftech
 # @raycast.authorURL https://raycast.com/wolfftech
 
 set -euo pipefail
 
 STATE_DIR="$HOME/Library/Application Support/Übersicht"
-STATE_FILE="$STATE_DIR/servicenow-current-task.json"
+STATE_FILE="$STATE_DIR/current-task.json"
 
 mkdir -p "$STATE_DIR"
 

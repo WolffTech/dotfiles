@@ -2,35 +2,46 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title ToDo Clear Current Task
+# @raycast.title ToDo - Set Current Task
 # @raycast.mode silent
+# @raycast.argument1 {"type":"text","placeholder":"Current task"}
 
 # Optional parameters:
-# @raycast.icon 🧹
+# @raycast.icon 📝
 
 # Documentation:
-# @raycast.description Clear the Übersicht ServiceNow current task widget back to the default state.
+# @raycast.description Set the Übersicht current task widget to custom text.
 # @raycast.author wolfftech
 # @raycast.authorURL https://raycast.com/wolfftech
 
 set -euo pipefail
 
 STATE_DIR="$HOME/Library/Application Support/Übersicht"
-STATE_FILE="$STATE_DIR/servicenow-current-task.json"
+STATE_FILE="$STATE_DIR/current-task.json"
+TASK_TEXT="${1-}"
 
-mkdir -p "$STATE_DIR"
+fail() {
+  local message="$1"
+  print -u2 -- "$message"
+  exit 1
+}
 
-export STATE_FILE
+export STATE_FILE TASK_TEXT
 
-python3 <<'PYTHON'
+if ! UPDATED_TASK_TEXT=$(python3 <<'PYTHON' 2>&1
 import json
 import os
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+task_text = os.environ.get("TASK_TEXT", "").strip()
+
+if not task_text:
+    raise SystemExit("Set current task failed: task text cannot be empty")
+
 state = {
-    "taskText": "...",
+    "taskText": task_text,
     "url": "",
     "capturedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
 }
@@ -44,5 +55,10 @@ with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=state_file.parent, d
     temp_name = handle.name
 
 Path(temp_name).replace(state_file)
-print("Cleared current task")
+print(task_text)
 PYTHON
+); then
+  fail "$UPDATED_TASK_TEXT"
+fi
+
+print -- "Set current task: $UPDATED_TASK_TEXT"

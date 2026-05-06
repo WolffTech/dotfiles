@@ -112,7 +112,7 @@ run_capture() {
   write_mock_osascript "$bin_dir"
 
   PATH="$bin_dir:$PATH" HOME="$home_dir" MOCK_JXA_JSON="$mock_json" "$SCRIPT_PATH" > "$stdout_file" 2> "$stderr_file"
-  print -r -- "$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  print -r -- "$home_dir/Library/Application Support/Übersicht/current-task.json"
 }
 
 read_json_field() {
@@ -187,7 +187,7 @@ run_invalid_page_case() {
   stderr_file="$temp_dir/stderr"
   mkdir -p "$bin_dir" "$home_dir/Library/Application Support/Übersicht"
   write_mock_osascript "$bin_dir"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
   print -r -- '{"taskText":"Existing Task","url":"https://example.test","capturedAt":"2026-05-06T00:00:00Z"}' > "$state_file"
 
   if PATH="$bin_dir:$PATH" HOME="$home_dir" MOCK_JXA_JSON='{"url":"https://github.com/example-org/example-repo","title":"example-org/example-repo","dom":{"taskTitle":""}}' "$SCRIPT_PATH" > "$stdout_file" 2> "$stderr_file"; then

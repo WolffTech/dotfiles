@@ -6,10 +6,12 @@ import {
   formatUrlText,
   getSafeUrl,
   parseState,
-} from '../ServiceNowCurrentTask.helpers.mjs';
+} from '../CurrentTask.helpers.mjs';
 
 const widgetSource = readFileSync(new URL('../index.jsx', import.meta.url), 'utf8');
-assert.equal(widgetSource.includes('Application Support/Übersicht/servicenow-current-task.json'), true);
+assert.equal(widgetSource.includes('Application Support/Übersicht/current-task.json'), true);
+assert.equal(widgetSource.includes('Application Support/Übersicht/servicenow-current-task.json'), false);
+assert.equal(widgetSource.includes('ServiceNowCurrentTask.helpers.mjs'), false);
 assert.equal(widgetSource.includes('bottom: 0;'), true);
 assert.equal(widgetSource.includes("paddingBottom: hasDetailsLine ? '0' : '12px'"), true);
 

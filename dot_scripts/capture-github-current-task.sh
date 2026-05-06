@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title ToDo GitHub Widget
+# @raycast.title ToDo - GitHub Capture
 # @raycast.mode silent
 
 # Optional parameters:
@@ -16,7 +16,7 @@
 set -euo pipefail
 
 STATE_DIR="$HOME/Library/Application Support/Übersicht"
-STATE_FILE="$STATE_DIR/servicenow-current-task.json"
+STATE_FILE="$STATE_DIR/current-task.json"
 
 fail() {
   local message="$1"

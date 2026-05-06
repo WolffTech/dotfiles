@@ -2,14 +2,14 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title ToDo Capture Ticket
+# @raycast.title ToDo - ServiceNow Capture
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 📝
+# @raycast.icon 🎟️
 
 # Documentation:
-# @raycast.description Update Übersicht widget to show current service now ticket.
+# @raycast.description Update Übersicht current task widget from the current ServiceNow ticket.
 # @raycast.author wolfftech
 # @raycast.authorURL https://raycast.com/wolfftech
 
@@ -17,7 +17,7 @@
 set -euo pipefail
 
 STATE_DIR="$HOME/Library/Application Support/Übersicht"
-STATE_FILE="$STATE_DIR/servicenow-current-task.json"
+STATE_FILE="$STATE_DIR/current-task.json"
 
 fail() {
   local message="$1"

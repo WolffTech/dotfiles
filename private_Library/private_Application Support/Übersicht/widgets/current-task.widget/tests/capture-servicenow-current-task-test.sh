@@ -221,7 +221,7 @@ run_success_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "$home_dir"
   write_mock_osascript "$bin_dir" "$osascript_log"
@@ -239,7 +239,7 @@ run_success_case() {
   assert_eq "INC0012345 Fix VPN access for user" "$plutil_output" "state file should store task text"
   assert_eq "https://example.service-now.com/incident.do?sys_id=123" "$(plutil -extract url raw -o - "$state_file")" "state file should store url"
   assert_contains "$(plutil -extract capturedAt raw -o - "$state_file")" "T" "state file should store ISO timestamp"
-  [[ ! -e "$home_dir/Library/Application Support/Uebersicht/servicenow-current-task.json" ]] || fail "script should not create ASCII Uebersicht state path"
+  [[ ! -e "$home_dir/Library/Application Support/Uebersicht/current-task.json" ]] || fail "script should not create ASCII Uebersicht state path"
 }
 
 
@@ -251,7 +251,7 @@ run_title_fallback_and_failure_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "${state_file:h}"
 
@@ -288,7 +288,7 @@ run_jxa_permission_failure_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
   expected_message="ServiceNow capture failed: enable Safari's 'Allow JavaScript from Apple Events' setting, then try again"
 
   mkdir -p "$bin_dir" "${state_file:h}"
@@ -320,7 +320,7 @@ run_nested_iframe_record_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "$home_dir"
   write_mock_osascript "$bin_dir" "$osascript_log"
@@ -340,7 +340,7 @@ run_workspace_dom_short_description_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "$home_dir"
   write_mock_osascript "$bin_dir" "$osascript_log"
@@ -361,7 +361,7 @@ run_workspace_title_ticket_fallback_with_dom_short_description_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "$home_dir"
   write_mock_osascript "$bin_dir" "$osascript_log"
@@ -382,7 +382,7 @@ run_workspace_generic_title_failure_case() {
   stdout_file="$temp_dir/stdout.txt"
   stderr_file="$temp_dir/stderr.txt"
   osascript_log="$temp_dir/osascript.log"
-  state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   mkdir -p "$bin_dir" "${state_file:h}"
   print -r -- '{"taskText":"KEEP EXISTING","url":"https://old.example","capturedAt":"2026-04-16T00:00:00Z"}' > "$state_file"

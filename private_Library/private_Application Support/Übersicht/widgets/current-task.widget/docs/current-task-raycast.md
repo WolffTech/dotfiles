@@ -1,20 +1,20 @@
-# ServiceNow Current Task Raycast Setup
+# Current Task Raycast Setup
 
 ## Files
 
-- Widget: `servicenow-current-task.widget/index.jsx`
+- Widget: `current-task.widget/index.jsx`
 - Capture script: `scripts/capture-servicenow-current-task.sh`
-- Clear script: `scripts/clear-servicenow-current-task.sh`
-- State file: `~/Library/Application Support/Übersicht/servicenow-current-task.json`
+- Clear script: `scripts/clear-current-task.sh`
+- State file: `~/Library/Application Support/Übersicht/current-task.json`
 
 ## Raycast Script Command
 
-Before expecting updates, make sure `servicenow-current-task.widget` is enabled in Übersicht.
+Before expecting updates, make sure `current-task.widget` is enabled in Übersicht.
 
 Create a Raycast Script Command that runs:
 
 ```bash
-/Users/nicholas.wolff/Library/Application\ Support/Übersicht/widgets/servicenow-current-task.widget/scripts/capture-servicenow-current-task.sh
+/Users/nicholas.wolff/Library/Application\ Support/Übersicht/widgets/current-task.widget/scripts/capture-servicenow-current-task.sh
 ```
 
 That absolute path must match the local checkout location of the `widgets` directory on this machine.
@@ -28,12 +28,12 @@ Suggested metadata:
 Create a second Raycast Script Command to clear the widget back to the default state:
 
 ```bash
-/Users/nicholas.wolff/Library/Application\ Support/Übersicht/widgets/servicenow-current-task.widget/scripts/clear-servicenow-current-task.sh
+/Users/nicholas.wolff/Library/Application\ Support/Übersicht/widgets/current-task.widget/scripts/clear-current-task.sh
 ```
 
 Suggested metadata:
 
-- Title: `Clear ServiceNow Current Task`
+- Title: `Clear Current Task`
 - Mode: `Compact`
 - Package Name: `Local`
 

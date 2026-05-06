@@ -3,9 +3,9 @@ import {
   formatUrlText,
   getSafeUrl,
   parseState,
-} from './ServiceNowCurrentTask.helpers.mjs';
+} from './CurrentTask.helpers.mjs';
 
-const stateFilePath = "$HOME/Library/Application Support/Übersicht/servicenow-current-task.json";
+const stateFilePath = "$HOME/Library/Application Support/Übersicht/current-task.json";
 
 export const command = `if [ -f "${stateFilePath}" ]; then cat "${stateFilePath}"; fi`;
 

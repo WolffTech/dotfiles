@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR=${0:A:h:h}
-SCRIPT_PATH="$ROOT_DIR/scripts/clear-servicenow-current-task.sh"
+SCRIPT_PATH="$ROOT_DIR/scripts/clear-current-task.sh"
 
 fail() {
   print -u2 -- "FAIL: $1"
@@ -40,7 +40,7 @@ home_dir="$temp_dir/home"
 stdout_file="$temp_dir/stdout.txt"
 stderr_file="$temp_dir/stderr.txt"
 osascript_log="$temp_dir/osascript.log"
-state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
 mkdir -p "$bin_dir" "$home_dir"
 

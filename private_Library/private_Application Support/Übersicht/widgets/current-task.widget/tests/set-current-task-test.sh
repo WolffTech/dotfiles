@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR=${0:A:h:h}
-SCRIPT_PATH="$ROOT_DIR/scripts/set-servicenow-current-task.sh"
+SCRIPT_PATH="$ROOT_DIR/scripts/set-current-task.sh"
 
 fail() {
   print -u2 -- "FAIL: $1"
@@ -68,7 +68,7 @@ run_success_case() {
   local stdout_file="$temp_dir/stdout.txt"
   local stderr_file="$temp_dir/stderr.txt"
   local osascript_log="$temp_dir/osascript.log"
-  local state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  local state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   make_test_home "$temp_dir"
   : > "$osascript_log"
@@ -95,7 +95,7 @@ run_empty_input_case() {
   local home_dir="$temp_dir/home"
   local stdout_file="$temp_dir/stdout.txt"
   local stderr_file="$temp_dir/stderr.txt"
-  local state_file="$home_dir/Library/Application Support/Übersicht/servicenow-current-task.json"
+  local state_file="$home_dir/Library/Application Support/Übersicht/current-task.json"
 
   make_test_home "$temp_dir"
 
