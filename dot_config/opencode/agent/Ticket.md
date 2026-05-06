@@ -82,6 +82,7 @@ ADDITIONAL DETAILS
 - Be specific and actionable.
 - Include enough detail for someone unfamiliar with the context to understand.
 - Use consistent terminology.
+- Use neutral wording that does not reference a person. Avoid phrases such as "I need you to", "you should", "we're requesting", or similar person-directed language.
 - Do not use time references where possible.
 
 ---
