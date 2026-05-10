@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "project_panel": {
+    "dock": "left"
+  },
+  "terminal": {
+    "dock": "left",
+    "toolbar": {
+      "breadcrumbs": true
+    }
+  },
+  "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    },
+    "opencode": {
+      "type": "registry",
+      "default_config_options": {
+        "effort": "medium",
+        "mode": "Super Build"
+      }
+    }
+  },
+  "auto_install_extensions": {
+    "ansible": true,
+    "catppuccin": true,
+    "catppuccin-blur": true,
+    "catppuccin-icons": true,
+    "csharp": true,
+    "csv": true,
+    "dockerfile": true,
+    "github-theme": true,
+    "graphql": true,
+    "html": true,
+    "java": true,
+    "kotlin": true,
+    "lua": true,
+    "make": true,
+    "nix": true,
+    "opencode": true,
+    "powershell": true,
+    "sql": true,
+    "swift": true,
+    "terraform": true,
+    "xml": true,
+    "zig": true
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Latte"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "base_keymap": "JetBrains",
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
+}
