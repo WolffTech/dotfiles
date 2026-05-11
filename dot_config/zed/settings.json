@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "project_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "terminal": {
     "dock": "left",
@@ -74,8 +74,9 @@
   "session": {
     "trust_all_worktrees": true
   },
+  "file_scan_inclusions": ["**"],
   "vim_mode": true,
-  "base_keymap": "JetBrains",
+  "base_keymap": "VSCode",
   "ui_font_size": 16,
   "buffer_font_size": 14.0,
   "theme": {
