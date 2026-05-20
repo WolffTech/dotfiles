@@ -5,6 +5,7 @@ model: github-copilot/claude-opus-4.6
 temperature: 0.1
 tools:
   "*": false
+  read: true
   websearch: true
   webfetch: true
   gh_grep_*: true
