@@ -41,6 +41,11 @@ _add_path_if_exists /opt/homebrew/bin
 _add_path_if_exists "$HOME/.local/bin"
 _add_path_if_exists "$HOME/bin"
 
+# Mise
+if command -v mise >/dev/null 2>&1; then
+	eval "$(mise activate zsh)"
+fi
+
 # Oh my Posh
 if [[ "$TERM_PROGRAM" != "Apple Terminal" ]] && command -v oh-my-posh >/dev/null 2>&1; then
 	eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/config.json")"
@@ -111,16 +116,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Python aliases
-if [[ -x /opt/homebrew/bin/python3 ]]; then
-	alias python3='/opt/homebrew/bin/python3'
-fi
-
-if command -v python3.11 >/dev/null 2>&1; then
-	alias python='python3.11'
-fi
-
-#Tmux Alias
+#Tmux alias
 alias t='tmux'
 alias tc='tmux new-session -t 0'
 alias tk='tmux kill-session'
@@ -137,6 +133,7 @@ alias tfloat='tmux new-session -d -s float -n clipboard "nvim ~/temp.md; zsh -i"
 new-window -n zsh "zsh -i" \; \
 attach -t float'
 
+# Sesh alias
 if command -v sesh >/dev/null 2>&1 && command -v fzf >/dev/null 2>&1; then
 	sesh-connect() {
 		local session
@@ -191,9 +188,6 @@ fi
 if command -v pbpaste >/dev/null 2>&1 && command -v pbcopy >/dev/null 2>&1; then
 	alias cb='tmp=$(mktemp) && pbpaste > "$tmp" && nvim "$tmp" && pbcopy < "$tmp" && rm "$tmp"'
 fi
-
-# Terraform alias
-alias tf='terraform'
 
 # vim mode
 set -o vi
