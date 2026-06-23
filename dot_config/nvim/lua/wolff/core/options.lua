@@ -8,15 +8,14 @@ vim.lsp.log.set_level(vim.log.levels.OFF)
 vim.cmd("let g:netrw_liststyle = 3")
 
 -- line numbers
-vim.opt.nu = true
+vim.opt.nu = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
 function _G.StatusColumn()
-	local lnum = vim.v.lnum
 	local relnum = vim.v.relnum
 	local hl = relnum == 0 and "%#CursorLineNr#" or "%#LineNr#"
-	return "%s " .. hl .. string.format("%4d %3d", lnum, relnum) .. " %#StatusColumnBorder#│"
+	return "%s " .. hl .. string.format("%4d", relnum) .. " %#StatusColumnBorder#│"
 end
 
 vim.opt.statuscolumn = "%!v:lua.StatusColumn()"
