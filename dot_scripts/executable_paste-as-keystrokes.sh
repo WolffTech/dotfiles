@@ -14,4 +14,3 @@
 # @raycast.authorURL https://raycast.com/wolfftech
 
 osascript -e 'tell application "System Events" to keystroke the clipboard as text'
-
