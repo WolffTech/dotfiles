@@ -255,7 +255,7 @@ export const init = dispatch => {
   );
 };
 
-export const command = "/opt/homebrew/bin/media-control get";
+export const command = "UeberPpyer.widget/scripts/now-playing-with-youtube-artwork.sh";
 
 export const initialState = {
   app: "",
@@ -351,8 +351,10 @@ const updateSongData = (output, error, previousState) => {
     elapsed += timeDiff / 1000;
   }
   let localArtwork = null;
-  if (data.artworkMimeType) {
+  if (data.artworkMimeType && data.artworkData) {
     localArtwork = `data:${data.artworkMimeType};base64,${data.artworkData}`;
+  } else if (data.artworkUrl) {
+    localArtwork = data.artworkUrl;
   }
   if (
     (localArtwork && !previousState?.song.localArtwork) ||
