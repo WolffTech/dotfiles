@@ -172,7 +172,7 @@ alt-shift-l = ['join-with right', 'mode main']
 # Ghostty Terminal
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace 1"
+run = "layout floating"
 
 # Workspace 1: Terminals
 [[on-window-detected]]

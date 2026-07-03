@@ -9,10 +9,9 @@ background-opacity = 0.9
 
 # Top Bar
 title =
-macos-titlebar-style= hidden
+macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
-# macos-titlebar-style = tabs
-# macos-window-buttons = visible
+macos-window-buttons = visible
 
 # Cursor
 cursor-style = underline
