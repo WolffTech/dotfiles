@@ -11,7 +11,7 @@ Load plan, review critically, execute all tasks, report when complete.
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
-**Note:** Tell your human partner that Superpowers works much better with access to subagents. The quality of its work will be significantly higher if run on a platform with subagent support (such as Claude Code or Codex). If subagents are available, use superpowers:subagent-driven-development instead of this skill.
+**Note:** Tell your human partner that Superpowers works much better with access to subagents. The quality of its work will be significantly higher if run on a platform with subagent support, including OpenCode in this setup; see `../using-superpowers/SKILL.md` for inline OpenCode guidance and `../using-superpowers/references/codex-tools.md`, `../using-superpowers/references/pi-tools.md`, and `../using-superpowers/references/antigravity-tools.md` for supported platform references. If subagents are available, use superpowers:subagent-driven-development instead of this skill.
 
 ## The Process
 
@@ -19,9 +19,7 @@ Load plan, review critically, execute all tasks, report when complete.
 1. Read plan file
 2. Review critically - identify any questions or concerns about the plan
 3. If concerns: Raise them with your human partner before starting
-4. If no concerns: Create TodoWrite and proceed
-
-The plan file is a coordination artifact. Do not stage or commit it while executing the plan unless the human explicitly asks.
+4. If no concerns: Create todos for the plan items and proceed
 
 ### Step 2: Execute Tasks
 
@@ -61,13 +59,12 @@ After all tasks complete and verified:
 - Follow plan steps exactly
 - Don't skip verifications
 - Reference skills when plan says to
-- Leave plan documents uncommitted unless explicitly asked
 - Stop when blocked, don't guess
 - Never start implementation on main/master branch without explicit user consent
 
 ## Integration
 
 **Required workflow skills:**
-- **superpowers:using-git-worktrees** - REQUIRED: Set up isolated workspace before starting
+- **superpowers:using-git-worktrees** - Ensures isolated workspace (creates one or verifies existing)
 - **superpowers:writing-plans** - Creates the plan this skill executes
 - **superpowers:finishing-a-development-branch** - Complete development after all tasks
