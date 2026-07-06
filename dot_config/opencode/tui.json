@@ -6,5 +6,8 @@
     "agent_list": "tab",
     "agent_cycle": "none",
     "agent_cycle_reverse": "none"
-  }
+  },
+  "plugin": [
+    "@slkiser/opencode-quota"
+  ]
 }

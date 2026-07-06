@@ -1,0 +1,19 @@
+{
+  "enabledProviders": [
+    "openai"
+  ],
+  "enableToast": true,
+  "tuiSidebarPanel": {
+    "enabled": true
+  },
+  "tuiCompactStatus": {
+    "enabled": true,
+    "formatStyle": "allWindows"
+  },
+  "showOnIdle": false,
+  "showOnQuestion": false,
+  "maintainerAnnouncements": {
+    "enabled": false,
+    "home": false
+  }
+}
