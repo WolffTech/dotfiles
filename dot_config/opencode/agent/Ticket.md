@@ -1,7 +1,6 @@
 ---
 description: Drafts ServiceNow tickets
 mode: primary
-model: github-copilot/claude-opus-4.6
 temperature: 0.1
 tools:
   "*": false
