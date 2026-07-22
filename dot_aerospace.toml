@@ -1,15 +1,9 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+# Config version for compatibility and deprecations
+config-version = 2
 
-# You can use it to add commands that run after login to macOS user session.
-# 'start-at-login' needs to be 'true' for 'after-login-command' to work
-# Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
+# Keep configured workspaces alive even when they are empty and invisible
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'S']
 
-# You can use it to add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
 # Start AeroSpace at login
 start-at-login = true
 
@@ -24,8 +18,6 @@ accordion-padding = 0
 default-root-container-layout = 'tiles'
 
 # Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'auto'
 
 # Mouse follows focus when focused monitor changes
@@ -33,7 +25,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
@@ -49,7 +40,7 @@ automatically-unhide-macos-hidden-apps = true
 8 = ['^VG27A [(]1[)]$', 'secondary', 1, 'main']
 9 = ['^VG27A [(]1[)]$', 'secondary', 1, 'main']
 10 = ['^Built-in Retina Display$', 'main']
-# Possible values: (qwerty|dvorak)
+
 [key-mapping]
 preset = 'qwerty'
 
@@ -64,19 +55,7 @@ outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# 'main' binding mode must be always presented
-# Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-# alt-enter = '''exec-and-forget osascript -e '
-# tell application "Terminal"
-#     do script
-#     activate
-# end tell'
-# '''
-
 alt-shift-f = 'fullscreen'
 alt-shift-t = 'layout floating tiling'
 alt-shift-r = 'flatten-workspace-tree'
@@ -84,8 +63,10 @@ alt-w = 'close --quit-if-last-window'
 
 # Scratchpad
 alt-ctrl-shift-backtick = 'workspace S'
+
 # Show Scratchpad Windows
 alt-backtick = 'exec-and-forget bash $HOME/.config/aerospace/aerospace-scratchpad/scratchpad.sh show'
+
 # Add/Remove Windows from Scratchpad
 alt-shift-backtick = 'exec-and-forget bash $HOME/.config/aerospace/aerospace-scratchpad/scratchpad.sh send'
 
@@ -131,6 +112,7 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
 
 # move workspace to next/prev monitor
 alt-shift-rightSquareBracket = 'move-workspace-to-monitor next --wrap-around'
@@ -145,19 +127,6 @@ alt-ctrl-l = 'join-with right'
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-alt-shift-semicolon = 'mode service'
-
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
-
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
-
 # 1: Terminal
 # 2: IDE/Workspace
 # 3: Browsers
@@ -168,118 +137,103 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # 8: 2ed Monitor
 # 9: 2ed Monitor
+# 10: Built-in Display (if external montiors connected)
 
 # Ghostty Terminal
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
+if = 'test %{app-bundle-id} = com.mitchellh.ghostty'
 run = "layout floating"
 
 # Workspace 1: Terminals
 [[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-run = "move-node-to-workspace 1"
-
-[[on-window-detected]]
-if.app-id = 'dev.warp.Warp-Stable'
+if = 'test %{app-bundle-id} = com.googlecode.iterm2'
 run = "move-node-to-workspace 1"
 
 # Workspace 2: IDE/Workspace
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
+if = 'test %{app-bundle-id} = com.microsoft.VSCode'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.dt.Xcode'
+if = 'test %{app-bundle-id} = com.apple.dt.Xcode'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
+if = 'test %{app-bundle-id} = com.jetbrains.intellij'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.rider'
+if = 'test %{app-bundle-id} = com.jetbrains.rider'
 run = "move-node-to-workspace 2"
 
 # Workspace 3: Browser
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
+if = 'test %{app-bundle-id} = app.zen-browser.zen'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if = 'test %{app-bundle-id} = company.thebrowser.Browser'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if = 'test %{app-bundle-id} = com.google.Chrome'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if = 'test %{app-bundle-id} = com.apple.Safari'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'net.imput.helium'
+if = 'test %{app-bundle-id} = net.imput.helium'
 run = "move-node-to-workspace 3"
 
 # Workspace 4: vms
 [[on-window-detected]]
-if.app-id = 'com.parallels.desktop.console'
+if = 'test %{app-bundle-id} = com.parallels.desktop.console'
 run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.rdc.macos'
+if = 'test %{app-bundle-id} = com.microsoft.rdc.macos'
 run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'com.citrix.receiver.nomas'
+if = 'test %{app-bundle-id} = com.citrix.receiver.nomas'
 run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'com.citrix.receiver.icaviewer.mac'
+if = 'test %{app-bundle-id} = com.citrix.receiver.icaviewer.mac'
 run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'com.devolutions.remotedesktopmanager'
-run = "move-node-to-workspace 4"
-
-[[on-window-detected]]
-if.app-id = 'com.utmapp.UTM'
+if = 'test %{app-bundle-id} = com.utmapp.UTM'
 run = "move-node-to-workspace 4"
 
 # Workspace 5: comms
 [[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
+if = 'test %{app-bundle-id} = com.apple.MobileSMS'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
+if = 'test %{app-bundle-id} = com.microsoft.teams2'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
+if = 'test %{app-bundle-id} = com.microsoft.Outlook'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Mail'
+if = 'test %{app-bundle-id} = com.apple.Mail'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace 5"
-
-[[on-window-detected]]
-if.app-id = 'com.superhuman.electron'
+if = 'test %{app-bundle-id} = com.hnc.Discord'
 run = "move-node-to-workspace 5"
 
 # Workspace 6: Others
 [[on-window-detected]]
-if.app-id = 'com.apple.Music'
+if = 'test %{app-bundle-id} = com.apple.Music'
 run = "move-node-to-workspace 6"
 
 [[on-window-detected]]
-if.app-id = 'com.flexibits.fantastical2.mac'
-run = "move-node-to-workspace 6"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Home'
+if = 'test %{app-bundle-id} = com.apple.Home'
 run = "move-node-to-workspace 6"
