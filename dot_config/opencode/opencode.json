@@ -13,58 +13,10 @@
       "model": "openai/gpt-5.6-terra"
     },
     "plan": {
-      "color": "#df8e1d",
-      "permission": {
-        "skill": {
-          "brainstorming": "deny",
-          "dispatching-parallel-agents": "deny",
-          "executing-plans": "deny",
-          "finishing-a-development-branch": "deny",
-          "receiving-code-review": "deny",
-          "requesting-code-review": "deny",
-          "subagent-driven-development": "deny",
-          "systematic-debugging": "deny",
-          "test-driven-development": "deny",
-          "using-git-worktrees": "deny",
-          "using-superpowers": "deny",
-          "verification-before-completion": "deny",
-          "writing-plans": "deny",
-          "writing-skills": "deny"
-        }
-      }
+      "color": "#df8e1d"
     },
     "build": {
-      "color": "#d20f39",
-      "permission": {
-        "skill": {
-          "brainstorming": "deny",
-          "dispatching-parallel-agents": "deny",
-          "executing-plans": "deny",
-          "finishing-a-development-branch": "deny",
-          "receiving-code-review": "deny",
-          "requesting-code-review": "deny",
-          "subagent-driven-development": "deny",
-          "systematic-debugging": "deny",
-          "test-driven-development": "deny",
-          "using-git-worktrees": "deny",
-          "using-superpowers": "deny",
-          "verification-before-completion": "deny",
-          "writing-plans": "deny",
-          "writing-skills": "deny"
-        }
-      }
-    },
-    "Super Plan": {
-      "description": "Plan with Superpowers workflows enabled by default",
-      "mode": "primary",
-      "color": "#df8e1d",
-      "prompt": "You are the OpenCode Plan agent with Superpowers enabled. Before responding to any user request, load the using-superpowers skill with the skill tool, then follow it. If the using-superpowers skill is already loaded in this session, do not load it again; continue following it. Preserve the normal Plan agent behavior: analyze, propose plans, and avoid file modifications unless the user explicitly asks and permissions allow."
-    },
-    "Super Build": {
-      "description": "Build with Superpowers workflows enabled by default",
-      "mode": "primary",
-      "color": "#d20f39",
-      "prompt": "You are the OpenCode Build agent with Superpowers enabled. Before responding to any user request, load the using-superpowers skill with the skill tool, then follow it. If the using-superpowers skill is already loaded in this session, do not load it again; continue following it. Preserve the normal Build agent behavior: implement requested changes pragmatically, verify work, and use tools as needed."
+      "color": "#d20f39"
     },
     "Research": {
       "description": "General Research Agent",
@@ -94,12 +46,6 @@
     },
     "Analyze": {
       "color": "#8839ef"
-    },
-    "Ticket": {
-      "color":"#40a02b"
-    },
-    "KB": {
-      "color": "#2f6f3e"
     }
   },
   "mcp": {
