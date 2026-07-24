@@ -1,11 +1,11 @@
 ---
 name: conventional-commit
-description: Use when the user wants changes committed to git.
+description: Use before running `git commit` or proposing a Git commit message, including commits made during a larger implementation workflow.
 ---
 
 # Conventional Commit
 
-Use this when the user wants to commit changes to git.
+Use this before running `git commit` or proposing a Git commit message.
 
 ## Workflow
 
@@ -18,7 +18,7 @@ Use this when the user wants to commit changes to git.
    - `description`: required, short imperative summary
    - `body`: optional, bulleted list of changes made
    - `footer`: optional, breaking changes or issue references
-5. If the user asked you to create the commit, run `git commit` with the finalized message. Otherwise, return the proposed message without committing.
+5. If creating the commit, run `git commit` with the finalized message. If only proposing a message, return it without committing.
 
 ## Message Shape
 
@@ -40,7 +40,32 @@ Rules:
 - Body is a bulleted list (`- `) summarizing each change in the commit.
 - Each bullet should be a concise, imperative statement of what changed.
 - Order bullets by importance or logical grouping.
+- Put exactly one blank line between the subject and body.
+- Do not put blank lines between body bullets.
+- Never include literal `\n` text in a commit message.
 - Use `!` or a `BREAKING CHANGE:` footer for breaking changes.
+
+## Creating the Commit
+
+For a subject-only message, use one `-m` argument:
+
+```sh
+git commit -m "chore: update development dependencies"
+```
+
+For a multiline message, pass the complete message through standard input:
+
+```sh
+git commit -F - <<'COMMIT_MESSAGE'
+fix(ui): correct button alignment on mobile
+
+- Set flex-wrap on button container for narrow viewports
+- Add min-width to prevent button text truncation
+COMMIT_MESSAGE
+```
+
+Do not use a separate `-m` argument for each bullet. Git treats each `-m`
+argument as a separate paragraph and inserts blank lines between them.
 
 ## Validation
 
@@ -96,4 +121,6 @@ Suggested conventional commit:
 <final message>
 ```
 
-When the user asks you to commit, use the same format for the message you execute.
+When creating the commit, commit only the conventional commit message. Never
+include explanatory text such as `Suggested conventional commit:` in the Git
+commit message.
