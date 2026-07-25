@@ -1,5 +1,5 @@
 # Updates
-auto-update-channel = stable
+auto-update-channel = tip
 
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
@@ -9,7 +9,7 @@ background-opacity = 0.9
 
 # Top Bar
 title =
-macos-titlebar-style = transparent
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-window-buttons = visible
 
