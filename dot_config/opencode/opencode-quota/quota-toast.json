@@ -1,6 +1,8 @@
 {
   "enabledProviders": [
-    "openai"
+    "openai",
+    "openrouter",
+    "xai"
   ],
   "enableToast": true,
   "tuiSidebarPanel": {
