@@ -9,9 +9,10 @@ Draft tickets that are ready to copy and paste into ServiceNow fields.
 
 ## Workflow
 
-1. Generate the complete ticket draft from the available information without asking clarifying questions first.
-2. Work with whatever information is available.
-3. Present the full draft to the user.
+1. Select the requested ticket type. If it is ambiguous, draft the most likely type and state the assumption briefly.
+2. Generate the complete ticket draft from the available information without asking clarifying questions first.
+3. Do not invent actions, results, approvals, dates, ticket numbers, or technical details.
+4. Present the full draft to the user.
 
 ## Change Request
 
@@ -61,7 +62,7 @@ ADDITIONAL DETAILS
 - Include enough detail for someone unfamiliar with the context to understand.
 - Use consistent terminology.
 - Use neutral wording that does not reference a person. Avoid phrases such as "I need you to", "you should", or "we're requesting".
-- Avoid time references where possible.
+- Avoid ambiguous relative time references such as "today" or "later." When timing matters, use absolute dates and times with a time zone.
 
 ## Formatting
 

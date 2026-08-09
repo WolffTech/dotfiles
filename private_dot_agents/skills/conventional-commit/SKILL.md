@@ -9,16 +9,17 @@ Use this before running `git commit` or proposing a Git commit message.
 
 ## Workflow
 
-1. Review the repository state with `git status`.
-2. Inspect the relevant changes with `git diff` and `git diff --cached`.
-3. If the user wants to commit, stage the intended files.
-4. Build a commit message with these parts:
+1. Review repository instructions and recent commit subjects for local conventions.
+2. Review the repository state with `git status`.
+3. Inspect the relevant changes with `git diff` and `git diff --cached`.
+4. If the user wants to commit, stage only the files included in the requested change. Do not alter unrelated staged changes.
+5. Build a commit message with these parts:
    - `type`: one of `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
    - `scope`: optional, short subsystem or area name
    - `description`: required, short imperative summary
    - `body`: optional, bulleted list of changes made
    - `footer`: optional, breaking changes or issue references
-5. If creating the commit, run `git commit` with the finalized message. If only proposing a message, return it without committing.
+6. If creating the commit, run `git commit` with the finalized message. If only proposing a message, return it without committing.
 
 ## Message Shape
 
@@ -33,11 +34,12 @@ footer
 ```
 
 Rules:
+- Follow explicit repository conventions when they differ from these defaults.
 - Omit `(scope)` when there is no useful scope.
 - Use imperative mood, for example `add`, not `added`.
 - Subject line must be 72 characters or fewer.
 - Wrap all body lines at 72 characters.
-- Body is a bulleted list (`- `) summarizing each change in the commit.
+- When a body is useful, format it as a bulleted list (`- `) summarizing each change in the commit.
 - Each bullet should be a concise, imperative statement of what changed.
 - Order bullets by importance or logical grouping.
 - Put exactly one blank line between the subject and body.
@@ -73,7 +75,7 @@ argument as a separate paragraph and inserts blank lines between them.
 - `scope` is optional but should be specific when used.
 - `description` is required and should describe the change, not the implementation process.
 - Subject line (`type(scope): description`) must not exceed 72 characters.
-- `body` is a bulleted list of changes, with each line wrapped at 72 characters.
+- When present, `body` is a bulleted list of changes, with each line wrapped at 72 characters.
 - `footer` should carry breaking change details or issue references.
 
 Reference: `https://www.conventionalcommits.org/en/v1.0.0/#specification`

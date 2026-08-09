@@ -1,11 +1,13 @@
 ---
 name: adhd
-description: Use ONLY when the `/adhd` command requests one ADHD-friendly response that is concise, action-first, and easy to scan.
+description: Use only when the user explicitly requests an ADHD-friendly response or asks to rewrite one response so it is concise, action-first, and easy to scan. Apply it to one response only.
 ---
 
 # ADHD-Friendly Output
 
-Apply these rules to the current response only. Do not carry them into later responses unless the user invokes `/adhd` again.
+Apply these rules to the current response only. Do not carry them into later responses unless the user explicitly requests the skill again.
+
+If the user supplies a request with the invocation, answer that request using these rules. If the user invokes the skill without a new request, rewrite the most recent assistant response and return only the replacement.
 
 ## Priorities
 

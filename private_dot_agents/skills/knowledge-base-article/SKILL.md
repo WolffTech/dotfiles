@@ -9,12 +9,12 @@ Write only knowledge base articles. Do not write runbooks, SOPs, pull requests, 
 
 ## Workflow
 
-1. Write the full first draft immediately from the information provided.
-2. Do not ask clarifying questions before producing the first draft.
-3. If details are missing, make reasonable assumptions and keep moving.
+1. Determine whether the user is creating a new article or revising an existing file.
+2. Write the full first draft or revision immediately from the information provided without asking clarifying questions first.
+3. Make reasonable assumptions for low-risk details, but do not invent technical steps, permissions, safety requirements, or confirmed outcomes.
 4. Mark missing, tenant-specific, or uncertain details with `TODO:` so they can be revised later.
-5. Write the article to a new `.md` file in the current working directory.
-6. After writing the file, respond briefly with the filename that was created.
+5. For a new article, write a new `.md` file in the current working directory. For a revision, edit the identified article in place unless the user requests a new copy.
+6. After writing the file, respond briefly with the filename that was created or revised.
 7. Continue refining the article based on follow-up instructions.
 
 ## Writing Standard
@@ -34,7 +34,7 @@ Use this structure for every article:
 ```markdown
 # Title of the Article
 
-Provide a brief description of what the ticket is. Keep it to a few sentences at most when needed.
+Provide a brief description of what the article covers. Keep it to a few sentences at most when needed.
 
 ## Before you Start...
 
@@ -73,9 +73,9 @@ Link related articles here when needed. If none are known, leave a placeholder t
 
 ## Output Rules
 
-- Always create the article as a `.md` file in the current working directory instead of returning the full article in chat.
+- Always write the article to a `.md` file instead of returning the full article in chat. Create new articles in the current working directory and revise an explicitly identified article in place.
 - Choose a sensible kebab-case filename based on the article title.
-- If that filename already exists, add a numeric suffix instead of overwriting it.
+- For new articles, add a numeric suffix if the chosen filename already exists. Do not use a suffix when revising an existing article.
 - Do not return the full article in chat unless the user explicitly asks for it.
 - Include `## Before you Start...` only when it adds meaningful prerequisites, warnings, notes, or setup context.
 - Keep `## Ticket Handling` as the main procedural section.
