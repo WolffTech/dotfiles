@@ -22,8 +22,9 @@ git:
   autoFetch: true
   pull:
     mode: 'rebase'
-  pagers:
+  diffRenderers:
     - colorArg: always
+      type: rawGit
 update:
   method: never
 keybinding:
@@ -105,6 +106,7 @@ keybinding:
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <c-t>
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -143,8 +145,6 @@ keybinding:
     setUpstream: u
     fetchRemote: f
     sortOrder: s
-  worktrees:
-    viewWorktreeOptions: w
   commits:
     squashDown: s
     renameCommit: r
@@ -212,4 +212,3 @@ customCommands:
             value: "echo \"\\`\\`\\`diff\n`git diff --cached`\n\n\\`\\`\\`\" | pbcopy"
     command: "{{index .PromptResponses 0}}"
     context: 'localBranches'
-
