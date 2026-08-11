@@ -7,6 +7,15 @@ description: Use before running `git commit` or proposing a Git commit message, 
 
 Use this before running `git commit` or proposing a Git commit message.
 
+## Scope Boundary
+
+Apply every formatting rule in this skill only to the text of the Git commit
+message. In particular, the 72-character limits do not apply to documentation,
+code comments, pull request descriptions, release notes, ticket text, or normal
+assistant responses, even when they are written during the same workflow. After
+the commit message is complete, follow the conventions for the next artifact or
+the user's instructions instead of carrying these rules forward.
+
 ## Workflow
 
 1. Review repository instructions and recent commit subjects for local conventions.
@@ -37,8 +46,8 @@ Rules:
 - Follow explicit repository conventions when they differ from these defaults.
 - Omit `(scope)` when there is no useful scope.
 - Use imperative mood, for example `add`, not `added`.
-- Subject line must be 72 characters or fewer.
-- Wrap all body lines at 72 characters.
+- Within the commit message, the subject line must be 72 characters or fewer.
+- Within the commit message, wrap all body lines at 72 characters.
 - When a body is useful, format it as a bulleted list (`- `) summarizing each change in the commit.
 - Each bullet should be a concise, imperative statement of what changed.
 - Order bullets by importance or logical grouping.
