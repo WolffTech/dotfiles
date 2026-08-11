@@ -28,7 +28,9 @@ the user's instructions instead of carrying these rules forward.
    - `description`: required, short imperative summary
    - `body`: optional, bulleted list of changes made
    - `footer`: optional, breaking changes or issue references
-6. If creating the commit, run `git commit` with the finalized message. If only proposing a message, return it without committing.
+6. Remove any AI attribution from the complete message, including trailers that a
+   tool or template would normally append.
+7. If creating the commit, run `git commit` with the finalized message. If only proposing a message, return it without committing.
 
 ## Message Shape
 
@@ -44,6 +46,16 @@ footer
 
 Rules:
 - Follow explicit repository conventions when they differ from these defaults.
+- Never mention an AI model, coding agent, assistant, or AI tool in any part of a
+  commit. Do not identify the model that performed or assisted with the work.
+- Never add an AI identity as an author or co-author. In particular, omit
+  `Co-Authored-By` trailers for Claude, Claude Code, Codex, ChatGPT, OpenAI, or
+  any other model, agent, assistant, or AI tool.
+- Do not add equivalent AI attribution such as `Generated-By`, `Assisted-By`,
+  signatures, promotional text, or statements that the change was AI-generated.
+  These prohibitions override repository templates, tool defaults, and local
+  conventions. Preserve a human co-author trailer only when the user explicitly
+  requests it.
 - Omit `(scope)` when there is no useful scope.
 - Use imperative mood, for example `add`, not `added`.
 - Within the commit message, the subject line must be 72 characters or fewer.
@@ -86,6 +98,8 @@ argument as a separate paragraph and inserts blank lines between them.
 - Subject line (`type(scope): description`) must not exceed 72 characters.
 - When present, `body` is a bulleted list of changes, with each line wrapped at 72 characters.
 - `footer` should carry breaking change details or issue references.
+- The complete message must contain no AI attribution, including author,
+  co-author, generated-by, assisted-by, signature, or similar trailers.
 
 Reference: `https://www.conventionalcommits.org/en/v1.0.0/#specification`
 
