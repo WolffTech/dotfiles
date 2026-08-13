@@ -31,6 +31,7 @@ Draft or create a pull request that accurately describes the committed changes o
    - Follow the repository's title convention. Otherwise use a concise imperative Conventional Commit-style title.
    - Use the repository's pull request template when present.
    - Explain what changed and why.
+   - Keep the title and body focused on the project. Do not mention AI, AI assistance, agents, or AI authorship unless AI functionality is itself part of the change.
    - Include only relevant sections and remove unused placeholders.
    - Distinguish tests that passed, tests that failed, and tests that were not run.
    - Mention breaking changes, rollout concerns, screenshots, and related issues only when applicable.
