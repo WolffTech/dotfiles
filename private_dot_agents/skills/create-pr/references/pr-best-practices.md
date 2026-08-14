@@ -45,7 +45,8 @@ Read this reference only when the repository has no usable pull request template
 Before creation, confirm that:
 
 - The title and body describe only commits included in the pull request.
-- The base and head branches are correct.
+- The target repository, base, head repository, and head branch are correct.
+- The requested ready or draft status is correct.
 - Uncommitted work is not described as included.
 - Breaking changes and migration requirements are explicit.
 - Test claims match actual output.
