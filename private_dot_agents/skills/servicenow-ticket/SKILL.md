@@ -9,36 +9,39 @@ Draft tickets that are ready to copy and paste into ServiceNow fields.
 
 ## Workflow
 
-1. Select the requested ticket type. If it is ambiguous, draft the most likely type and state the assumption briefly.
-2. Generate the complete ticket draft from the available information without asking clarifying questions first.
-3. Do not invent actions, results, approvals, dates, ticket numbers, or technical details.
-4. Present the full draft to the user.
+1. Identify the ticket type from the request and current context.
+2. Draft every applicable field using only information available in the current context, without asking clarifying questions first.
+3. When the context does not support a detail, omit it. Do not add placeholders, assumptions, likely configuration, or routine steps that were not provided.
+4. Edit for density. Remove repetition, generic explanation, speculative risks, and procedural detail that does not help someone perform or review the work.
+5. Present the ticket fields.
 
-## Change Request
+## Change request
 
-TITLE
-[Brief summary of what is being changed]
+Before drafting a change request, read [the synthetic change request example](references/change-request-example.md). Match its structure and information density. Use it only as a writing model.
+
+SHORT DESCRIPTION
+[One sentence naming the change and its primary target]
 
 DESCRIPTION
-[What is being changed and why; provide context for reviewers]
+[Scope and important configuration; use a compact list when several settings belong together]
 
 JUSTIFICATION
-[Business reason this change is necessary; do not use a list]
+[One short paragraph explaining the business purpose and relevant controls]
 
 IMPLEMENTATION PLAN
-[Detailed step-by-step actions to execute the change, including pre-checks and verification steps]
+[Ordered actions; place parameters beneath the action where they are used]
 
 RISK AND IMPACT ANALYSIS
-[Potential risks, likelihood, affected systems or users, and mitigation strategies]
+[Credible change-specific risks with likelihood and mitigation, followed by the expected impact]
 
 BACKOUT PLAN
-[Steps to revert if the change fails or causes issues]
+[Ordered actions that reverse the implementation and remove created resources or configuration]
 
 COMMUNICATION PLAN
-[Email communication when the change begins and when it is complete]
+[Notify stakeholders when implementation begins and when it finishes; include validation or backout results]
 
 POST TEST PLAN
-[Validation steps to confirm the change was successful]
+[Observable checks that confirm each intended result]
 
 ## Incident
 
@@ -48,25 +51,25 @@ TITLE
 DESCRIPTION
 [Symptoms, affected systems, timeline, and known context]
 
-## Service Request
+## Service request
 
 TITLE
 [What is being requested]
 
 ADDITIONAL DETAILS
-[Full context for the request; use prose rather than a list]
+[Context, requirements, and constraints; use prose unless a list is easier to scan]
 
-## Writing Guidelines
+## Writing standard
 
-- Be specific and actionable.
-- Include enough detail for someone unfamiliar with the context to understand.
-- Use consistent terminology.
-- Use neutral wording that does not reference a person. Avoid phrases such as "I need you to", "you should", or "we're requesting".
-- Avoid ambiguous relative time references such as "today" or "later." When timing matters, use absolute dates and times with a time zone.
+- Write a compact operational record. Every sentence or list item must provide a ticket-specific fact, action, risk, mitigation, backout action, or test.
+- Keep narrative fields to one short paragraph unless structured facts are clearer as a list.
+- State configuration once unless someone needs it again to perform or validate the work.
+- Use consistent terminology and neutral wording that does not refer to the writer or reader.
+- When timing matters, use absolute dates and times with a time zone.
 
 ## Formatting
 
-- Use numbered items for top-level points when making lists.
-- Use hyphens for substeps or details under each main point.
-- Use tabs rather than spaces when indenting.
-- Use headers for each field. The headers are not intended to be copied into ServiceNow.
+- Use Markdown headings for field names. The headings are not intended to be copied into ServiceNow.
+- Use numbered items for ordered work, configuration, risks, and validation.
+- Use hyphens for parameters or supporting details beneath a numbered item.
+- Add substeps only when they contain information needed to perform the parent step.
