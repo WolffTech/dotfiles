@@ -8,5 +8,6 @@
   "effortLevel": "high",
   "outputStyle": "Concise",
   "tui": "fullscreen",
-  "theme": "auto"
+  "theme": "auto",
+  "autoMemoryEnabled": false
 }
