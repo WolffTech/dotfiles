@@ -49,7 +49,7 @@ preset = 'qwerty'
 inner.horizontal = 8
 inner.vertical =   8
 outer.left =       8
-outer.bottom =     8 # 55 - Used for Ubersicht
+outer.bottom =     [{ monitor.main = 8 }, 8] # Main display uses 55 when Ubersicht is visible
 outer.top =        0
 outer.right =      8
 
