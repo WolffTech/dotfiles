@@ -48,6 +48,20 @@
       "color": "#8839ef"
     }
   },
+  "provider": {
+    "wolff-spark-01": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Wolff.Tech",
+      "options": {
+        "baseURL": "https://wolff-spark-01.cymric-stargazer.ts.net:8443/v1"
+      },
+      "models": {
+        "glm-5.3-flash": {
+          "name": "GLM-5.3-Flash"
+        }
+      }
+    }
+  },
   "mcp": {
     "context7": {
       "type": "remote",
