@@ -1,0 +1,190 @@
+{{- define "capsLockNavigation" -}}
+{{- $navigation := list
+    (dict "key" "h" "arrow" "left_arrow")
+    (dict "key" "j" "arrow" "down_arrow")
+    (dict "key" "k" "arrow" "up_arrow")
+    (dict "key" "l" "arrow" "right_arrow") -}}
+{
+  "description": "Built-in keyboard: tap Caps Lock for Escape, hold for HJKL arrows",
+  "manipulators": [
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "caps_lock",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [
+        {
+          "set_variable": {
+            "name": "wolff_caps_navigation",
+            "value": 1,
+            "key_up_value": 0
+          }
+        }
+      ],
+      "to_if_alone": [{ "key_code": "escape" }],
+      "parameters": { "basic.to_if_alone_timeout_milliseconds": 1000 },
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "is_built_in_keyboard": true }]
+        }
+      ]
+    }
+    {{- /* These rules precede home-row modifiers, including J/K/L. */}}
+    {{- range $navigation }},
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "{{ .key }}",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "key_code": "{{ .arrow }}" }],
+      "conditions": [
+        {
+          "type": "device_if",
+          "identifiers": [{ "is_built_in_keyboard": true }]
+        },
+        {
+          "type": "variable_if",
+          "name": "wolff_caps_navigation",
+          "value": 1
+        }
+      ]
+    }
+    {{- end }}
+  ]
+}
+{{- end -}}
+{{- /* Keep the hold and cancellation thresholds equal so a hold never also types a letter. */ -}}
+{{- $holdMs := 200 -}}
+{{- $typingIdleMs := 100 -}}
+{{- $homeRow := list
+    (dict "key" "a" "modifier" "left_command")
+    (dict "key" "s" "modifier" "left_control")
+    (dict "key" "d" "modifier" "left_option")
+    (dict "key" "f" "modifier" "left_shift")
+    (dict "key" "j" "modifier" "right_shift")
+    (dict "key" "k" "modifier" "right_option")
+    (dict "key" "l" "modifier" "right_control")
+    (dict "key" "semicolon" "modifier" "right_command") -}}
+{
+  "global": {
+    "show_in_menu_bar": true
+  },
+  "profiles": [
+    {
+      "name": "MacBook home-row modifiers",
+      "selected": true,
+      "complex_modifications": {
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": {{ $holdMs }},
+          "basic.to_if_held_down_threshold_milliseconds": {{ $holdMs }},
+          "basic.to_delayed_action_delay_milliseconds": {{ $holdMs }}
+        },
+        "rules": [
+          {{ template "capsLockNavigation" }},
+          {
+            "description": "Built-in keyboard: GO60 home-row modifiers with typing protection",
+            "manipulators": [
+              {{- /* Physical modifiers must not start the typing-protection window. */}}
+              {{- range list "left_command" "right_command" "left_control" "right_control" "left_option" "right_option" "left_shift" "right_shift" "fn" }}
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "{{ . }}",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [{ "from_event": true }],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [{ "is_built_in_keyboard": true }]
+                  }
+                ]
+              },
+              {{- end }}
+              {{- range $homeRow }}
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "{{ .key }}",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [{ "is_built_in_keyboard": true }]
+                  },
+                  {
+                    "type": "expression_if",
+                    "expression": "wolff_hrm_typing_until <= system.now.milliseconds"
+                  }
+                ],
+                {{- /* Use the original press time when a deferred tap resolves. */}}
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "wolff_hrm_{{ .key }}_typing_until",
+                      "expression": "system.now.milliseconds + {{ $typingIdleMs }}"
+                    }
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "set_variable": {
+                      "name": "wolff_hrm_typing_until",
+                      "expression": "max(wolff_hrm_typing_until, wolff_hrm_{{ .key }}_typing_until)"
+                    }
+                  },
+                  { "key_code": "{{ .key }}", "halt": true }
+                ],
+                "to_if_held_down": [{ "key_code": "{{ .modifier }}" }],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "wolff_hrm_typing_until",
+                        "expression": "max(wolff_hrm_typing_until, wolff_hrm_{{ .key }}_typing_until)"
+                      }
+                    },
+                    { "key_code": "{{ .key }}" }
+                  ]
+                }
+              },
+              {{- end }}
+              {{- /* Last: pass ordinary keys through and extend typing protection. */}}
+              {
+                "type": "basic",
+                "from": {
+                  "any": "key_code",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [{ "is_built_in_keyboard": true }]
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "wolff_hrm_typing_until",
+                      "expression": "system.now.milliseconds + {{ $typingIdleMs }}"
+                    }
+                  },
+                  { "from_event": true }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Plain keyboard",
+      "selected": false,
+      "complex_modifications": { "rules": [{{ template "capsLockNavigation" }}] }
+    }
+  ]
+}
