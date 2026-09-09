@@ -69,7 +69,8 @@ ADDITIONAL DETAILS
 
 ## Formatting
 
-- Use Markdown headings for field names. The headings are not intended to be copied into ServiceNow.
+- Use a Markdown heading for each field name, followed by a fenced code block labeled `text` that contains only that field's value.
+- Keep all ticket content inside the text blocks so each field can be copied directly into ServiceNow. Do not add commentary before or after the fields.
 - Use numbered items for ordered work, configuration, risks, and validation.
 - Use hyphens for parameters or supporting details beneath a numbered item.
 - Add substeps only when they contain information needed to perform the parent step.

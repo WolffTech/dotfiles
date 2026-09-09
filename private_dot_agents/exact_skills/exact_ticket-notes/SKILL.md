@@ -27,6 +27,8 @@ When the user asks for a ticket resolution note:
 
 ## Output Rules
 
+- Wrap the complete note in a single fenced code block labeled `text` so it can be copied as one unit.
+- Put only the note inside the text block. Do not add commentary before or after it.
 - Use a flat bulleted list for standard ticket notes.
 - Keep the notes in chronological order when practical.
 - Start each item with a clear action or finding.
