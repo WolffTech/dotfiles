@@ -1,0 +1,20 @@
+# Retain ownership entries after deleting their source files.
+aiOwnedFiles:
+  - target: AGENTS.md
+    source: AGENTS.md
+  - target: .codex/AGENTS.md
+    source: private_dot_codex/symlink_AGENTS.md
+  - target: .claude/CLAUDE.md
+    source: private_dot_claude/symlink_CLAUDE.md
+  - target: .claude/settings.json
+    source: private_dot_claude/private_settings.json
+  - target: .claude/statusline.sh
+    source: private_dot_claude/executable_statusline.sh
+  - target: .config/opencode/AGENTS.md
+    source: dot_config/opencode/symlink_AGENTS.md
+  - target: .config/opencode/opencode.json
+    source: dot_config/opencode/opencode.json
+  - target: .config/opencode/tui.json
+    source: dot_config/opencode/tui.json
+  - target: .config/opencode/opencode-quota/quota-toast.json
+    source: dot_config/opencode/opencode-quota/quota-toast.json

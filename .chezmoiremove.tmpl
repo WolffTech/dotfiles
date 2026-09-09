@@ -1,0 +1,5 @@
+{{- range .aiOwnedFiles }}
+{{- if not (lstat (joinPath $.chezmoi.sourceDir .source)) }}
+{{ .target }}
+{{- end }}
+{{- end }}

@@ -1,6 +1,8 @@
 **/cache/
 **/.DS_Store
 **/.vimsession
+.codex/skills/.system
+.codex/skills/.system/**
 
 {{- if ne .chezmoi.os "darwin" }}
 Library/Sounds
