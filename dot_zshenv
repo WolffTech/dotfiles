@@ -6,9 +6,21 @@
 # ~/.zprofile
 #   Run for login shells.
 # ~/.zshrc
-#   Run for login shells.
+#   Run for interactive shells.
 # ~/.zlogin
 #   Run for login shells.
+
+# SSH commands need Homebrew even when interactive shell setup is skipped.
+if [[ "$OSTYPE" == linux* ]]; then
+  () {
+    local dir
+    for dir in /home/linuxbrew/.linuxbrew/sbin /home/linuxbrew/.linuxbrew/bin; do
+      if [[ -d "$dir" ]]; then
+        path=("$dir" "${(@)path:#$dir}")
+      fi
+    done
+  }
+fi
 
 # XDG
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
