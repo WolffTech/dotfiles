@@ -1,3 +1,32 @@
+Host coretek-work-mac
+  HostName m-hlq1h679jf-2069.cymric-stargazer.ts.net
+  User nicholas.wolff
+  IdentityFile ~/.ssh/t3_remote
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
+Host wolff-agent
+  HostName wolff-agent.cymric-stargazer.ts.net
+  User wolff
+  IdentityFile ~/.ssh/t3_remote
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
+Host wolff-spark
+  HostName wolff-spark-01.cymric-stargazer.ts.net
+  User wolff
+  IdentityFile ~/.ssh/t3_remote
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
 Host *
   SetEnv TERM=xterm-256color
-
