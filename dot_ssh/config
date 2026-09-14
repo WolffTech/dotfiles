@@ -1,4 +1,4 @@
-Host coretek-work-mac
+Host coretek-work-mac m-hlq1h679jf-2069 m-hlq1h679jf-2069.cymric-stargazer.ts.net 100.78.32.68
   HostName m-hlq1h679jf-2069.cymric-stargazer.ts.net
   User nicholas.wolff
   IdentityFile ~/.ssh/t3_remote
