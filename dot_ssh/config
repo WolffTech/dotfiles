@@ -8,6 +8,16 @@ Host coretek-work-mac
   ServerAliveInterval 30
   ServerAliveCountMax 3
 
+Host wolff-main
+  HostName wolff-macbook-main.cymric-stargazer.ts.net
+  User wolff
+  IdentityFile ~/.ssh/t3_remote
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+
 Host wolff-agent
   HostName wolff-agent.cymric-stargazer.ts.net
   User wolff
