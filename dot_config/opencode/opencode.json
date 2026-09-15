@@ -60,6 +60,22 @@
           "name": "GLM-5.3-Flash"
         }
       }
+    },
+    "wolff-spark-01-qwen": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Wolff.Tech Qwen",
+      "options": {
+        "baseURL": "https://wolff-spark-01.cymric-stargazer.ts.net:8444/v1"
+      },
+      "models": {
+        "qwen3.8-flash-next": {
+          "name": "Qwen3.8-Flash-Next",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
     }
   },
   "mcp": {
