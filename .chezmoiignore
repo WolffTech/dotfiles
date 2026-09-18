@@ -1,3 +1,6 @@
+# Local SSH settings are not managed or published with dotfiles.
+.ssh/config.local
+
 **/cache/
 **/.DS_Store
 **/.vimsession

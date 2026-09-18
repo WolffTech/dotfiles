@@ -1,42 +1,9 @@
-Host coretek-work-mac m-hlq1h679jf-2069 m-hlq1h679jf-2069.cymric-stargazer.ts.net 100.78.32.68
-  HostName m-hlq1h679jf-2069.cymric-stargazer.ts.net
-  User nicholas.wolff
-  IdentityFile ~/.ssh/t3_remote
-  AddKeysToAgent yes
-  IgnoreUnknown UseKeychain
-  UseKeychain yes
-  ServerAliveInterval 30
-  ServerAliveCountMax 3
+# Local settings take precedence over Fleet defaults.
+Include ~/.ssh/config.local
 
-Host wolff-main
-  HostName wolff-macbook-main.cymric-stargazer.ts.net
-  User wolff
-  IdentityFile ~/.ssh/t3_remote
-  AddKeysToAgent yes
-  IgnoreUnknown UseKeychain
-  UseKeychain yes
-  ServerAliveInterval 30
-  ServerAliveCountMax 3
-
-Host wolff-agent
-  HostName wolff-agent.cymric-stargazer.ts.net
-  User wolff
-  IdentityFile ~/.ssh/t3_remote
-  AddKeysToAgent yes
-  IgnoreUnknown UseKeychain
-  UseKeychain yes
-  ServerAliveInterval 30
-  ServerAliveCountMax 3
-
-Host wolff-spark
-  HostName wolff-spark-01.cymric-stargazer.ts.net
-  User wolff
-  IdentityFile ~/.ssh/t3_remote
-  AddKeysToAgent yes
-  IgnoreUnknown UseKeychain
-  UseKeychain yes
-  ServerAliveInterval 30
-  ServerAliveCountMax 3
+# Reset Host scope after each include so settings do not leak between hosts.
+Host *
+  Include ~/Developer/Fleet/ssh/config
 
 Host *
   SetEnv TERM=xterm-256color
