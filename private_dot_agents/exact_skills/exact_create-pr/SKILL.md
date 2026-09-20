@@ -26,3 +26,5 @@ GOOD
 > My "new worktree" default was ignored when starting new threads on existing worktrees. Super unintuitive. Now your preferences always apply.
 
 Open a real PR rather than a draft so CI/CD  runs. If the user also asked to babysit it, continue with the `babysit-pr` skill.
+
+You should never mention AI when creating a PR or that the PR was created by AI unless you're explicitly told by the user.
