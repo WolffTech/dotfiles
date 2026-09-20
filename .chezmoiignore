@@ -7,6 +7,10 @@
 .codex/skills/.system
 .codex/skills/.system/**
 
+# Claude manages its synced skills.
+.claude/skills/synced
+.claude/skills/synced/**
+
 # Karabiner maintains its own local configuration backups.
 .config/karabiner/automatic_backups
 .config/karabiner/automatic_backups/**
