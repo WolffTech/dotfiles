@@ -18,10 +18,11 @@ Create or propose a Conventional Commit message that accurately describes the in
 
 1. Review repository instructions and recent commit subjects for local conventions.
 2. Inspect the repository state with `git status`, `git diff`, and `git diff --cached`. Distinguish requested changes from unrelated staged, unstaged, and untracked work.
-3. Build a message from the actual diff and the user's intent. Describe the change rather than the implementation process.
-4. Validate the complete message against the format and guardrails below.
-5. If proposing a message, return it without changing repository state.
-6. If creating a commit, stage only the requested changes, verify the staged diff, and commit with the finalized message. Stop for user direction if unrelated changes are already staged.
+3. Split the requested work into separate commits when it contains logically distinct changes, especially after a long thread. Group changes by purpose, not by file or conversation boundaries. Keep each commit coherent, including the tests and documentation needed for that change, and avoid splitting tightly coupled changes just to make smaller commits.
+4. Build a message for each commit from its actual diff and the user's intent. Describe the change rather than the implementation process.
+5. Validate each complete message against the format and guardrails below.
+6. If proposing messages, return them without changing repository state.
+7. If creating commits, stage only the requested changes for one commit at a time, verify the staged diff, and commit with its finalized message. Stop for user direction if unrelated changes are already staged.
 
 ## Message Format
 
