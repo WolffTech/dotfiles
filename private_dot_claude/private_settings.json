@@ -1,13 +1,19 @@
 {
-  "model": "claude-fable-5[1m]",
+  "model": "claude-opus-5-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
   "effortLevel": "high",
+  "autoCompactEnabled": true,
+  "autoCompactWindow": 256000,
   "outputStyle": "Concise",
   "tui": "fullscreen",
   "theme": "auto",
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
 }
