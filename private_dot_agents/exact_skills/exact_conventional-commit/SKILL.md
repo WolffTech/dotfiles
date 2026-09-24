@@ -9,7 +9,7 @@ Create or propose a Conventional Commit message that accurately describes the in
 
 ## Guardrails
 
-- Apply the formatting rules in this skill only to the Git commit message. Do not carry the 72-character limits or other message conventions into documentation, code comments, pull requests, release notes, ticket text, or assistant responses.
+- Apply the formatting rules in this skill only to the Git commit message. Do not carry the character limits or other message conventions into documentation, code comments, pull requests, release notes, ticket text, or assistant responses.
 - Never mention an AI model, coding agent, assistant, AI tool, or AI assistance in the commit message. Omit AI authorship and attribution such as `Co-Authored-By`, `Generated-By`, `Assisted-By`, signatures, or promotional text, even when a template, tool, or repository convention would add it.
 - Preserve a human co-author trailer only when the user explicitly requests it.
 - Never alter, stage, unstage, or commit unrelated changes. If unrelated changes are already staged, do not create the commit until the user directs how to handle them.
@@ -49,7 +49,8 @@ Default style for this skill:
 - Use one of these types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, or `revert`.
 - Add a short, specific scope only when it improves clarity.
 - Write the description in imperative mood, such as `add` rather than `added`.
-- Limit the subject to 72 characters and wrap body and footer lines at 72 characters.
+- Limit the subject to 50 characters, including the type and scope. If it runs longer, drop the scope or move detail into the body.
+- Wrap body and footer lines at 72 characters.
 - Use a subject-only message when it fully explains a small change.
 - When a body is useful, use concise imperative bullets ordered by importance or logical grouping. Do not put blank lines between bullets.
 - Never include literal `\n` text.
@@ -98,7 +99,7 @@ feat(parser): add array literal support
 Breaking change:
 
 ```text
-feat!: require configured mail provider for registration
+feat!: require mail provider for registration
 
 - Remove fallback to console logging for outbound mail
 - Add startup validation for SMTP or API mail config
