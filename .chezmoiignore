@@ -15,6 +15,9 @@
 .config/karabiner/automatic_backups
 .config/karabiner/automatic_backups/**
 
+# Lazygit rewrites its runtime state locally.
+.config/lazygit/state.yml
+
 {{- if ne .chezmoi.os "darwin" }}
 Library/Sounds
 Library/Sounds/**
