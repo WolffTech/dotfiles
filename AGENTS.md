@@ -18,6 +18,16 @@ Repository-specific instructions override conflicting defaults in this file.
 - Write concise comments for intent, constraints, and non-obvious usage. Do not restate what the code already says.
 - Keep comments synchronized with the behavior they describe.
 
+## Commands for me to run
+
+- Run commands yourself when you can. Hand them to me only when you can't, such as when they need sudo, interactive login, a GUI, or access you don't have.
+- Write commands for the shell on the machine where they will run: usually zsh on macOS and Linux, bash on some Linux machines, and PowerShell on Windows. Check the environment rather than assuming. If the target machine isn't the one you're running on, say which machine and shell the commands are for.
+- Tag each code block with that shell (`zsh`, `bash`, or `powershell`).
+- Put each step in its own code block, in the order I should run them. Each block should be safe to run as-is with one click.
+- Include only commands in these blocks: no prompts like `$` or `PS>`, and no sample output. Show expected output in a separate `text` block.
+- Use absolute paths or start with a `cd` when the working directory matters.
+- If I need to fill in a value, say so before the block and name the placeholder clearly.
+
 ## Questions are read-only
 
 - Treat informational and feasibility questions as requests for answers only. This includes questions such as "How do I", "How hard would it be", "What are your thoughts", "Why does", "Should we", "Is it possible", and "Can we do".
