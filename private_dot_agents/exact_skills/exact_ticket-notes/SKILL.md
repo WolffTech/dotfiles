@@ -3,7 +3,7 @@ name: ticket-notes
 description: Use when the user asks to create ticket notes, work notes, investigation notes, or a ticket resolution note from the current conversation.
 ---
 
-# Ticket Notes
+# ticket-notes
 
 Create concise, paste-ready ticket notes from the work discussed in the current conversation.
 

@@ -3,7 +3,7 @@ name: babysit-pr
 description: Monitor a GitHub pull request through review and CI. Use when the user asks to monitor, watch, or babysit a PR.
 ---
 
-# Babysit a PR
+# babysit-pr
 
 Most of the repos we work in have various CI/CD or sometimes AI review bots. They're helpful even if they're not always right.
 

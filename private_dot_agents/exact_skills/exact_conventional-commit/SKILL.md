@@ -3,7 +3,7 @@ name: conventional-commit
 description: Use before running `git commit` or proposing a Git commit message, including commits made during a larger implementation workflow.
 ---
 
-# Conventional Commit
+# conventional-commit
 
 Create or propose a Conventional Commit message that accurately describes the intended changes.
 

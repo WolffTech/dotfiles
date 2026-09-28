@@ -3,7 +3,7 @@ name: create-pr
 description: Use when composing, previewing, or creating a GitHub pull request from the current branch.
 ---
 
-# Create PR
+# create-pr
 
 Before filing, check whether a PR for this branch already exists. Review the diff locally against the PR's target branch to make sure its contents match the goal.
 

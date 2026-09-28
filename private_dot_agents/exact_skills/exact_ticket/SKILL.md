@@ -1,9 +1,9 @@
 ---
-name: servicenow-ticket
+name: ticket
 description: Use when drafting or revising a ServiceNow change request, incident, or service request.
 ---
 
-# ServiceNow Ticket
+# ticket
 
 Draft tickets that are ready to copy and paste into ServiceNow fields.
 

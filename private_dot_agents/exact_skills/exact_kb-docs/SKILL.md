@@ -1,9 +1,9 @@
 ---
-name: knowledge-base-article
+name: kb-docs
 description: Use when creating or revising a support or operations knowledge base article.
 ---
 
-# Knowledge Base Article
+# kb-docs
 
 Write only knowledge base articles. Do not write runbooks, SOPs, pull requests, tickets, or general documentation unless the user explicitly changes the task.
 
