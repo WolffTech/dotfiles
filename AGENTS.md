@@ -35,6 +35,11 @@ Repository-specific instructions override conflicting defaults in this file.
 - A direct action request phrased as a question, such as "Can you update this file?", authorizes only the named change.
 - If a question reveals an obvious or trivial change, answer first and offer to make it.
 
+## Git branches
+
+- Do not rename, recreate, or switch the current branch unless I ask.
+- In T3 Code worktrees (`~/.t3/worktrees/`), T3 manages the branch name, and it may briefly be a placeholder like `t3code/<hex>`. Leave it as is.
+
 ## Safety and restrictions
 
 - Ask before destructive or externally visible actions that the user did not explicitly request.
