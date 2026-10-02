@@ -1,0 +1,5 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Shared keys come from the personal profile's settings; keys Claude adds here, such as enabledPlugins, stay local. */ -}}
+{{- $current := dict -}}
+{{- if .chezmoi.stdin }}{{ $current = fromJson .chezmoi.stdin }}{{ end -}}
+{{- mergeOverwrite $current (include "private_dot_claude/private_settings.json" | fromJson) | toPrettyJson }}

@@ -9,28 +9,47 @@ fi
 
 url="https://mcp.lucid.app/mcp"
 
-# Inspect only user scope, without connecting to the server or using project overrides.
-state=$(python3 - "$url" <<'PY'
+# Run a command against one Claude profile. An empty directory selects the default profile,
+# so a CLAUDE_CONFIG_DIR inherited from the calling shell cannot redirect it.
+in_profile() {
+  dir=$1
+  shift
+  if [ -n "$dir" ]; then
+    CLAUDE_CONFIG_DIR=$dir "$@"
+  else
+    env -u CLAUDE_CONFIG_DIR "$@"
+  fi
+}
+
+configure_profile() {
+  dir=$1
+
+  # Inspect only user scope, without connecting to the server or using project overrides.
+  state=$(python3 - "$dir" "$url" <<'PY'
 import json
-import os
 import sys
 from pathlib import Path
 
-config_path = Path(os.environ.get("CLAUDE_CONFIG_DIR") or Path.home()) / ".claude.json"
+profile_dir, url = sys.argv[1:]
+config_path = Path(profile_dir or Path.home()) / ".claude.json"
 config = json.loads(config_path.read_text()) if config_path.exists() else {}
 server = config.get("mcpServers", {}).get("lucid")
 if server is None:
     print("absent")
-elif server.get("type") == "http" and server.get("url") == sys.argv[1]:
+elif server.get("type") == "http" and server.get("url") == url:
     print("matches")
 else:
     print("different")
 PY
 )
 
-case "$state" in
-  matches) exit 0 ;;
-  different) claude mcp remove --scope user lucid ;;
-esac
+  case "$state" in
+    matches) return 0 ;;
+    different) in_profile "$dir" claude mcp remove --scope user lucid ;;
+  esac
 
-claude mcp add --scope user --transport http lucid "$url"
+  in_profile "$dir" claude mcp add --scope user --transport http lucid "$url"
+}
+
+configure_profile ""
+configure_profile "$HOME/.claude_work"

@@ -10,6 +10,10 @@ aiOwnedFiles:
     source: private_dot_claude/private_settings.json
   - target: .claude/statusline.sh
     source: private_dot_claude/executable_statusline.sh
+  - target: .claude_work/CLAUDE.md
+    source: private_dot_claude_work/symlink_CLAUDE.md
+  - target: .claude_work/skills
+    source: private_dot_claude_work/symlink_skills
   - target: .config/opencode/AGENTS.md
     source: dot_config/opencode/symlink_AGENTS.md
   - target: .config/opencode/opencode.json
