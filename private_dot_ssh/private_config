@@ -3,6 +3,9 @@ Include ~/.ssh/config.local
 
 # Reset Host scope after each include so settings do not leak between hosts.
 Host *
+  # Fleet uses the macOS-only UseKeychain; without this, other OpenSSH
+  # builds reject the whole config for hosts outside Fleet's Match block.
+  IgnoreUnknown UseKeychain
   Include ~/Developer/fleet/ssh/config
 
 Host *
