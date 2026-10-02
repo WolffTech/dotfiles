@@ -169,6 +169,7 @@ alias worklog='nvim ~/Documents/worklog.md'
 
 # Other aliases
 alias oc='opencode'
+alias claudework='CLAUDE_CONFIG_DIR="$HOME/.claude_work" claude'
 alias lg='lazygit'
 alias lazyd='lazydocker'
 if command -v eza >/dev/null 2>&1; then
