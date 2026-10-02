@@ -22,10 +22,30 @@ ensure_remote_mcp() {
     codex mcp remove "$name"
   fi
 
-  codex mcp add "$name" --url "$url"
+  # Write the entry directly because `codex mcp add` starts OAuth automatically.
+  python3 - "$name" "$url" <<'PY'
+import json
+import os
+import sys
+import tomllib
+from pathlib import Path
+
+name, url = sys.argv[1:]
+config_dir = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex")
+config_path = config_dir / "config.toml"
+current = config_path.read_text() if config_path.exists() else ""
+entry = f"\n\n[mcp_servers.{json.dumps(name)}]\nurl = {json.dumps(url)}\n"
+
+# Validate before appending, leaving existing content and permissions intact.
+tomllib.loads(current + entry)
+config_dir.mkdir(parents=True, exist_ok=True)
+fd = os.open(config_path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o600)
+with os.fdopen(fd, "w") as config_file:
+    config_file.write(entry)
+PY
 }
 
-# Keep Codex's MCP servers aligned with ~/.config/opencode/opencode.json.
-ensure_remote_mcp "context7" "https://mcp.context7.com/mcp"
+# Shared documentation servers are also configured in OpenCode.
 ensure_remote_mcp "gh_grep" "https://mcp.grep.app"
 ensure_remote_mcp "microsoft-learn" "https://learn.microsoft.com/api/mcp"
+ensure_remote_mcp "lucid" "https://mcp.lucid.app/mcp"
