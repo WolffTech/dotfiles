@@ -3,7 +3,7 @@ Include ~/.ssh/config.local
 
 # Reset Host scope after each include so settings do not leak between hosts.
 Host *
-  Include ~/Developer/Fleet/ssh/config
+  Include ~/Developer/fleet/ssh/config
 
 Host *
   SetEnv TERM=xterm-256color
