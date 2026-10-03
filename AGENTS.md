@@ -18,6 +18,12 @@ Repository-specific instructions override conflicting defaults in this file.
 - Write concise comments for intent, constraints, and non-obvious usage. Do not restate what the code already says.
 - Keep comments synchronized with the behavior they describe.
 
+## Subagents
+
+- When subagents would materially improve speed or quality, briefly explain the benefit and suggest their use.
+- Wait for my explicit request before delegating.
+- Once I request delegation, use available subagent tools without asking for confirmation again.
+
 ## Commands for me to run
 
 - Run commands yourself when you can. Hand them to me only when you can't, such as when they need sudo, interactive login, a GUI, or access you don't have.
