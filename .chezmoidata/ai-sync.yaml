@@ -18,7 +18,13 @@ aiOwnedFiles:
     source: dot_config/opencode/symlink_AGENTS.md
   - target: .config/opencode/opencode.json
     source: dot_config/opencode/opencode.json
+  - target: .config/opencode/cli.json
+    source: dot_config/opencode/private_cli.json
   - target: .config/opencode/tui.json
     source: dot_config/opencode/tui.json
+  - target: .config/opencode/agent/Analyze.md
+    source: dot_config/opencode/exact_agent/Analyze.md
+  - target: .config/opencode/command/tokenscope.md
+    source: dot_config/opencode/exact_command/tokenscope.md
   - target: .config/opencode/opencode-quota/quota-toast.json
     source: dot_config/opencode/opencode-quota/quota-toast.json

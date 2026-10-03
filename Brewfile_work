@@ -131,7 +131,7 @@ brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode", trusted: true
+brew "anomalyco/tap/opencode-v2", trusted: true
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Terraform

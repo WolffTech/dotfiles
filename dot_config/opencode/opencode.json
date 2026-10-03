@@ -1,11 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "plan",
-  "plugin": [
-    "@ramtinj95/opencode-tokenscope",
-    "@slkiser/opencode-quota"
+  "default_agent": "build",
+  "plugins": [
+    "@slkiser/opencode-quota@5.0.1"
   ],
-  "agent": {
+  "agents": {
     "general": {
       "model": "openai/gpt-5.6-terra"
     },
@@ -13,46 +12,17 @@
       "model": "openai/gpt-5.6-terra"
     },
     "plan": {
-      "color": "#df8e1d"
+      "disabled": true
     },
     "build": {
       "color": "#d20f39"
-    },
-    "Research": {
-      "description": "General Research Agent",
-      "mode": "primary",
-      "temperature": 0.1,
-      "prompt": "You are a research agent. Find current, source-backed answers. Be concise and cite sources.",
-      "color": "#1e66f5",
-      "tools": {
-        "*": false,
-        "websearch": true,
-        "webfetch": true,
-        "gh_grep_*": true,
-        "microsoft-learn_*": true,
-        "write": false,
-        "edit": false,
-        "bash": false,
-        "patch": false
-      },
-      "permission": {
-        "edit": "deny",
-        "bash": "deny",
-        "skill": "deny",
-        "task": "deny",
-        "todowrite": "deny",
-        "question": "deny"
-      }
-    },
-    "Analyze": {
-      "color": "#8839ef"
     }
   },
-  "provider": {
+  "providers": {
     "wolff-spark-01": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "name": "Wolff.Tech",
-      "options": {
+      "settings": {
         "baseURL": "https://wolff-spark-01.cymric-stargazer.ts.net:8443/v1"
       },
       "models": {
@@ -62,9 +32,9 @@
       }
     },
     "wolff-spark-01-qwen": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "name": "Wolff.Tech Qwen",
-      "options": {
+      "settings": {
         "baseURL": "https://wolff-spark-01.cymric-stargazer.ts.net:8444/v1"
       },
       "models": {
@@ -79,15 +49,17 @@
     }
   },
   "mcp": {
-    "gh_grep": {
-      "type": "remote",
-      "url": "https://mcp.grep.app",
-      "enabled": true
-    },
-    "microsoft-learn": {
-      "type": "remote",
-      "url": "https://learn.microsoft.com/api/mcp",
-      "enabled": true
+    "servers": {
+      "gh_grep": {
+        "type": "remote",
+        "url": "https://mcp.grep.app",
+        "disabled": false
+      },
+      "microsoft-learn": {
+        "type": "remote",
+        "url": "https://learn.microsoft.com/api/mcp",
+        "disabled": false
+      }
     }
   }
 }
