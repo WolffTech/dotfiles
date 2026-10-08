@@ -42,3 +42,8 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
+
+# Opted-in machines also route gh in noninteractive agent shells.
+if [[ -r "$HOME/.gitconfig.local" && -d "$HOME/.local/bin" ]]; then
+  path=("$HOME/.local/bin" "${(@)path:#$HOME/.local/bin}")
+fi

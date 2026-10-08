@@ -1,0 +1,69 @@
+#!/bin/sh
+# Select credentials per invocation so concurrent repositories do not switch accounts.
+set -eu
+
+real_gh=
+saved_ifs=$IFS
+IFS=:
+for directory in $PATH; do
+    candidate="${directory:-.}/gh"
+    if [ -x "$candidate" ] && [ ! "$candidate" -ef "$0" ]; then
+        real_gh=$candidate
+        break
+    fi
+done
+IFS=$saved_ifs
+if [ -z "$real_gh" ]; then
+    printf '%s\n' 'gh: cannot find the underlying GitHub CLI in PATH.' >&2
+    exit 127
+fi
+
+# Login and credential management must use the CLI's stored accounts directly.
+case "${1:-}" in
+    auth|completion|--help|-h|--version|version|'') exec "$real_gh" "$@" ;;
+esac
+
+# Preserve explicitly supplied credentials, including enterprise authentication.
+if [ -n "${GH_TOKEN:-}${GITHUB_TOKEN:-}${GH_ENTERPRISE_TOKEN:-}${GITHUB_ENTERPRISE_TOKEN:-}" ]; then
+    exec "$real_gh" "$@"
+fi
+
+account=${GITHUB_ACCOUNT_USER:-}
+if [ -z "$account" ]; then
+    # Before cloning or initializing, there is no Git directory to match includes.
+    if ! git rev-parse --git-dir >/dev/null 2>&1; then
+        current_directory=$(pwd -P)
+        directory_accounts=$(git config --global --includes --get-all github.directoryAccount 2>/dev/null || :)
+        saved_ifs=$IFS
+        IFS='
+'
+        for mapping in $directory_accounts; do
+            directory_account=${mapping%%:*}
+            account_directory=${mapping#*:}
+            [ "$mapping" != "$account_directory" ] || continue
+            case "$current_directory/" in
+                "${account_directory%/}/"*) account=$directory_account ;;
+            esac
+        done
+        IFS=$saved_ifs
+    fi
+    if [ -z "$account" ]; then
+        account=$(git config --get github.account 2>/dev/null || :)
+    fi
+fi
+if [ -z "$account" ]; then
+    exec "$real_gh" "$@"
+fi
+
+# Never fall back to another account when the requested credential is unavailable.
+if ! account_token=$("$real_gh" auth token --hostname github.com --user "$account"); then
+    printf 'gh: authenticate GitHub account "%s" with gh auth login first.\n' "$account" >&2
+    exit 1
+fi
+if [ -z "$account_token" ]; then
+    printf 'gh: no credential is available for GitHub account "%s".\n' "$account" >&2
+    exit 1
+fi
+export GH_TOKEN=$account_token
+unset account_token
+exec "$real_gh" "$@"

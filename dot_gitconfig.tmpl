@@ -15,3 +15,7 @@
 [core]
 	editor = nvim
 	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+
+# Machine-specific overrides are kept outside the shared dotfiles.
+[include]
+	path = ~/.gitconfig.local

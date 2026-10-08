@@ -24,3 +24,7 @@ Library/Sounds/**
 .config/karabiner
 .config/karabiner/**
 {{- end }}
+
+# Local Git accounts and credentials are not synchronized.
+.gitconfig.local
+.config/git/onmed.gitconfig
