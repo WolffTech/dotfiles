@@ -37,7 +37,7 @@ Read this reference only when the repository has no usable pull request template
 - Explain non-obvious decisions and meaningful tradeoffs.
 - Include links and issue-closing syntax only when verified.
 - Never mark a checkbox complete without evidence.
-- Say `Not run` and explain why when relevant tests were not executed.
+- In a testing section, list only testing that was actually done. Do not list skipped or unrun tests.
 - Omit empty sections, placeholders, and generic boilerplate.
 
 ## Review Readiness
