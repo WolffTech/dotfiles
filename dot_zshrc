@@ -220,11 +220,6 @@ if (( IS_MACOS )) && [[ -t 0 ]]; then
 	stty status undef
 fi
 
-# Switch Cat with Bat
-if command -v bat >/dev/null 2>&1; then
-	alias cat='bat --paging=never'
-fi
-
 # Restore cursor to blinking underline before each prompt. nvim emits a
 # hardcoded \E[2 q (steady block) on exit (neovim/neovim#4396) that bypasses
 # terminfo, so this is the only reliable place to undo it.
