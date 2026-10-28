@@ -1,5 +1,5 @@
 # Updates
-auto-update-channel = tip
+auto-update-channel = stable
 
 # Appearance
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte

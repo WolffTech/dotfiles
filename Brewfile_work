@@ -180,7 +180,7 @@ cask "docker-desktop"
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty@tip"
+cask "ghostty"
 # Free and open-source image editor
 cask "gimp"
 # Web browser
