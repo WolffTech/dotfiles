@@ -169,7 +169,12 @@ alias worklog='nvim ~/Documents/worklog.md'
 
 # Other aliases
 alias oc='opencode'
-alias claudework='CLAUDE_CONFIG_DIR="$HOME/.claude_work" claude'
+# Fleet's `claude` wrapper forces ~/.claude and the proxy, so use its work launcher when present.
+if command -v claude-work >/dev/null 2>&1; then
+	alias claudework='claude-work'
+else
+	alias claudework='CLAUDE_CONFIG_DIR="$HOME/.claude_work" claude'
+fi
 alias lg='lazygit'
 alias lazyd='lazydocker'
 if command -v eza >/dev/null 2>&1; then
