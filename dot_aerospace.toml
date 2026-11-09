@@ -60,6 +60,7 @@ alt-shift-f = 'fullscreen'
 alt-shift-t = 'layout floating tiling'
 alt-shift-r = 'flatten-workspace-tree'
 alt-w = 'close --quit-if-last-window'
+alt-shift-p = 'mode passthrough'
 
 # Scratchpad
 alt-ctrl-shift-backtick = 'workspace S'
@@ -126,6 +127,9 @@ alt-ctrl-l = 'join-with right'
 
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+[mode.passthrough.binding]
+alt-shift-p = 'mode main'
 
 # 1: Terminal
 # 2: IDE/Workspace
