@@ -22,6 +22,15 @@ if [[ "$OSTYPE" == linux* ]]; then
   }
 fi
 
+if [[ "$OSTYPE" == darwin* ]]; then
+  () {
+    local rex_bin="/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
+    if [[ -x "$rex_bin/rex" ]]; then
+      path=("${(@)path:#$rex_bin}" "$rex_bin")
+    fi
+  }
+fi
+
 # XDG
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
